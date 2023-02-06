@@ -24,7 +24,7 @@ $(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/comet/
 
 include device/google/zuma/device-shipping-common.mk
 include device/google/comet/audio/comet/audio-tables.mk
-include device/google/comet/vibrator/cs40l26/device-comet.mk
+include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/gti.mk
 
