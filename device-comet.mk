@@ -21,6 +21,7 @@ $(call inherit-product-if-exists, vendor/google_devices/comet/prebuilts/device-v
 $(call inherit-product-if-exists, vendor/google_devices/zuma/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zuma/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/comet/device-vendor-comet.mk)
+$(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
 
 include device/google/zuma/device-shipping-common.mk
 include device/google/comet/audio/comet/audio-tables.mk
