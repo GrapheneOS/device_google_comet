@@ -31,7 +31,7 @@ include device/google/gs-common/touch/gti/gti.mk
 include device/google/gs-common/display/dump_second_display.mk
 
 # go/lyric-soong-variables
-$(call soong_config_set,lyric,camera_hardware,shiba)
+$(call soong_config_set,lyric,camera_hardware,comet)
 $(call soong_config_set,lyric,tuning_product,ripcurrent)
 $(call soong_config_set,google3a_config,target_device,shiba)
 
