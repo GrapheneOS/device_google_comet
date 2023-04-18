@@ -16,6 +16,7 @@
 
 TARGET_KERNEL_DIR ?= device/google/comet-kernel
 TARGET_BOARD_KERNEL_HEADERS := device/google/comet-kernel/kernel-headers
+TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_RIGHT
 
 $(call inherit-product-if-exists, vendor/google_devices/comet/prebuilts/device-vendor-comet.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zuma/prebuilts/device-vendor.mk)
