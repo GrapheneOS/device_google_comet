@@ -18,7 +18,7 @@
 
 #include <dataproviders/DisplayStateResidencyDataProvider.h>
 #include <dataproviders/PowerStatsEnergyConsumer.h>
-#include <ZumaCommonDataProviders.h>
+#include <ZumaProCommonDataProviders.h>
 #include <PowerStatsAidl.h>
 
 #include <android-base/logging.h>
@@ -35,11 +35,11 @@ void addDisplay(std::shared_ptr<PowerStats> p) {
     // Add display residency stats
     std::vector<std::string> states = {
         "Off",
-        "LP: 1080x2340@30",
-        "On: 1080x2340@60",
-        "On: 1080x2340@90",
-        "HBM: 1080x2340@60",
-        "HBM: 1080x2340@90"};
+        "LP: 1440x3120@30",
+        "On: 1440x3120@60",
+        "On: 1440x3120@90",
+        "HBM: 1440x3120@60",
+        "HBM: 1440x3120@90"};
 
     p->addStateResidencyDataProvider(std::make_unique<DisplayStateResidencyDataProvider>(
             "Display",
@@ -47,13 +47,11 @@ void addDisplay(std::shared_ptr<PowerStats> p) {
             states));
 
     // Add display energy consumer
-    p->addEnergyConsumer(PowerStatsEnergyConsumer::createMeterAndEntityConsumer(
-            p, EnergyConsumerType::DISPLAY, "display", {"PPVAR_VSYS_PWR_DISP"}, "Display",
-            {{"LP: 1080x2340@30", 1},
-             {"On: 1080x2340@60", 2},
-             {"On: 1080x2340@90", 3},
-             {"HBM: 1080x2340@60", 4},
-             {"HBM: 1080x2340@90", 5}}));
+    p->addEnergyConsumer(PowerStatsEnergyConsumer::createMeterConsumer(
+            p,
+            EnergyConsumerType::DISPLAY,
+            "Display",
+            {"VSYS_PWR_DISPLAY"}));
 }
 
 int main() {
@@ -64,7 +62,7 @@ int main() {
 
     std::shared_ptr<PowerStats> p = ndk::SharedRefBase::make<PowerStats>();
 
-    addZumaCommonDataProviders(p);
+    addZumaProCommonDataProviders(p);
     addDisplay(p);
 
     const std::string instance = std::string() + PowerStats::descriptor + "/default";
