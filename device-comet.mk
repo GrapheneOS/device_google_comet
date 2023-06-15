@@ -19,12 +19,12 @@ TARGET_BOARD_KERNEL_HEADERS := device/google/comet-kernel/kernel-headers
 TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_RIGHT
 
 $(call inherit-product-if-exists, vendor/google_devices/comet/prebuilts/device-vendor-comet.mk)
-$(call inherit-product-if-exists, vendor/google_devices/zuma/prebuilts/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/zuma/proprietary/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/comet/device-vendor-comet.mk)
 $(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
 
-include device/google/zuma/device-shipping-common.mk
+include device/google/zumapro/device-shipping-common.mk
 include device/google/comet/audio/comet/audio-tables.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk

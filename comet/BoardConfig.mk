@@ -19,7 +19,7 @@ TARGET_SCREEN_DENSITY := 420
 BOARD_USES_GENERIC_AUDIO := true
 USES_DEVICE_GOOGLE_COMET := true
 
-include device/google/zuma/BoardConfig-common.mk
--include vendor/google_devices/zuma/prebuilts/BoardConfigVendor.mk
+include device/google/zumapro/BoardConfig-common.mk
+-include vendor/google_devices/zumapro/prebuilts/BoardConfigVendor.mk
 include device/google/comet-sepolicy/comet-sepolicy.mk
 include device/google/comet/wifi/BoardConfig-wifi.mk
