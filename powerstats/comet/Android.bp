@@ -15,7 +15,7 @@
 soong_namespace {
     imports: [
         "hardware/google/pixel",
-        "device/google/zuma/powerstats",
+        "device/google/zumapro/powerstats",
     ]
 }
 
@@ -37,6 +37,6 @@ cc_binary {
     ],
 
     shared_libs: [
-        "android.hardware.power.stats-impl.zuma",
+        "android.hardware.power.stats-impl.zumapro",
     ],
 }

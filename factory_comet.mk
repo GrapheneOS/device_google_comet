@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-TARGET_LINUX_KERNEL_VERSION := 5.15
+TARGET_LINUX_KERNEL_VERSION := 6.1
 
-$(call inherit-product, device/google/zuma/factory_common.mk)
+$(call inherit-product, device/google/zumapro/factory_common.mk)
 $(call inherit-product, device/google/comet/device-comet.mk)
 include device/google/comet/audio/comet/factory-audio-tables.mk
 
