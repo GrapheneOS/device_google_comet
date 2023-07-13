@@ -25,12 +25,6 @@
     <path name="mfg-playback">
     </path>
 
-    <path name="deep-buffer-playback speaker">
-        <ctl name="AoC Speaker Mixer ASP Mode" value="ASP_BYPASS" />
-        <ctl name="TDM_0_RX Mixer EP6" value="1" />
-        <path name="mfg-playback" />
-    </path>
-
     <path name="deep-buffer-playback headphones">
         <ctl name="I2S_0_RX Mixer EP6" value="1" />
         <path name="mfg-playback" />
@@ -175,7 +169,15 @@
         <ctl name="MIC Record Soft Gain (dB)" value="0" />
     </path>
 
-    <path name="cs35l41-us-config">
+    <path name="cs35l41-us-config-1">
+        <ctl name="ASPRX1 Slot Position" value="2"/>
+    </path>
+
+    <path name="cs35l41-us-config-2">
+        <ctl name="R ASPRX1 Slot Position" value="3"/>
+    </path>
+
+    <path name="cs35l41-us-config-all">
         <ctl name="ASPRX1 Slot Position" value="2"/>
         <ctl name="R ASPRX1 Slot Position" value="3"/>
     </path>
@@ -278,13 +280,42 @@
         <ctl name="Headset Playback Volume" />
     </path>
 
-    <path name="mfg-playback speaker">
+    <path name="mfg-playback speaker-1">
+        <ctl name="AoC Speaker Mixer ASP Mode" value="ASP_BYPASS" />
+        <ctl name="TDM_0_RX Mixer EP3" value="1" />
+        <ctl name="ASPRX1 Slot Position" value="0" />
+    </path>
+
+    <path name="mfg-playback speaker-2">
+        <ctl name="AoC Speaker Mixer ASP Mode" value="ASP_BYPASS" />
+        <ctl name="TDM_0_RX Mixer EP3" value="1" />
+        <ctl name="R ASPRX1 Slot Position" value="1" />
+    </path>
+
+    <path name="mfg-playback speaker-all">
         <ctl name="AoC Speaker Mixer ASP Mode" value="ASP_BYPASS" />
         <ctl name="TDM_0_RX Mixer EP3" value="1" />
         <ctl name="ASPRX1 Slot Position" value="0" />
         <ctl name="R ASPRX1 Slot Position" value="1" />
-        <ctl name="SINK_IDS" id="0" value="0" />
-        <ctl name="SINK_IDS" id="1" value="-1" />
+    </path>
+
+    <path name="deep-buffer-playback speaker-1">
+        <ctl name="AoC Speaker Mixer ASP Mode" value="ASP_BYPASS" />
+        <ctl name="TDM_0_RX Mixer EP6" value="1" />
+        <ctl name="ASPRX1 Slot Position" value="0" />
+    </path>
+
+    <path name="deep-buffer-playback speaker-2">
+        <ctl name="AoC Speaker Mixer ASP Mode" value="ASP_BYPASS" />
+        <ctl name="TDM_0_RX Mixer EP6" value="1" />
+        <ctl name="R ASPRX1 Slot Position" value="1" />
+    </path>
+
+    <path name="deep-buffer-playback speaker-all">
+        <ctl name="AoC Speaker Mixer ASP Mode" value="ASP_BYPASS" />
+        <ctl name="TDM_0_RX Mixer EP6" value="1" />
+        <ctl name="ASPRX1 Slot Position" value="0" />
+        <ctl name="R ASPRX1 Slot Position" value="1" />
     </path>
 
     <path name="mfg-playback headphones">
@@ -307,35 +338,45 @@
         <ctl name="USB_RX Mixer EP3" value="1" />
     </path>
 
-    <path name="us-mfg-playback speaker">
-        <path name="cs35l41-us-config" />
+    <path name="us-mfg-playback speaker-1">
+        <path name="cs35l41-us-config-1" />
+        <ctl name="TDM_0_RX Sample Rate" value="SR_96K" />
+        <ctl name="TDM_0_TX Sample Rate" value="SR_96K" />
+        <ctl name="TDM_0_RX Mixer US" value="1" />
+    </path>
+
+    <path name="us-mfg-playback speaker-2">
+        <path name="cs35l41-us-config-2" />
+        <ctl name="TDM_0_RX Sample Rate" value="SR_96K" />
+        <ctl name="TDM_0_TX Sample Rate" value="SR_96K" />
+        <ctl name="TDM_0_RX Mixer US" value="1" />
+    </path>
+
+    <path name="us-mfg-playback speaker-all">
+        <path name="cs35l41-us-config-all" />
         <ctl name="TDM_0_RX Sample Rate" value="SR_96K" />
         <ctl name="TDM_0_TX Sample Rate" value="SR_96K" />
         <ctl name="TDM_0_RX Mixer US" value="1" />
     </path>
 
     <path name="speaker1-only">
-        <ctl name="Main AMP Enable Switch" value="1" />
-        <path name="mfg-playback speaker" />
         <ctl name="AMP PCM Gain" value="17" />
         <ctl name="PCM Source" value="ASP" />
+        <ctl name="Main AMP Enable Switch" value="1" />
     </path>
 
     <path name="speaker2-only">
-        <ctl name="R Main AMP Enable Switch" value="1" />
-        <path name="mfg-playback speaker" />
         <ctl name="R AMP PCM Gain" value="17" />
         <ctl name="R PCM Source" value="ASP" />
+        <ctl name="R Main AMP Enable Switch" value="1" />
     </path>
 
     <path name="us-speaker1-only">
-        <path name="us-mfg-playback speaker" />
         <ctl name="PCM Source" value="ASP" />
         <ctl name="Main AMP Enable Switch" value="1" />
     </path>
 
     <path name="us-speaker2-only">
-        <path name="us-mfg-playback speaker" />
         <ctl name="R PCM Source" value="ASP" />
         <ctl name="R Main AMP Enable Switch" value="1" />
     </path>
@@ -357,11 +398,9 @@
         <ctl name="PCM Source" value="ASP" />
         <ctl name="R Main AMP Enable Switch" value="1" />
         <ctl name="R PCM Source" value="ASP" />
-        <path name="mfg-playback speaker" />
     </path>
 
     <path name="us-speaker-all">
-        <path name="us-mfg-playback speaker" />
         <ctl name="PCM Source" value="ASP" />
         <ctl name="Main AMP Enable Switch" value="1" />
         <ctl name="R PCM Source" value="ASP" />
