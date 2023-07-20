@@ -36,6 +36,8 @@
 
     <path name="mfg-record usb-headset-mic">
         <ctl name="Audio Capture Mic Source" value="USB_MIC"/>
+        <ctl name="USB Card" value="1"/>
+        <ctl name="USB Device" value="0"/>
         <ctl name="USB Playback EP ID v2" value="0" />
         <ctl name="USB Capture EP ID v2" value="1" />
         <ctl name="USB Capture FORMAT v2" value="1" />
@@ -328,6 +330,8 @@
 
     <path name="mfg-playback usb-headphones">
         <ctl name="USB Dev ID v2" value="2" />
+        <ctl name="USB Card" value="1"/>
+        <ctl name="USB Device" value="0"/>
         <ctl name="USB Playback EP ID v2" value="1" />
         <ctl name="USB Capture EP ID v2" value="0" />
         <ctl name="USB Playback FORMAT v2" value="6" />
@@ -431,12 +435,16 @@
 
     <path name="loopback-usb-mic-speaker">
         <ctl name="Audio Capture Mic Source" value="USB_MIC" />
+        <ctl name="USB Card" value="1"/>
+        <ctl name="USB Device" value="0"/>
         <ctl name="USB Capture FORMAT v2" value="1" />
         <ctl name="MIC Record Soft Gain (dB)" value="0" />
     </path>
 
     <path name="loopback-usb-mic-usb-headphone">
         <ctl name="Audio Capture Mic Source" value="USB_MIC" />
+        <ctl name="USB Card" value="1"/>
+        <ctl name="USB Device" value="0"/>
         <ctl name="USB Capture FORMAT v2" value="1" />
         <ctl name="MIC Record Soft Gain (dB)" value="0" />
     </path>
