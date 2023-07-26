@@ -36,6 +36,9 @@ $(call soong_config_set,lyric,camera_hardware,comet)
 $(call soong_config_set,lyric,tuning_product,comet)
 $(call soong_config_set,google3a_config,target_device,comet)
 
+# Disable modem until b/291009607 is fixed
+BOARD_WITHOUT_RADIO := true
+
 # Init files
 PRODUCT_COPY_FILES += \
 	device/google/comet/conf/init.comet.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.comet.rc
