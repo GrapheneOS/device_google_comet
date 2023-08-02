@@ -24,6 +24,10 @@ $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/devi
 $(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/comet/device-vendor-comet.mk)
 $(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
 
+# Disable modem until b/291009607 is fixed
+BOARD_WITHOUT_RADIO := true
+BOARD_WITH_GPS := true
+
 include device/google/zumapro/device-shipping-common.mk
 include device/google/comet/audio/comet/audio-tables.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
@@ -35,9 +39,6 @@ include device/google/gs-common/display/dump_second_display.mk
 $(call soong_config_set,lyric,camera_hardware,comet)
 $(call soong_config_set,lyric,tuning_product,comet)
 $(call soong_config_set,google3a_config,target_device,comet)
-
-# Disable modem until b/291009607 is fixed
-BOARD_WITHOUT_RADIO := true
 
 # Init files
 PRODUCT_COPY_FILES += \
