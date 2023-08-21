@@ -20,4 +20,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- The max vibration strength allowed in audio haptic channels. -->
     <item name="config_hapticChannelMaxVibrationAmplitude" format="float" type="dimen">0.335</item>
+
+    <dimen name="status_bar_height_default">52dp</dimen>
+    <dimen name="status_bar_height_portrait">52dp</dimen>
+    <dimen name="status_bar_height_landscape">52dp</dimen>
 </resources>
