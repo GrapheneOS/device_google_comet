@@ -36,10 +36,10 @@
     <!-- TDM 0 setting -->
     <ctl name="TDM_0_RX Chan" value="Four"/>
     <ctl name="TDM_0_RX Format" value="S32_LE"/>
-    <ctl name="TDM_0_RX Sample Rate" value="SR_48K" />
+    <ctl name="TDM_0_RX Sample Rate" value="SR_96K" />
     <ctl name="TDM_0_TX Chan" value="Four"/>
     <ctl name="TDM_0_TX Format" value="S32_LE"/>
-    <ctl name="TDM_0_TX Sample Rate" value="SR_48K" />
+    <ctl name="TDM_0_TX Sample Rate" value="SR_96K" />
 
     <!-- Haptic setting -->
     <ctl name="Haptics Source" value="PCM"/>
@@ -47,12 +47,12 @@
     <ctl name="HAPTIC_RX SlotFmt" value="S32_LE"/>
     <ctl name="HAPTIC_RX Chan" value="Four"/>
     <ctl name="HAPTIC_RX nSlot" value="Four"/>
-    <ctl name="RX Slots" id="0" value="2"/>
+    <ctl name="RX Slots" id="0" value="3"/>
     <ctl name="RX Slots" id="1" value="3"/>
 
     <!-- Cirrus default 96K -->
-    <ctl name="Default 96K" value="0"/>
-    <ctl name="R Default 96K" value="0"/>
+    <ctl name="Default 96K" value="1"/>
+    <ctl name="R Default 96K" value="1"/>
 
     <!-- Cirrus Booster Amp TDM slot assignment-->
     <!-- RX slot -->
