@@ -176,12 +176,12 @@
     </path>
 
     <path name="cs35l41-us-config-2">
-        <ctl name="R ASPRX1 Slot Position" value="3"/>
+        <ctl name="R ASPRX1 Slot Position" value="2"/>
     </path>
 
     <path name="cs35l41-us-config-all">
         <ctl name="ASPRX1 Slot Position" value="2"/>
-        <ctl name="R ASPRX1 Slot Position" value="3"/>
+        <ctl name="R ASPRX1 Slot Position" value="2"/>
     </path>
 
     <path name="amp_iv-only">
