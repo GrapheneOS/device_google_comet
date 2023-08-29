@@ -17,4 +17,12 @@
        </interface>
        <fqname>IGnss/default</fqname>
    </hal>
+    <hal format="aidl" optional="true">
+      <name>com.google.hardware.pixel.display</name>
+        <version>9</version>
+        <interface>
+            <name>IDisplay</name>
+            <instance>secondary</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
