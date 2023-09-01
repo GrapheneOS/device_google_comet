@@ -24,6 +24,8 @@ $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/devi
 $(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/comet/device-vendor-comet.mk)
 $(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
 
+DEVICE_PACKAGE_OVERLAYS += device/google/comet/comet/overlay
+
 # Disable modem until b/291009607 is fixed
 BOARD_WITHOUT_RADIO := true
 
