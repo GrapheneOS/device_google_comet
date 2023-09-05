@@ -230,4 +230,76 @@
     <!-- Boolean indicating whether allow sending null to modem to clear the previous initial attach
          data profile -->
     <bool name="allow_clear_initial_attach_data_profile">true</bool>
+
+    <!-- Whether the display cutout region of the main built-in display should be forced to
+        black in software (to avoid aliasing or emulate a cutout that is not physically existent).
+    -->
+    <bool name="config_fillMainBuiltInDisplayCutout">true</bool>
+    <!-- Whether the display cutout region of the secondary built-in display should be forced to
+        black in software (to avoid aliasing or emulate a cutout that is not physically existent).
+    -->
+    <bool name="config_fillSecondaryBuiltInDisplayCutout">true</bool>
+    <!-- Display cutout configuration -->
+    <string translatable="false" name="config_mainBuiltInDisplayCutout">
+	m 2025.1112,78.5 a 36.4343,36.431883 0 0 0 -72.8686,0 36.4343,36.431883 0 0 0 72.8686,0 z
+        @left
+    </string>
+
+    <string translatable="false" name="config_mainBuiltInDisplayCutoutRectApproximation">
+        m 1952,20 h 83 v 115 h -83 z
+        @left
+    </string>
+    <string translatable="false" name="config_secondaryBuiltInDisplayCutout">
+      m 660.77971,189.33189 a 39.744605,39.965524 0 0 0 -79.48921,0 39.744605,39.965524 0 0 0 79.48921,0 z
+      @left
+    </string>
+
+    <string translatable="false" name="config_secondaryBuiltInDisplayCutoutRectApproximation">
+        m 579.5351,147.83189 h 83 v 83 h -83 z
+        @left
+    </string>
+
+    <!-- Radius of the software rounded corners. -->
+    <dimen name="rounded_corner_radius">25px</dimen>
+
+    <!-- Adjustment for software rounded corners since corners aren't perfectly round. -->
+    <dimen name="rounded_corner_radius_adjustment">5px</dimen>
+
+    <!-- Radius of the software rounded corners at the top of primary display in its natural
+        orientation. If zero, the value of rounded_corner_radius is used. -->
+    <dimen name="rounded_corner_radius_top">52px</dimen>
+    <!-- For secondary display -->
+    <dimen name="secondary_rounded_corner_radius_top">91px</dimen>
+
+    <!-- Radius of the software rounded corners at the bottom of primary display in its natural
+        orientation. If zero, the value of rounded_corner_radius is used. -->
+    <dimen name="rounded_corner_radius_bottom">48px</dimen>
+    <!-- For secondary display -->
+    <dimen name="secondary_rounded_corner_radius_bottom">91px</dimen>
+
+    <!-- A string config in svg path format for the main display shape.
+         (@see https://www.w3.org/TR/SVG/paths.html#PathData).
+
+         This config must be set unless:
+         1. {@link Configuration#isScreenRound} is true which means the display shape is circular
+            and the system will auto-generate a circular shape.
+         2. The display has no rounded corner and the system will auto-generate a rectangular shape.
+         (@see DisplayShape#createDefaultDisplayShape)
+
+         Note: If the display supports multiple resolutions, please define the path config based on
+         the highest resolution so that it can be scaled correctly in each resolution. -->
+    <string name="config_secondaryDisplayShape">m 1079.5841,2228.3564 -0.1246,32.4289 -1.5262,29.5631 -5.2262,28.9368 -10.8184,28.1101 -17.0908,25.6679 -22.6755,21.2294 -24.9734,14.6141 -26.74845,9.0516 -27.32405,4.2923 -27.96102,1.2343 -30.67581,0.1 M 0.41700514,195.64292 0.54157654,163.21407 2.0678255,133.65079 7.2939781,104.71395 18.112341,76.603825 35.203139,50.936003 57.878707,29.706783 82.852085,15.092599 109.60055,6.040851 136.92456,1.7486483 164.88562,0.51443083 195.56143,0.41555729 m 688.87872,-2.2971e-4 32.41493,0.12395786 29.55063,1.52698566 28.92444,5.2283442 28.09805,10.8230047 25.6569,17.098154 21.22,22.685256 14.6081,24.984081 9.0478,26.759919 4.2904,27.33577 1.2336,27.97298 0.1,30.68899 M 195.56094,2423.584 l -32.41494,-0.1164 -29.55061,-1.527 -28.92444,-5.2283 -28.098077,-10.8231 -25.656844,-17.0981 -21.220125,-22.6853 -14.607925,-24.984 -9.0478703,-26.7598 -4.2903556,-27.3359 -1.23375522,-27.9729 -0.0996571,-30.689 m -0.001013,-0.01 V 195.6426 m 1079.16927242,0 V 2228.3577 M 884.44235,2423.5838 H 195.56204 m 0,-2423.16715466 h 688.88031 z</string>
+
+    <!-- A string config in svg path format for the secondary display shape.
+         (@see https://www.w3.org/TR/SVG/paths.html#PathData).
+
+         This config must be set unless:
+         1. {@link Configuration#isScreenRound} is true which means the display shape is circular
+            and the system will auto-generate a circular shape.
+         2. The display has no rounded corner and the system will auto-generate a rectangular shape.
+         (@see DisplayShape#createDefaultDisplayShape)
+
+         Note: If the display supports multiple resolutions, please define the path config based on
+         the highest resolution so that it can be scaled correctly in each resolution. -->
+    <string name="config_mainDisplayShape">m 141.72773,2075.6318 -21.50891,-0.2057 -24.262943,-2.3989 -25.997361,-7.6964 -25.027568,-14.7348 -20.81517,-21.2126 -14.032964,-24.7396 -7.2719262,-25.5084 -2.25203544,-23.7624 -0.19187278,-21.1004 m 2151.26552042,5e-4 -0.2056,21.5087 -2.3989,24.2627 -7.6964,25.997 -14.7351,25.0272 -21.2129,20.8149 -24.7398,14.0327 -25.5088,7.272 -23.7627,2.2519 -21.1008,0.1925 M 0.36718215,141.72593 0.5722516,120.21728 2.9710973,95.954655 10.667571,69.95761 25.402706,44.930369 46.615548,24.115468 71.355396,10.082677 96.864172,2.810842 120.62678,0.55883527 141.72762,0.36697958 m 1868.54408,1.8926e-4 21.509,0.20506687 24.263,2.39881539 25.9974,7.6963759 25.0275,14.734941 20.8152,21.212573 14.033,24.739531 7.2718,25.508452 2.2521,23.762356 0.1924,21.10053 M 141.72602,0.36821695 H 2010.27 m 0,2075.26478305 H 141.72602 M 2151.632,141.72452 V 1934.2729 m -2151.26408094,0 V 141.72452 z</string>
 </resources>
