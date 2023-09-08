@@ -168,7 +168,7 @@ PRODUCT_SOONG_NAMESPACES += \
 # WiFi Overlay
 PRODUCT_PACKAGES += \
 	WifiOverlay2024Mid_CT3 \
-	PixelWifiOverlay2023
+	PixelWifiOverlay2024
 
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/comet/prebuilts
