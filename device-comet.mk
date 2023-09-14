@@ -213,3 +213,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Disable camera DPM
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.debug.force_dpm_on=0
+
+# Hinge angle sensor
+PRODUCT_COPY_FILES += \
+	frameworks/native/data/etc/android.hardware.sensor.hinge_angle.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.hinge_angle.xml
