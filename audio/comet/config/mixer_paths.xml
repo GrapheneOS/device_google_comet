@@ -71,8 +71,6 @@
     <ctl name="R ASPTX4 Slot Position" value="7"/>
 
     <!-- Cirrus Booster Amp DRE and VBST config-->
-    <ctl name="VBSTMON Output Switch" value="1"/>
-    <ctl name="R VBSTMON Output Switch" value="1"/>
     <ctl name="DRE DRE Switch" value="1"/>
     <ctl name="R DRE DRE Switch" value="1"/>
 
@@ -109,10 +107,10 @@
     <ctl name="R ASP TX4 Source" value="Zero" />
 
     <!-- Cirrus fast switch init -->
-    <!--ctl name="Fast Use Case Switch Enable" value="0" />
-    <ctl name="Fast Use Case Delta File" value="fast_switch5.txt" />
+    <ctl name="Fast Use Case Switch Enable" value="0" />
+    <ctl name="Fast Use Case Delta File" value="fast_switch2.txt" />
     <ctl name="R Fast Use Case Switch Enable" value="0" />
-    <ctl name="R Fast Use Case Delta File" value="fast_switch5.txt" /-->
+    <ctl name="R Fast Use Case Delta File" value="fast_switch3.txt" />
 
     <!-- default EP volume -->
     <ctl name="PCM Playback Switch" value="1"/>
@@ -677,10 +675,10 @@
 
     <path name="speaker-post">
         <!-- load Bypass FIR -->
-        <!--ctl name="Fast Use Case Delta File" value="fast_switch3.txt" />
+        <ctl name="Fast Use Case Delta File" value="fast_switch3.txt" />
         <ctl name="Fast Use Case Switch Enable" value="1" />
         <ctl name="R Fast Use Case Delta File" value="fast_switch4.txt" />
-        <ctl name="R Fast Use Case Switch Enable" value="1" /-->
+        <ctl name="R Fast Use Case Switch Enable" value="1" />
     </path>
 
     <path name="voice-speaker">
@@ -694,12 +692,6 @@
     </path>
 
     <path name="voice-speaker-post">
-        <!-- load Enable FIR -->
-        <!--ctl name="Fast Use Case Delta File" value="fast_switch1.txt" />
-        <ctl name="Fast Use Case Switch Enable" value="1" />
-        <ctl name="R Fast Use Case Delta File" value="fast_switch2.txt" />
-        <ctl name="R Fast Use Case Switch Enable" value="1" />
-        <ctl name="Digital PCM Volume" value="800"/-->
     </path>
 
     <path name="voice-dual-speaker">
