@@ -26,6 +26,21 @@
             "PassiveDelay":7000
         },
         {
+            "Name":"usb_conn_therm",
+            "Type":"UNKNOWN",
+            "HotThreshold":["NAN", 46.0, "NAN", "NAN", "NAN", "NAN", "NAN"],
+            "TempPath":"/dev/thermal/tz-by-name/usb_conn_therm/tz_temp",
+            "Multiplier":0.001,
+            "PollingDelay":300000,
+            "PassiveDelay":7000
+        },
+        {
+            "Name":"charger_therm",
+            "Type":"UNKNOWN",
+            "TempPath":"/dev/thermal/tz-by-name/charger_therm/tz_temp",
+            "Multiplier":0.001
+        },
+        {
             "Name":"LITTLE",
             "Type":"CPU",
             "HotThreshold":[
@@ -69,6 +84,51 @@
             ],
             "VrThreshold":"NAN",
             "Multiplier":0.001
+        },
+        {
+            "Name":"USB-MINUS-CHARGER",
+            "Type":"UNKNOWN",
+            "VirtualSensor":true,
+            "TriggerSensor": "usb_conn_therm",
+            "Formula":"WEIGHTED_AVG",
+            "Combination":["usb_conn_therm", "charger_therm"],
+            "Coefficient":[1.0, -1.0],
+            "Multiplier":0.001
+        },
+        {
+            "Name":"VIRTUAL-USB-THROTTLING",
+            "Type":"USB_PORT",
+            "Version":"0.1",
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "TriggerSensor": "usb_conn_therm",
+            "Combination":["usb_conn_therm", "USB-MINUS-CHARGER"],
+            "Coefficient":[46000, 7000],
+            "HotThreshold":["NAN", "NAN", "NAN", "NAN", "2.0", "NAN", "NAN"],
+            "BindedCdevInfo": [
+                {
+                    "CdevRequest": "usbc-port",
+                    "LimitInfo": [0, 0, 0, 0, 1, 1, 1]
+                }
+            ],
+            "Multiplier":1,
+            "PollingDelay":300000,
+            "PassiveDelay":7000
+        },
+        {
+            "Name":"VIRTUAL-USB-UI",
+            "Type":"USB_PORT",
+            "Version":"0.1",
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "TriggerSensor": "usb_conn_therm",
+            "Combination":["usb_conn_therm", "USB-MINUS-CHARGER"],
+            "Coefficient":[46000, 10000],
+            "HotThreshold":["NAN", "NAN", "NAN", "NAN", "NAN", "2.0", "NAN"],
+            "Multiplier":1,
+            "SendCallback":true,
+            "PollingDelay":300000,
+            "PassiveDelay":7000
         }
     ],
     "CoolingDevices":[
