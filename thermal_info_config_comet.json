@@ -16,6 +16,16 @@
             "Multiplier":0.001
         },
         {
+            "Name":"soc_therm",
+            "Type":"SKIN",
+            "HotThreshold":["NAN", 139.0, 143.0, 145.0, 146.5, 152.0, 155.0],
+            "HotHysteresis":[0.0, 1.9, 1.9, 1.9, 1.4, 1.9, 1.9],
+            "Multiplier":0.001,
+            "SendCallback":true,
+            "PollingDelay":300000,
+            "PassiveDelay":7000
+        },
+        {
             "Name":"LITTLE",
             "Type":"CPU",
             "HotThreshold":[
@@ -59,6 +69,41 @@
             ],
             "VrThreshold":"NAN",
             "Multiplier":0.001
+        }
+    ],
+    "CoolingDevices":[
+        {
+            "Name":"thermal-cpufreq-0",
+            "Type":"CPU",
+            "WritePath":"/dev/thermal/cdev-by-name/thermal-cpufreq-0/user_vote"
+        },
+        {
+            "Name":"thermal-cpufreq-1",
+            "Type":"CPU",
+            "WritePath":"/dev/thermal/cdev-by-name/thermal-cpufreq-1/user_vote"
+        },
+        {
+            "Name":"thermal-cpufreq-2",
+            "Type":"CPU",
+            "WritePath":"/dev/thermal/cdev-by-name/thermal-cpufreq-2/user_vote"
+        },
+        {
+            "Name":"chg_mdis",
+            "Type":"BATTERY"
+        },
+        {
+            "Name":"usbc-port",
+            "Type":"BATTERY"
+        },
+        {
+            "Name":"tpu_cooling",
+            "Type":"NPU",
+            "WritePath":"/dev/thermal/cdev-by-name/tpu_cooling/user_vote"
+        },
+        {
+            "Name":"gxp-cooling",
+            "Type":"NPU",
+            "WritePath":"/dev/thermal/cdev-by-name/gxp-cooling/user_vote"
         }
     ]
 }
