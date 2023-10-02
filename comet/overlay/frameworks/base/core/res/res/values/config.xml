@@ -130,6 +130,9 @@
     <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
     <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
 
+    <!-- Whether to show Fold lock behavior setting feature in Settings App -->
+    <bool name="config_fold_lock_behavior">true</bool>
+
     <!-- The device states (supplied by DeviceStateManager) that should be treated as folded by the
          display fold controller. -->
     <integer-array name="config_foldedDeviceStates" translatable="false">
