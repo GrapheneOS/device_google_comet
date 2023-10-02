@@ -130,6 +130,25 @@
     <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
     <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
 
+    <!-- The device states (supplied by DeviceStateManager) that should be treated as folded by the
+         display fold controller. -->
+    <integer-array name="config_foldedDeviceStates" translatable="false">
+      <item>0</item> <!-- CLOSED -->
+    </integer-array>
+
+    <!-- Indicates whether to enable an animation when unfolding a device or not -->
+    <bool name="config_unfoldTransitionEnabled">true</bool>
+
+    <!-- Indicates whether to enable hinge angle sensor when using unfold animation -->
+    <bool name="config_unfoldTransitionHingeAngle">true</bool>
+
+    <bool name="config_supportsConcurrentInternalDisplays">false</bool>
+
+    <string-array name="config_displayUniqueIdArray" translatable="false">
+        <item>"local:4619827677550801152"</item>
+        <item>"local:4619827677550801153"</item>
+    </string-array>
+
     <integer-array name="config_ambientThresholdLevels">
         <item>2</item>
         <item>3</item>
