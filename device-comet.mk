@@ -194,9 +194,6 @@ else
 		device/google/comet/location/gps_user.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
 endif
 
-# include GNSSD
-include device/google/comet/location/gnssd/device-gnss.mk
-
 # Install product specific framework compatibility matrix
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/comet/device_framework_matrix_product.xml
 
