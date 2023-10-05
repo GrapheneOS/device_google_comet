@@ -37,6 +37,7 @@ include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/gti.mk
 include device/google/gs-common/display/dump_second_display.mk
+-include vendor/samsung_slsi/gps/s5400/location/gnssd/device-gnss.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,comet)
@@ -192,9 +193,6 @@ else
 		device/google/comet/location/scd_user.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/scd.conf \
 		device/google/comet/location/gps_user.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
 endif
-
-# include GNSSD
-include device/google/comet/location/gnssd/device-gnss.mk
 
 # Install product specific framework compatibility matrix
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/comet/device_framework_matrix_product.xml
