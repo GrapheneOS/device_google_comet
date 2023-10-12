@@ -264,12 +264,12 @@
     <!-- Display cutout configuration -->
     <string translatable="false" name="config_mainBuiltInDisplayCutout">
 	m 2025.1112,78.5 a 36.4343,36.431883 0 0 0 -72.8686,0 36.4343,36.431883 0 0 0 72.8686,0 z
-        @left
+        @right
     </string>
 
     <string translatable="false" name="config_mainBuiltInDisplayCutoutRectApproximation">
-        m 1952,20 h 83 v 115 h -83 z
-        @left
+        m 1932,21 h 113 V 136 h -113 z
+        @right
     </string>
     <string translatable="false" name="config_secondaryBuiltInDisplayCutout">
       m 660.77971,189.33189 a 39.744605,39.965524 0 0 0 -79.48921,0 39.744605,39.965524 0 0 0 79.48921,0 z
