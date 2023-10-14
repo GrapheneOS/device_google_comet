@@ -72,7 +72,7 @@ PRODUCT_COPY_FILES += \
 	device/google/comet/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
 
 PRODUCT_PACKAGES += \
-	NfcNci \
+	com.android.nfcservices \
 	Tag \
 	android.hardware.nfc-service.st
 
@@ -116,12 +116,6 @@ PRODUCT_PACKAGES_DEBUG += \
 # Bluetooth AAC VBR
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.a2dp_aac.vbr_supported=true
-
-# TODO b/261526478 remove after BT/WiFi codex device exists
-# Bluetooth does not open BT/WiFi codex device before WiFi bringup
-BLUETOOTH_SKIP_COEX_DEVICE := true
-# Inject soong bluetooth configurations
-$(call soong_config_set,bluetooth,bluetooth_skip_coex_device,$(BLUETOOTH_SKIP_COEX_DEVICE))
 
 # Spatial Audio
 PRODUCT_PACKAGES += \
