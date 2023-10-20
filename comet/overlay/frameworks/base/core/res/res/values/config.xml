@@ -263,8 +263,8 @@
     <bool name="config_fillSecondaryBuiltInDisplayCutout">true</bool>
     <!-- Display cutout configuration -->
     <string translatable="false" name="config_mainBuiltInDisplayCutout">
-	m 2025.1112,78.5 a 36.4343,36.431883 0 0 0 -72.8686,0 36.4343,36.431883 0 0 0 72.8686,0 z
-        @right
+	m 2027,80 a 39.5,39.5 0 0 0 -79,0 39.5,39.5 0 0 0 79,0 z
+        @left
     </string>
 
     <string translatable="false" name="config_mainBuiltInDisplayCutoutRectApproximation">
@@ -272,12 +272,12 @@
         @right
     </string>
     <string translatable="false" name="config_secondaryBuiltInDisplayCutout">
-      m 660.77971,189.33189 a 39.744605,39.965524 0 0 0 -79.48921,0 39.744605,39.965524 0 0 0 79.48921,0 z
+      m 581.5,86 a 41.5,41.5 0 0 0 -83,0 41.5,41.5 0 0 0 83,0 z
       @left
     </string>
 
     <string translatable="false" name="config_secondaryBuiltInDisplayCutoutRectApproximation">
-        m 579.5351,147.83189 h 83 v 83 h -83 z
+        m 484,20 h 112 v 132 h -112 z
         @left
     </string>
 
