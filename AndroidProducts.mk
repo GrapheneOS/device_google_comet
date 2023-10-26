@@ -19,4 +19,4 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/factory_comet.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_comet-userdebug
+    aosp_comet-trunk_staging-userdebug
