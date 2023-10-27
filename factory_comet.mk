@@ -33,10 +33,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Override to factory SDK
 SOONG_CONFIG_NAMESPACES += gpssdk
 SOONG_CONFIG_gpssdk += sdkv1
-override SOONG_CONFIG_gpssdk_sdkv1 := true
+SOONG_CONFIG_gpssdk_sdkv1 := true
+
 SOONG_CONFIG_NAMESPACES += gpssdk
 SOONG_CONFIG_gpssdk += gpsmcuversion
-override SOONG_CONFIG_gpssdk_gpsmcuversion := gpsv1_$(TARGET_BUILD_VARIANT)
+SOONG_CONFIG_gpssdk_gpsmcuversion := gpsv1_$(TARGET_BUILD_VARIANT)
+
+SOONG_CONFIG_NAMESPACES += gpssdk
+SOONG_CONFIG_gpssdk += gpsconf
+SOONG_CONFIG_gpssdk_gpsconf := factory
 
 # Factory binary of camera
 PRODUCT_PACKAGES += fatp_ct3_wide_hat_tool fatp_ct3_tele_hat_tool fatp_ct3_ultrawide_hat_tool
