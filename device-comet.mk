@@ -52,10 +52,6 @@ PRODUCT_COPY_FILES += \
 	device/google/comet/comet/panel_config_google-ct3a_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ct3a_cal0.pb \
 	device/google/comet/comet/panel_config_google-ct3c_cal1.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ct3c_cal1.pb
 
-# Camera
-PRODUCT_COPY_FILES += \
-	device/google/comet/media_profiles_comet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
-
 PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.camera.debug.enable_software_post_sharpen_node=false
 
