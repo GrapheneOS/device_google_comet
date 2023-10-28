@@ -18,6 +18,13 @@ TARGET_KERNEL_DIR ?= device/google/comet-kernel
 TARGET_BOARD_KERNEL_HEADERS := device/google/comet-kernel/kernel-headers
 TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_RIGHT
 
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+    USE_UWBFIELDTESTQM := true
+endif
+ifeq ($(filter factory_comet, $(TARGET_PRODUCT)),)
+    include device/google/comet/uwb/uwb_calibration.mk
+endif
+
 $(call inherit-product-if-exists, vendor/google_devices/comet/prebuilts/device-vendor-comet.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/device-vendor.mk)
@@ -77,7 +84,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	com.android.nfcservices \
 	Tag \
-	android.hardware.nfc-service.st
+	android.hardware.nfc-service.st \
+	NfcOverlayComet
 
 # SecureElement
 PRODUCT_PACKAGES += \
@@ -176,6 +184,10 @@ PRODUCT_PACKAGES += \
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/comet/prebuilts
 
+# UWB
+PRODUCT_SOONG_NAMESPACES += \
+    device/google/comet/uwb
+
 # Location
 # SDK build system
 $(call soong_config_set, include_libsitril-gps-wifi, board_without_radio, $(BOARD_WITHOUT_RADIO))
@@ -195,6 +207,9 @@ else
 		device/google/comet/location/scd_user.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/scd.conf \
 		device/google/comet/location/gps_user.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
 endif
+
+# Display LBE
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
 
 # Install product specific framework compatibility matrix
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/comet/device_framework_matrix_product.xml
