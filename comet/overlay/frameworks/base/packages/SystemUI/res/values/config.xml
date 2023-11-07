@@ -47,6 +47,63 @@
         <item>0</item> <!-- 4: SUN -->
     </integer-array>
 
+    <!-- Doze: Name of a sensor per posture state that provides a low-power estimate of the desired
+               display brightness, suitable to listen to while the device is asleep (e.g. during
+               always-on display) -->
+    <string-array name="doze_brightness_sensor_name_posture_mapping" translatable="false">
+        <item></item> <!-- UNKNOWN -->
+        <item>Binned Brightness 1 (wake-up)</item> <!-- CLOSED -->
+        <item>Binned Brightness 0 (wake-up)</item> <!-- HALF_OPENED -->
+        <item>Binned Brightness 0 (wake-up)</item> <!-- OPENED -->
+    </string-array>
+
+    <!-- Override value to use for proximity sensor. By default, don't register for prox if nothing
+         is specified in the prox_sensor_posture_mapping. -->
+    <string name="proximity_sensor_type" translatable="false"></string>
+
+    <!-- Sensor type per posture state to use for proximity sensor -->
+    <string-array name="proximity_sensor_posture_mapping" translatable="false">
+        <item></item> <!-- UNKNOWN, don't register for prox -->
+        <item>android.sensor.light</item> <!-- CLOSED, register for ALS before checking prox -->
+        <item></item> <!-- HALF_OPENED, don't register for prox -->
+        <item></item> <!-- OPENED, don't register for prox -->
+      </string-array>
+
+    <!-- If using proximity_sensor_type, specifies a threshold value to distinguish near and
+         far break points. A sensor value less than this is considered "near". -->
+    <item name="proximity_sensor_threshold" translatable="false" format="float" type="dimen">12</item>
+
+    <!-- If using proximity_sensor_type, specifies a threshold value to distinguish near and
+         far break points. A sensor value more than this is considered "far". If not set,
+         proximity_sensor_threshold is used. This allows one to implement a latching mechanism for
+         noisy sensors. -->
+    <item name="proximity_sensor_threshold_latch" translatable="false" format="float" type="dimen">24</item>
+
+    <!-- By default, don't register for a secondary prox sensor if nothing is specified in the
+         proximity_sensor_secondary_threshold-->
+    <string name="proximity_sensor_secondary_type" translatable="false"></string>
+
+    <item name="proximity_sensor_secondary_threshold" translatable="false" format="float"
+      type="dimen">5</item>
+
+    <!-- Sensor type per posture state to use for proximity sensor as a confirmation for
+    proximity_sensor_type. -->
+    <string-array name="proximity_sensor_secondary_posture_mapping" translatable="false">
+        <item></item> <!-- UNKNOWN, don't register for prox-->
+        <item>android.sensor.proximity</item> <!-- CLOSED, register for prox -->
+        <item></item> <!-- HALF_OPENED, don't register for prox -->
+        <item></item> <!-- OPENED, don't register for prox -->
+    </string-array>
+
+    <!-- Doze: whether the single tap sensor uses the proximity sensor in the given posture.
+               See doze_single_tap_uses_prox for usage. -->
+    <integer-array name="doze_single_tap_uses_prox_posture_mapping">
+        <item>1</item> <!-- UNKNOWN -->
+        <item>1</item> <!-- CLOSED -->
+        <item>0</item> <!-- HALF_OPENED -->
+        <item>0</item> <!-- OPENED -->
+      </integer-array>
+
     <!-- Configure 13px of extra protection around the front-facing camera for outer display -->
     <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection">
         m 594.5,86 a 54.5,54.5 0 0 0 -109,0 54.5,54.5 0 0 0 109,0 z
@@ -55,9 +112,6 @@
     <string translatable="false" name="config_innerBuiltInDisplayCutoutProtection">
         m 2040,80 a 52.5,52.5 0 0 0 -105,0 52.5,52.5 0 0 0 105,0 z
     </string>
-
-    <!-- The time (in ms) needed to trigger the lock icon view's long-press affordance -->
-    <integer name="config_lockIconLongPress" translatable="false">100</integer>
 
     <!-- Camera 1 is the front camera -->
     <string translatable="false" name="config_protectedCameraId">1</string>
