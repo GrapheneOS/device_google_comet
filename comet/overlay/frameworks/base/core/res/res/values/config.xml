@@ -288,6 +288,9 @@
         @left
     </string>
 
+    <!-- Decouple status bar and cutout from configuration to avoid letterbox. -->
+    <bool name="config_decoupleStatusBarAndDisplayCutoutFromScreenSize">true</bool>
+
     <!-- Radius of the software rounded corners. -->
     <dimen name="rounded_corner_radius">25px</dimen>
 
