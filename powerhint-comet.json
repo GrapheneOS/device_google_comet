@@ -122,7 +122,7 @@
     },
     {
       "Name": "TAUClampBoost",
-      "Path": "/proc/vendor_sched/ta_uclamp_min",
+      "Path": "/proc/vendor_sched/groups/ta/uclamp_min",
       "Values": [
         "0",
 	"553",
@@ -136,7 +136,7 @@
     },
     {
       "Name": "CDPreferIdle",
-      "Path": "/proc/vendor_sched/cam_prefer_idle",
+      "Path": "/proc/vendor_sched/groups/cam/prefer_idle",
       "Values": [
         "0",
         "1"
@@ -181,7 +181,7 @@
     },
     {
       "Name": "TAPreferHighCap",
-      "Path": "/proc/vendor_sched/ta_prefer_high_cap",
+      "Path": "/proc/vendor_sched/groups/ta/prefer_high_cap",
       "Values": [
         "1",
         "0"
@@ -190,7 +190,7 @@
     },
     {
       "Name": "TAPreferIdle",
-      "Path": "/proc/vendor_sched/ta_prefer_idle",
+      "Path": "/proc/vendor_sched/groups/ta/prefer_idle",
       "Values": [
         "0",
         "1"
@@ -199,7 +199,7 @@
     },
     {
       "Name": "CDPreferHighCap",
-      "Path": "/proc/vendor_sched/cam_prefer_high_cap",
+      "Path": "/proc/vendor_sched/groups/cam/prefer_high_cap",
       "Values": [
         "1",
         "0"
