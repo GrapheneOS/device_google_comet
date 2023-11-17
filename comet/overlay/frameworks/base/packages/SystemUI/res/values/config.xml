@@ -123,6 +123,20 @@
     <!-- 6 is the physical id of the inner  screen front camera    -->
     <string translatable="false" name="config_protectedInnerPhysicalCameraId">6</string>
 
+    <!-- The properties of the face auth front camera in pixels -->
+    <integer-array name="config_face_auth_props">
+        <item>540</item> <!-- sensorLocationX -->
+        <item>86</item> <!-- sensorLocationY -->
+        <item>54</item> <!--sensorRadius -->
+    </integer-array>
+
+    <!-- The properties of the face auth front camera on the inner display in pixels -->
+    <integer-array name="config_inner_face_auth_props">
+        <item>1988</item> <!-- sensorLocationX -->
+        <item>80</item> <!-- sensorLocationY -->
+        <item>53</item> <!--sensorRadius -->
+    </integer-array>
+
     <!-- Comma-separated list of packages to exclude from camera protection. In our case,
     ignore the gaze detection package -->
     <string translatable="false" name="config_cameraProtectionExcludedPackages">com.google.android.as</string>
