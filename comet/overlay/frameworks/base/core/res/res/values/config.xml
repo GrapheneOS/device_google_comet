@@ -260,6 +260,15 @@
          data profile -->
     <bool name="allow_clear_initial_attach_data_profile">true</bool>
 
+    <!-- Type of the ambient tap sensor per device posture (defined by WM Jetpack posture).
+         Unspecified values use config_dozeTapSensor -->
+    <string-array name="config_dozeTapSensorPostureMapping" translatable="false">
+        <item></item> <!-- UNKNOWN, don't register for touch if we don't know -->
+        <item>com.google.sensor.single_touch</item> <!-- CLOSED -->
+        <item>com.google.sensor.touch_gesture</item> <!-- HALF_OPENED -->
+        <item>com.google.sensor.touch_gesture</item> <!-- OPENED -->
+      </string-array>
+
     <!-- Whether the display cutout region of the main built-in display should be forced to
         black in software (to avoid aliasing or emulate a cutout that is not physically existent).
     -->
