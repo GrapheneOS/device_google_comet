@@ -45,3 +45,5 @@ SOONG_CONFIG_gpssdk_gpsconf := factory
 
 # Factory binary of camera
 PRODUCT_PACKAGES += fatp_ct3_wide_hat_tool fatp_ct3_tele_hat_tool fatp_ct3_ultrawide_hat_tool
+
+PRODUCT_WITHOUT_TTS_VOICE_PACKS := true
