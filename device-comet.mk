@@ -94,6 +94,7 @@ PRODUCT_COPY_FILES += \
 # Thermal Config
 PRODUCT_COPY_FILES += \
 	device/google/comet/thermal_info_config_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
+	device/google/comet/thermal_info_config_comet_proto.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_proto.json \
 	device/google/comet/thermal_info_config_charge_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_charge.json
 
 # Power HAL config
