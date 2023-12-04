@@ -229,6 +229,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.ois_with_system_imu=true
 
+# Haptics
+# Placeholders for updates later, need to update:
+# edit device.mass
+# edit loc.coeff
+# remove dbc.enable
+# remove pm.activetimeout
+ACTUATOR_MODEL := luxshare_ict_081545
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.vibrator.hal.chirp.enabled=1 \
+    ro.vendor.vibrator.hal.device.mass=0.222 \
+    ro.vendor.vibrator.hal.loc.coeff=2.8 \
+    ro.vendor.vibrator.hal.dbc.enable=1 \
+    ro.vendor.vibrator.hal.pm.activetimeout=5
+
 # Hinge angle sensor
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.sensor.hinge_angle.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.hinge_angle.xml
