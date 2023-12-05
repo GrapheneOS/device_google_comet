@@ -7,6 +7,9 @@ on init && property:ro.vendor.factory=1
 on init
     # eSE streset tool name
     setprop persist.vendor.se.streset libstreset24
+# No se_chip_en for P1.0
+on late-init && property:ro.boot.hardware.revision=PROTO1.0
+    setprop persist.vendor.se.reset.chip_en false
 
 on early-boot
     # Wait for insmod_sh to finish all common modules
@@ -44,6 +47,12 @@ on init && property:ro.bootmode=factory
     write /sys/devices/platform/hall_sensor/enable 0
 
 # Thermal
+on late-init && property:ro.boot.hardware.revision=PROTO1.0
+    setprop vendor.thermal.config "thermal_info_config_proto.json"
+
+on late-init && property:ro.boot.hardware.revision=PROTO1.1
+    setprop vendor.thermal.config "thermal_info_config_proto.json"
+
 on property:vendor.thermal.link_ready=1
     chown system system /dev/thermal/tz-by-name/charger_therm/trip_point_0_temp
     chown system system /dev/thermal/tz-by-name/charger_therm/trip_point_0_hyst
