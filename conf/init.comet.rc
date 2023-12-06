@@ -47,11 +47,18 @@ on init && property:ro.bootmode=factory
     write /sys/devices/platform/hall_sensor/enable 0
 
 # Thermal
-on late-init && property:ro.boot.hardware.revision=PROTO1.0
-    setprop vendor.thermal.config "thermal_info_config_proto.json"
+service init_thermal_config /vendor/bin/init_thermal_config
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
 
-on late-init && property:ro.boot.hardware.revision=PROTO1.1
-    setprop vendor.thermal.config "thermal_info_config_proto.json"
+on late-init
+    start init_thermal_config
+
+on property:vendor.thermal.config=thermal_info_config_charge
+    start init_thermal_config
 
 on property:vendor.thermal.link_ready=1
     chown system system /dev/thermal/tz-by-name/charger_therm/trip_point_0_temp
