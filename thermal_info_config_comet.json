@@ -143,34 +143,6 @@
             "PassiveDelay": 7000
         },
         {
-            "Name": "inner_brightness",
-            "Type": "UNKNOWN",
-            "Multiplier": 1
-        },
-        {
-            "Name": "OPEN_WEIGHT",
-            "Type": "UNKNOWN",
-            "Hidden": true,
-            "VirtualSensor": true,
-            "Formula": "COUNT_THRESHOLD",
-            "StepRatio": 0.2,
-            "Combination": ["inner_brightness"],
-            "Coefficient": [1.0],
-            "Multiplier": 1,
-            "PassiveDelay": 7000
-        },
-        {
-            "Name": "CLOSE_WEIGHT",
-            "Type": "UNKNOWN",
-            "Hidden": true,
-            "VirtualSensor": true,
-            "Formula": "WEIGHTED_AVG",
-            "Combination": ["1", "OPEN_WEIGHT"],
-            "CombinationType": ["CONSTANT", "SENSOR"],
-            "Coefficient": [1.0, -1.0],
-            "Multiplier": 1
-        },
-        {
             "Name": "VIRTUAL-SKIN-OPEN",
             "Type": "UNKNOWN",
             "Hidden": true,
@@ -204,9 +176,8 @@
             "VirtualSensor": true,
             "TriggerSensor": "charger_therm",
             "Formula": "WEIGHTED_AVG",
-            "Combination": ["VIRTUAL-SKIN-OPEN", "VIRTUAL-SKIN-CLOSE"],
-            "Coefficient": ["OPEN_WEIGHT", "CLOSE_WEIGHT"],
-            "CoefficientType": ["SENSOR", "SENSOR"],
+            "Combination": ["VIRTUAL-SKIN-CLOSE"],
+            "Coefficient": [1.0],
             "HotThreshold": ["NAN", 39.0, 43.0, 45.0, 46.5, 100.0, 140.0],
             "HotHysteresis": [0.0, 1.9, 1.9, 1.9, 1.4, 1.9, 1.9],
             "Multiplier": 0.001,
