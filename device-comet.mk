@@ -78,9 +78,10 @@ PRODUCT_COPY_FILES += \
 	device/google/comet/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
 
 PRODUCT_PACKAGES += \
-	NfcNci \
+	$(RELEASE_PACKAGE_NFC_STACK) \
 	Tag \
-	android.hardware.nfc-service.st
+	android.hardware.nfc-service.st \
+	NfcOverlayComet
 
 # SecureElement
 PRODUCT_PACKAGES += \
@@ -233,3 +234,8 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Hinge angle sensor
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.sensor.hinge_angle.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.hinge_angle.xml
+
+# Keyboard height ratio and bottom padding in dp for portrait mode
+PRODUCT_PRODUCT_PROPERTIES += \
+          ro.com.google.ime.kb_pad_port_b=11.2 \
+          ro.com.google.ime.height_ratio=1.18
