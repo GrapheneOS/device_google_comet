@@ -67,6 +67,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
         device/google/comet/display/display_colordata_cal1.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_colordata_cal1.pb
 
+# Coex Config
+PRODUCT_SOONG_NAMESPACES += device/google/comet/radio/coex
+PRODUCT_PACKAGES += \
+		display_secondary_mipi_coex_table \
+		camera_front_inner_mipi_coex_table \
+		camera_front_outer_mipi_coex_table \
+		camera_rear_tele_mipi_coex_table \
+		camera_rear_wide_mipi_coex_table
+
 # NFC
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
