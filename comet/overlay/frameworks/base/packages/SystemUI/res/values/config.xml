@@ -113,8 +113,15 @@
         m 2040,80 a 52.5,52.5 0 0 0 -105,0 52.5,52.5 0 0 0 105,0 z
     </string>
 
-    <!-- Camera 1 is the front camera -->
+    <!-- 1 is the logical id of the front camera -->
     <string translatable="false" name="config_protectedCameraId">1</string>
+    <!-- 5 is the physical id of the outer screen front camera    -->
+    <string translatable="false" name="config_protectedPhysicalCameraId">5</string>
+
+    <!-- 1 is the logical id of the front camera, for the inner screen as well. -->
+    <string translatable="false" name="config_protectedInnerCameraId">1</string>
+    <!-- 6 is the physical id of the inner  screen front camera    -->
+    <string translatable="false" name="config_protectedInnerPhysicalCameraId">6</string>
 
     <!-- Comma-separated list of packages to exclude from camera protection. In our case,
     ignore the gaze detection package -->
