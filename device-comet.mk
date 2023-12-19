@@ -102,10 +102,17 @@ PRODUCT_COPY_FILES += \
 	device/google/comet/nfc/libse-gto-hal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libse-gto-hal.conf
 
 # Thermal Config
+ifeq (,$(TARGET_VENDOR_THERMAL_CONFIG_PATH))
+TARGET_VENDOR_THERMAL_CONFIG_PATH := device/google/comet/thermal
+endif
+
 PRODUCT_COPY_FILES += \
-	device/google/comet/thermal_info_config_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
-	device/google/comet/thermal_info_config_comet_proto.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_proto.json \
-	device/google/comet/thermal_info_config_charge_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_charge.json
+	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/thermal_info_config_charge_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_charge.json \
+	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/thermal_info_config_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
+	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/thermal_info_config_backup_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_backup.json \
+
+PRODUCT_PACKAGES += \
+	init_thermal_config
 
 # Power HAL config
 PRODUCT_COPY_FILES += \
