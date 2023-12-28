@@ -291,6 +291,12 @@
         z
         @right
     </string>
+
+    <string-array name="config_mainBuiltInDisplayCutoutSideOverride" translatable="false">
+        <item>90,top</item>
+        <item>270,bottom</item>
+    </string-array>
+
     <string translatable="false" name="config_secondaryBuiltInDisplayCutout">
       m 581.5,86 a 41.5,41.5 0 0 0 -83,0 41.5,41.5 0 0 0 83,0 z
       @left
