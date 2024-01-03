@@ -202,6 +202,12 @@ PRODUCT_PACKAGES += \
 	WifiOverlay2024Mid_CT3 \
 	PixelWifiOverlay2024
 
+# Graphics
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.set_idle_timer_ms_4619827677550801152=80
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.support_kernel_idle_timer_4619827677550801152=true
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.set_idle_timer_ms_4619827677550801153=1500
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.support_kernel_idle_timer_4619827677550801153=false
+
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/comet/prebuilts
 
@@ -224,8 +230,10 @@ PRODUCT_PACKAGES += \
 	scd.conf \
 	lhd.conf
 
-# Display LBE
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
+# Display
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+	vendor.display.lbe.supported=1 \
+	vendor.display.async_off.supported=true
 
 # Install product specific framework compatibility matrix
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/comet/device_framework_matrix_product.xml
