@@ -49,6 +49,7 @@ PRODUCT_COPY_FILES += $(call copy-files,$(wildcard  $(SPK_FIRMWARE_FULL_PATH)/*)
 PRODUCT_SOONG_NAMESPACES += device/google/comet/audio/$(AUDIO_TABLE_FOLDER)/tuning
 PRODUCT_PACKAGES += \
     recording.gatf \
+    smartfeature.gstf \
     BLUETOOTH.dat \
     HANDSFREE.dat \
     HANDSET.dat \
