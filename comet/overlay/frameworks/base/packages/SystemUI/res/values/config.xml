@@ -128,4 +128,7 @@
     <string translatable="false" name="config_cameraProtectionExcludedPackages">com.google.android.as</string>
 
     <bool name="config_enableDisplayCutoutProtection">true</bool>
+
+    <!-- Enable rest to unlock support. -->
+    <bool name="config_restToUnlockSupported">true</bool>
 </resources>
