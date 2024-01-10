@@ -116,3 +116,6 @@ on fs
 on init
     setprop ro.hardware.fingerprint "fpc"
 
+# Start the twoshay touch service
+on property:sys.boot_completed=1
+    start twoshay
