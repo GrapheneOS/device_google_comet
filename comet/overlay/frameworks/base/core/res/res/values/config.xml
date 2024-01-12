@@ -353,4 +353,9 @@
          Note: If the display supports multiple resolutions, please define the path config based on
          the highest resolution so that it can be scaled correctly in each resolution. -->
     <string name="config_mainDisplayShape">m 141.72773,2075.6318 -21.50891,-0.2057 -24.262943,-2.3989 -25.997361,-7.6964 -25.027568,-14.7348 -20.81517,-21.2126 -14.032964,-24.7396 -7.2719262,-25.5084 -2.25203544,-23.7624 -0.19187278,-21.1004 m 2151.26552042,5e-4 -0.2056,21.5087 -2.3989,24.2627 -7.6964,25.997 -14.7351,25.0272 -21.2129,20.8149 -24.7398,14.0327 -25.5088,7.272 -23.7627,2.2519 -21.1008,0.1925 M 0.36718215,141.72593 0.5722516,120.21728 2.9710973,95.954655 10.667571,69.95761 25.402706,44.930369 46.615548,24.115468 71.355396,10.082677 96.864172,2.810842 120.62678,0.55883527 141.72762,0.36697958 m 1868.54408,1.8926e-4 21.509,0.20506687 24.263,2.39881539 25.9974,7.6963759 25.0275,14.734941 20.8152,21.212573 14.033,24.739531 7.2718,25.508452 2.2521,23.762356 0.1924,21.10053 M 141.72602,0.36821695 H 2010.27 m 0,2075.26478305 H 141.72602 M 2151.632,141.72452 V 1934.2729 m -2151.26408094,0 V 141.72452 z</string>
+
+    <!-- MMS user agent string -->
+    <string name="config_mms_user_agent" translatable="false">ggh2x</string>
+    <!-- MMS user agent profile url -->
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://www.gstatic.com/android/sms/GGH2X.xml</string>
 </resources>
