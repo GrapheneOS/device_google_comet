@@ -67,6 +67,10 @@ PRODUCT_COPY_FILES += \
 	device/google/comet/comet/panel_config_google-ct3c_cal1.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ct3c_cal1.pb \
 	device/google/comet/comet/panel_config_google-ct3d_cal1.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ct3d_cal1.pb
 
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.primarydisplay.op.hs_hz=120 \
+    vendor.primarydisplay.op.ns_hz=60
+
 PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.camera.debug.enable_software_post_sharpen_node=false
 
