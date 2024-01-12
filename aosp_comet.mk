@@ -16,9 +16,6 @@
 
 TARGET_LINUX_KERNEL_VERSION := 6.1
 
-USE_SWIFTSHADER := true
-BOARD_USES_SWIFTSHADER := true
-
 $(call inherit-product, device/google/zumapro/aosp_common.mk)
 $(call inherit-product, device/google/comet/device-comet.mk)
 
