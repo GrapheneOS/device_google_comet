@@ -118,4 +118,8 @@ on init
 
 # Start the twoshay touch service
 on property:sys.boot_completed=1
+    chown system input /dev/touch_offload
+    chown system input /dev/touch_offload_outer
+    chmod 660 /dev/touch_offload
+    chmod 660 /dev/touch_offload_outer
     start twoshay
