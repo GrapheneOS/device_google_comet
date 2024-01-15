@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.google.android.grilservice.overlay.comet"
+    android:versionCode="1"
+    android:versionName="1.0">
+    <application android:hasCode="false"/>
+    <overlay
+      android:targetPackage="com.google.android.grilservice"
+      android:targetName="GrilRadioCustomizable"
+      android:isStatic="true"
+      android:resourcesMap="@xml/overlays"
+      android:priority="0"/>
+</manifest>

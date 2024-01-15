@@ -211,6 +211,10 @@ PRODUCT_PACKAGES += \
 	WifiOverlay2024Mid_CT3 \
 	PixelWifiOverlay2024
 
+# GRil Overlay
+PRODUCT_PACKAGES += \
+	GRilServiceOverlay_CT3
+
 # Graphics
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.set_idle_timer_ms_4619827677550801152=80
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.support_kernel_idle_timer_4619827677550801152=true
