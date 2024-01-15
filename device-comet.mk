@@ -163,6 +163,10 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.a2dp_aac.vbr_supported=true
 
+# Bluetooth Super Wide Band
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.hfp.swb.supported=true
+
 # Spatial Audio
 PRODUCT_PACKAGES += \
 	libspatialaudio \
