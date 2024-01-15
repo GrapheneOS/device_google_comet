@@ -35,7 +35,7 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_FLOAT"
                              samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
-                <!--mixPort name="compressed_offload" role="source"
+                <mixPort name="compressed_offload" role="source"
                          flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD AUDIO_OUTPUT_FLAG_NON_BLOCKING">
                     <profile name="" format="AUDIO_FORMAT_MP3"
                              samplingRates="8000 16000 24000 32000 44100 48000"
@@ -49,7 +49,7 @@
                     <profile name="" format="AUDIO_FORMAT_AAC_HE_V2"
                              samplingRates="8000 16000 24000 32000 44100 48000"
                              channelMasks="AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_MONO"/>
-                </mixPort-->
+                </mixPort>
                 <mixPort name="haptic" role="source">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="48000"
@@ -61,6 +61,10 @@
                 </mixPort>
                 <mixPort name="mmap_no_irq_out" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT AUDIO_OUTPUT_FLAG_MMAP_NOIRQ">
                     <profile name="" format="AUDIO_FORMAT_PCM_FLOAT"
+                             samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </mixPort>
+                <mixPort name="immersive_out" role="source" flags="AUDIO_OUTPUT_FLAG_SPATIALIZER">
+                    <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
                              samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
                 <mixPort name="incall playback" role="source"
@@ -157,6 +161,21 @@
                 </devicePort>
                 <devicePort tagName="BT SCO Headset Mic" type="AUDIO_DEVICE_IN_BLUETOOTH_SCO_HEADSET" role="source">
                 </devicePort>
+                <devicePort tagName="BT A2DP Out" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP" role="sink"
+                            encodedFormats="AUDIO_FORMAT_OPUS AUDIO_FORMAT_AAC AUDIO_FORMAT_SBC">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </devicePort>
+                <devicePort tagName="BT A2DP Headphones" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_HEADPHONES" role="sink"
+                            encodedFormats="AUDIO_FORMAT_OPUS AUDIO_FORMAT_AAC AUDIO_FORMAT_SBC">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </devicePort>
+                <devicePort tagName="BT A2DP Speaker" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_SPEAKER" role="sink"
+                            encodedFormats="AUDIO_FORMAT_OPUS AUDIO_FORMAT_AAC AUDIO_FORMAT_SBC">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </devicePort>
                 <devicePort tagName="USB Device In" type="AUDIO_DEVICE_IN_USB_DEVICE" role="source">
                 </devicePort>
                 <devicePort tagName="USB Headset In" type="AUDIO_DEVICE_IN_USB_HEADSET" role="source">
@@ -170,23 +189,29 @@
             <!-- route declaration, i.e. list all available sources for a given sink -->
             <routes>
                 <route type="mix" sink="Speaker"
-                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx"/>
+                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx,compressed_offload"/>
                 <route type="mix" sink="Speaker Safe"
-                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx"/>
+                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx,compressed_offload"/>
                 <route type="mix" sink="Earpiece"
-                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx"/>
+                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx,compressed_offload"/>
+                <route type="mix" sink="BT A2DP Out"
+                       sources="primary output,deep buffer,haptic,voip_rx,compressed_offload,raw,mmap_no_irq_out,immersive_out"/>
+                <route type="mix" sink="BT A2DP Headphones"
+                       sources="primary output,deep buffer,haptic,voip_rx,compressed_offload,raw,mmap_no_irq_out,immersive_out"/>
+                <route type="mix" sink="BT A2DP Speaker"
+                       sources="primary output,deep buffer,haptic,voip_rx,compressed_offload,raw,mmap_no_irq_out,immersive_out"/>
                 <route type="mix" sink="USB Device Out"
-                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx,hifi_playback"/>
+                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx,hifi_playback,compressed_offload,immersive_out"/>
                 <route type="mix" sink="USB Headset Out"
-                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx,hifi_playback"/>
+                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx,hifi_playback,compressed_offload,immersive_out"/>
                 <route type="mix" sink="HDMI Out"
-                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx"/>
+                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx,compressed_offload"/>
                 <route type="mix" sink="BT SCO"
-                       sources="primary output,deep buffer,haptic,voip_rx,raw,mmap_no_irq_out"/>
+                       sources="primary output,deep buffer,haptic,voip_rx,compressed_offload,raw,mmap_no_irq_out"/>
                 <route type="mix" sink="BT SCO Headset"
-                       sources="primary output,deep buffer,haptic,voip_rx,raw,mmap_no_irq_out"/>
+                       sources="primary output,deep buffer,haptic,voip_rx,compressed_offload,raw,mmap_no_irq_out"/>
                 <route type="mix" sink="BT SCO Car Kit"
-                       sources="primary output,deep buffer,haptic,voip_rx,raw,mmap_no_irq_out"/>
+                       sources="primary output,deep buffer,haptic,voip_rx,compressed_offload,raw,mmap_no_irq_out"/>
                 <route type="mix" sink="Telephony Tx" sources="incall playback,voice call tx" />
                 <route type="mix" sink="primary input"
                        sources="Built-In Mic,Built-In Back Mic,USB Device In,USB Headset In,BT SCO Headset Mic"/>
@@ -204,8 +229,8 @@
                 <route type="mix" sink="echo_ref_input" sources="Echo Ref In"/>
             </routes>
         </module>
-        <!-- A2dp Audio HAL -->
-        <xi:include href="a2dp_audio_policy_configuration_7_0.xml"/>
+        <!-- Bluetooth Audio HAL -->
+        <xi:include href="bluetooth_audio_policy_configuration_7_0.xml"/>
         <!-- Usb Audio HAL -->
         <module name="usbv2" halVersion="2.0">
             <mixPorts>
