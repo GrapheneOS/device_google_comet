@@ -110,7 +110,7 @@
     </path>
 
     <path name="mic2-only">
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="3" />
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="1" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="-1" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="-1" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1" />
@@ -129,7 +129,7 @@
 
     <path name="mic-all">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0" />
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="3" />
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1" />
         <ctl name="MIC0" value="1" />
@@ -149,7 +149,7 @@
     </path>
 
     <path name="us-mic2-only">
-        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="0" value="3" />
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="0" value="1" />
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="-1" />
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="2" value="-1" />
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="3" value="-1" />
@@ -168,7 +168,7 @@
 
     <path name="us-mic-all">
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="0" value="0" />
-        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="3" />
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="1" />
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="2" value="2" />
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="3" value="-1" />
         <ctl name="MIC0" value="1" />
