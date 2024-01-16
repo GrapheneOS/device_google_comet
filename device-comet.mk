@@ -163,6 +163,10 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.a2dp_aac.vbr_supported=true
 
+# Bluetooth Super Wide Band
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.hfp.swb.supported=true
+
 # Spatial Audio
 PRODUCT_PACKAGES += \
 	libspatialaudio \
@@ -257,6 +261,9 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
     persist.vendor.udfps.lhbm_controlled_in_hal_supported=true
 
+# Camera Vendor property
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.front_720P_always_binning=true
 
 # OIS with system imu
 PRODUCT_VENDOR_PROPERTIES += \
