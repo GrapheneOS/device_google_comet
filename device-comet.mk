@@ -168,6 +168,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.hfp.swb.supported=true
 
+# POF
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.finder.supported=true
+
 # Spatial Audio
 PRODUCT_PACKAGES += \
 	libspatialaudio \
