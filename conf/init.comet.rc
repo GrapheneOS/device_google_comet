@@ -116,3 +116,17 @@ on fs
 on init
     setprop ro.hardware.fingerprint "fpc"
 
+# Toggle high_sensitivity according to touch_sensitivity_mode
+on property:persist.vendor.touch_sensitivity_mode=0 && property:sys.boot_completed=1
+    write /sys/devices/virtual/goog_touch_interface/gti.1/screen_protector_mode_enabled 0
+
+on property:persist.vendor.touch_sensitivity_mode=1 && property:sys.boot_completed=1
+    write /sys/devices/virtual/goog_touch_interface/gti.1/screen_protector_mode_enabled 1
+
+# Start the twoshay touch service
+on property:sys.boot_completed=1
+    chown system input /dev/touch_offload
+    chown system input /dev/touch_offload_outer
+    chmod 660 /dev/touch_offload
+    chmod 660 /dev/touch_offload_outer
+    start twoshay
