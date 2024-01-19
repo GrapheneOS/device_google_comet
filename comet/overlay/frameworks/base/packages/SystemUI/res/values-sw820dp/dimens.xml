@@ -16,4 +16,11 @@
 <resources>
     <dimen name="status_bar_clock_starting_padding">0dp</dimen>
     <dimen name="status_bar_padding_start">0dp</dimen>
+
+    <!-- Location on the screen of the center of the physical power button. -->
+    <dimen name="physical_power_button_center_screen_location_y">620px</dimen>
+
+    <!-- Location on the screen of the center of the physical fingerprint sensor -->
+    <dimen name="physical_fingerprint_sensor_center_screen_location_x">2076px</dimen>
+    <dimen name="physical_fingerprint_sensor_center_screen_location_y">620px</dimen>
 </resources>
