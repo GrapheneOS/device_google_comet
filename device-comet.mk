@@ -44,7 +44,6 @@ include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/gti_dual.mk
 include device/google/gs-common/touch/syna/syna19.mk
 include device/google/gs-common/display/dump_second_display.mk
--include vendor/samsung_slsi/gps/s5400/location/gnssd/device-gnss.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,comet)
@@ -239,10 +238,16 @@ PRODUCT_SOONG_NAMESPACES += \
     device/google/comet/uwb
 
 # Location
+# iGNSS
+-include vendor/samsung_slsi/gps/s5400/device-gnss.mk
+# gps.cfg
+PRODUCT_SOONG_NAMESPACES += device/google/comet/location
+$(call soong_config_set, gpssdk, buildtype, $(TARGET_BUILD_VARIANT))
+PRODUCT_PACKAGES += gps.cfg
+# eGNSS
 # SDK build system
 $(call soong_config_set, include_libsitril-gps-wifi, board_without_radio, $(BOARD_WITHOUT_RADIO))
 include device/google/gs-common/gps/brcm/device.mk
-
 PRODUCT_SOONG_NAMESPACES += device/google/comet/location
 SOONG_CONFIG_NAMESPACES += gpssdk
 SOONG_CONFIG_gpssdk += gpsconf
