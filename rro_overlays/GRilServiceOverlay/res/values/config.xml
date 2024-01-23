@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Determines whether device support SAR with cap sensor -->
+  <bool translatable="true" name="cap_sensor_support">true</bool>
+</resources>
