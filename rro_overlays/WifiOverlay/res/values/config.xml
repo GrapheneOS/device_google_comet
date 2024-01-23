@@ -163,7 +163,7 @@
     device mobility state and client mode RSSI monitoring. -->
     <bool translatable="false" name="config_wifiAdjustPollRssiIntervalEnabled">true</bool>
 
-    <bool translatable="false" name="config_wifiSaeUpgradeEnabled">false</bool>
+    <bool translatable="false" name="config_wifiSaeUpgradeEnabled">true</bool>
 
     <!-- Enable WPA2 to WPA3 auto-upgrade offload to capable Driver/Firmware -->
     <bool translatable="false" name="config_wifiSaeUpgradeOffloadEnabled">true</bool>
