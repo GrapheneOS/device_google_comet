@@ -33,35 +33,10 @@ using aidl::android::hardware::power::stats::PowerStatsEnergyConsumer;
 
 void addDisplay(std::shared_ptr<PowerStats> p) {
     // Add display residency stats for inner display
-    std::vector<std::string> inner_states = {
-        "Off",
-        "LP: 2152x2076@1",
-        "LP: 2152x2076@30",
-        "On: 2152x2076@1",
-        "On: 2152x2076@10",
-        "On: 2152x2076@60",
-        "On: 2152x2076@120",
-        "HBM: 2152x2076@60",
-        "HBM: 2152x2076@120"};
-
-    p->addStateResidencyDataProvider(std::make_unique<DisplayStateResidencyDataProvider>(
-            "Inner Display",
-            "/sys/class/backlight/panel0-backlight/state",
-            inner_states));
+    addDisplayMrrByEntity(p, "Inner Display", "/sys/class/drm/card0/device/primary-panel/");
 
     // Add display residency stats for outer display
-    std::vector<std::string> outer_states = {
-        "Off",
-        "LP: 1080x2424@30",
-        "On: 1080x2424@60",
-        "On: 1080x2424@120",
-        "HBM: 1080x2424@60",
-        "HBM: 1080x2424@120"};
-
-    p->addStateResidencyDataProvider(std::make_unique<DisplayStateResidencyDataProvider>(
-            "Outer Display",
-            "/sys/class/backlight/panel1-backlight/state",
-            outer_states));
+    addDisplayMrrByEntity(p, "Outer Display", "/sys/class/drm/card0/device/secondary-panel/");
 
     // Add display energy consumer
     p->addEnergyConsumer(PowerStatsEnergyConsumer::createMeterConsumer(
