@@ -28,6 +28,7 @@ endif
 $(call inherit-product-if-exists, vendor/google_devices/comet/prebuilts/device-vendor-comet.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/WallpapersComet.mk)
 $(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/comet/device-vendor-comet.mk)
 $(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
 
