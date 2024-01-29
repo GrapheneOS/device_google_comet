@@ -655,7 +655,7 @@
     <path name="voice-handset">
         <ctl name="Boost Peak Current Limit" value="3.50A"/>
         <ctl name="PCM Source" value="ASP"/>
-        <ctl name="AMP PCM Gain" value="12"/>
+        <ctl name="AMP PCM Gain" value="10"/>
         <ctl name="Main AMP Enable Switch" value="1"/>
     </path>
 
@@ -687,11 +687,13 @@
         <ctl name="Boost Peak Current Limit" value="3.50A"/>
         <ctl name="ASPTX1 Slot Position" value="1"/>
         <ctl name="R ASPTX1 Slot Position" value="0"/>
-        <ctl name="Digital PCM Volume" value="833"/>
-        <ctl name="R Digital PCM Volume" value="833"/>
     <!--<ctl name="R DSP RX2 Source" value="ASPRX2"/>-->
         <ctl name="R Main AMP Enable Switch" value="1"/>
         <ctl name="Main AMP Enable Switch" value="1"/>
+        <ctl name="Fast Use Case Delta File" value="fast_switch1.txt" />
+        <ctl name="Fast Use Case Switch Enable" value="1" />
+        <ctl name="R Fast Use Case Delta File" value="fast_switch2.txt" />
+        <ctl name="R Fast Use Case Switch Enable" value="1" />
     </path>
 
     <path name="voice-speaker-post">
