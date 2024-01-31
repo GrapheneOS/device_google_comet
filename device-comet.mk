@@ -179,6 +179,10 @@ PRODUCT_PACKAGES += \
 	libspatialaudio \
 	librondo
 
+# declare use of spatial audio
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.audio.spatializer_enabled=true
+
 # Sound Dose
 PRODUCT_PACKAGES += \
 	android.hardware.audio.sounddose-vendor-impl \
