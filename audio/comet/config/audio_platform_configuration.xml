@@ -307,6 +307,6 @@
         <module libname="liboffloadeffect.so"/>
         <module libname="audio_amcs_ext.so"/>
         <module libname="audio_bluenote_aoc.so"/>
-        <module libname="audio_compensation_aoc.so" argu="HingeAngle:0,20|LeftChannel:compens_spk_l_1.conf|RightChannel:compens_spk_r_1.conf HingeAngle:21,180|LeftChannel:compens_spk_l_2.conf|RightChannel:compens_spk_r_2.conf"/>
+        <module libname="audio_compensation_aoc.so" argu="HingeAngle:0,145|LeftChannel:compens_spk_l_1.conf|RightChannel:compens_spk_r_1.conf HingeAngle:146,180|LeftChannel:compens_spk_l_2.conf|RightChannel:compens_spk_r_2.conf"/>
     </external_module>
 </audio_platform_configuration>
