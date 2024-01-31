@@ -221,7 +221,7 @@
     </string>
 
     <string translatable="false" name="config_secondaryBuiltInDisplayCutoutRectApproximation">
-        m 484,20 h 112 v 132 h -112 z
+        m 484,0 h 112 v 152 h -112 z
         @left
     </string>
 
