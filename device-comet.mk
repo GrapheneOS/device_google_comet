@@ -181,7 +181,9 @@ PRODUCT_PACKAGES += \
 
 # declare use of spatial audio
 PRODUCT_PROPERTY_OVERRIDES += \
-       ro.audio.spatializer_enabled=true
+       ro.audio.spatializer_enabled=true \
+       ro.audio.spatializer_transaural_enabled_default=false \
+       persist.vendor.audio.spatializer.speaker_enabled=true
 
 # Sound Dose
 PRODUCT_PACKAGES += \
