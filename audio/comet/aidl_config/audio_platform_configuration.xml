@@ -70,9 +70,9 @@
     <tuner type="capture" name="gs_capture" />
     <tuner type="compensation" name="TelephonySpeakerCompensation">
       <scenario condition="HingeAngle:0,20"
-                output="LeftChannel:spk_compens_profile_1_l.conf RightChannel:spk_compens_profile_1_r.conf" />
+                output="LeftChannel:compens_spk_l_1.conf RightChannel:compens_spk_r_1.conf" />
       <scenario condition="HingeAngle:21,180"
-                output="LeftChannel:spk_compens_profile_2_l.conf RightChannel:spk_compens_profile_2_r.conf" />
+                output="LeftChannel:compens_spk_l_2.conf RightChannel:compens_spk_r_2.conf" />
       </tuner>
   </tuners>
 
