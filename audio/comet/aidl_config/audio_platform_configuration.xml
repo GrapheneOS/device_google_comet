@@ -29,6 +29,7 @@
     </feature>
     <feature name="RuntimeTuningDump" />
     <feature name="SoundDose" />
+    <!-- <feature name="spatializer-offload" /> -->
   </features>
 
   <voipVolume>
