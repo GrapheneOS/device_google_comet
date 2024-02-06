@@ -117,11 +117,15 @@
     <string translatable="false" name="config_protectedCameraId">1</string>
     <!-- 5 is the physical id of the outer screen front camera    -->
     <string translatable="false" name="config_protectedPhysicalCameraId">5</string>
+    <!-- Unique ID of the outer display that contains the camera that needs protection. -->
+    <string translatable="false" name="config_protectedScreenUniqueId">local:4619827677550801153</string>
 
     <!-- 1 is the logical id of the front camera, for the inner screen as well. -->
     <string translatable="false" name="config_protectedInnerCameraId">1</string>
     <!-- 6 is the physical id of the inner  screen front camera    -->
     <string translatable="false" name="config_protectedInnerPhysicalCameraId">6</string>
+    <!-- Unique ID of the inner display that contains the camera that needs protection. -->
+    <string translatable="false" name="config_protectedInnerScreenUniqueId">local:4619827677550801152</string>
 
     <!-- The properties of the face auth front camera in pixels -->
     <integer-array name="config_face_auth_props">

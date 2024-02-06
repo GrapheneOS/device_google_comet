@@ -28,6 +28,8 @@
       <argument name="SpeakerPowerPollWaitMs" value="20000" />
     </feature>
     <feature name="RuntimeTuningDump" />
+    <feature name="SoundDose" />
+    <!-- <feature name="spatializer-offload" /> -->
   </features>
 
   <voipVolume>
