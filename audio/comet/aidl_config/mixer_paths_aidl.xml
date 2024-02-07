@@ -1268,15 +1268,16 @@
 
   <path name="speaker-earpiece (VOICE)">
     <ctl name="PCM Source" value="ASP" />
-    <ctl name="AMP PCM Gain" value="7" />
+    <ctl name="AMP PCM Gain" value="10" />
     <ctl name="Main AMP Enable Switch" value="1" />
   </path>
 
   <path name="speaker-earpiece (VOICE,HAC)">
     <ctl name="PCM Source" value="ASP" />
-    <ctl name="AMP PCM Gain" value="10" />
+    <ctl name="AMP PCM Gain" value="5" />
     <ctl name="Main AMP Enable Switch" value="1" />
-    <ctl name="HAC AMP EN" value="1" />
+    <!-- No Tcoil on CT3 -->
+    <!-- <ctl name="HAC AMP EN" value="1" /> -->
   </path>
 
   <path name="speaker">
@@ -1291,8 +1292,8 @@
   <path name="speaker (VOICE)">
     <ctl name="ASPTX1 Slot Position" value="1" />
     <ctl name="R ASPTX1 Slot Position" value="0" />
-    <ctl name="R Main AMP Enable Switch" value="1" />
     <ctl name="Main AMP Enable Switch" value="1" />
+    <ctl name="R Main AMP Enable Switch" value="1" />
     <!-- load Enable FIR -->
     <ctl name="Fast Use Case Delta File" value="fast_switch1.txt" />
     <ctl name="Fast Use Case Switch Enable" value="1" />
@@ -1429,6 +1430,7 @@
     <ctl name="Digital PCM Volume" value="817" />
     <ctl name="R Digital PCM Volume" value="817" />
   </path>
+
   <path name="adapted-speaker-battery-throttled">
     <ctl name="Boost Peak Current Limit" value="1.80A" />
     <ctl name="R Boost Peak Current Limit" value="1.80A" />
@@ -1440,6 +1442,7 @@
     <ctl name="R Boost Peak Current Limit" value="3.50A" />
     <ctl name="R Digital PCM Volume" value="817" />
   </path>
+
   <path name="adapted-speaker-safe-battery-throttled">
     <path name="adapted-speaker-safe" />
   </path>
@@ -1447,6 +1450,7 @@
   <path name="adapted-earpiece">
     <ctl name="Digital PCM Volume" value="817" />
   </path>
+
   <path name="adapted-earpiece-battery-throttled">
     <path name="adapted-earpiece" />
   </path>
@@ -1454,12 +1458,14 @@
   <path name="adapted-voice-speaker">
     <ctl name="R Boost Peak Current Limit" value="3.50A" />
     <ctl name="Boost Peak Current Limit" value="3.50A" />
-    <ctl name="Digital PCM Volume" value="800" />
+    <ctl name="Digital PCM Volume" value="817" />
     <ctl name="R Digital PCM Volume" value="817" />
   </path>
+
   <path name="adapted-voice-speaker-battery-throttled">
     <path name="adapted-voice-speaker" />
   </path>
+
   <path name="adapted-voice-speaker-acoustic-shock">
     <ctl name="R Boost Peak Current Limit" value="3.50A" />
     <ctl name="Boost Peak Current Limit" value="3.50A" />
@@ -1476,6 +1482,7 @@
     <ctl name="Boost Peak Current Limit" value="3.50A" />
     <ctl name="Digital PCM Volume" value="817" />
   </path>
+
   <path name="adapted-voice-earpiece-battery-throttled">
     <path name="adapted-voice-earpiece" />
   </path>
