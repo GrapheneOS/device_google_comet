@@ -14,5 +14,5 @@
      limitations under the License.
 -->
 <resources>
-    <dimen name="rounded_corner_content_padding">16dp</dimen>
+    <dimen name="rounded_corner_content_padding">32dp</dimen>
 </resources>
