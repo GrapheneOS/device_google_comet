@@ -287,9 +287,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/comet/device_framework_matrix_product.xml
 
 
-# Set zram size
 PRODUCT_VENDOR_PROPERTIES += \
-	vendor.zram.size=3g \
 	persist.device_config.configuration.disable_rescue_party=true
 
 PRODUCT_VENDOR_PROPERTIES += \
