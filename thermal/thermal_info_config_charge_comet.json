@@ -107,7 +107,7 @@
       "Combination": ["VIRTUAL-SKIN-CHARGE-OPEN", "VIRTUAL-SKIN-CHARGE-CLOSE"],
       "Coefficient": ["OPEN_WEIGHT", "CLOSE_WEIGHT"],
       "CoefficientType": ["SENSOR", "SENSOR"],
-      "HotThreshold": ["NaN", 34.0, 38.0, 41.0, 45.0, 47.0, 55.0],
+      "HotThreshold": ["NaN", 34.0, 38.0, 41.0, 45.0, 46.5, 57.0],
       "HotHysteresis": [0.0, 1.9, 3.9, 2.9, 3.9, 1.9, 1.9],
       "Multiplier": 0.001,
       "PollingDelay": 300000,
