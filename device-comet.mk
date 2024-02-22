@@ -196,6 +196,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
        ro.audio.spatializer_transaural_enabled_default=false \
        persist.vendor.audio.spatializer.speaker_enabled=true
 
+# declare use of stereo spatialization
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.audio.stereo_spatialization_enabled=true
+
 # Sound Dose
 PRODUCT_PACKAGES += \
 	android.hardware.audio.sounddose-vendor-impl \
