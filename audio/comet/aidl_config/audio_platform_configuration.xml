@@ -25,7 +25,7 @@
       <argument name="ThermistorName" value="VIRTUAL-SKIN-SPEAKER" />
       <argument name="ThermistorType" value="UNKNOWN" />
       <argument name="ThrottlingSeverity" value="LIGHT" />
-      <argument name="SpeakerPowerPollWaitMs" value="20000" />
+      <argument name="SpeakerPowerPollWaitMs" value="5000" />
     </feature>
     <feature name="RuntimeTuningDump" />
     <feature name="SoundDose" />
