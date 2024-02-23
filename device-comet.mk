@@ -29,9 +29,12 @@ $(call inherit-product-if-exists, vendor/google_devices/comet/prebuilts/device-v
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/WallpapersComet.mk)
 $(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/comet/device-vendor-comet.mk)
 $(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
+
+ifeq ($(filter factory_comet, $(TARGET_PRODUCT)),)
+    $(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/WallpapersComet.mk)
+endif
 
 DEVICE_PACKAGE_OVERLAYS += device/google/comet/comet/overlay
 
@@ -192,6 +195,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
        ro.audio.spatializer_enabled=true \
        ro.audio.spatializer_transaural_enabled_default=false \
        persist.vendor.audio.spatializer.speaker_enabled=true
+
+# declare use of stereo spatialization
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.audio.stereo_spatialization_enabled=true
 
 # Sound Dose
 PRODUCT_PACKAGES += \
