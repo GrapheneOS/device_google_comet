@@ -2680,6 +2680,24 @@
       "Value": "765"
     },
     {
+      "PowerHint": "FP_STORAGE_ACCESS",
+      "Node": "MemFreq",
+      "Duration": 1000,
+      "Value": "9999999"
+    },
+    {
+      "PowerHint": "FP_STORAGE_ACCESS",
+      "Node": "DsuMinFreq",
+      "Duration": 1000,
+      "Value": "1800000"
+    },
+    {
+      "PowerHint": "FP_STORAGE_ACCESS",
+      "Node": "CPUMidClusterMinFreq",
+      "Duration": 1000,
+      "Value": "9999999"
+    },
+    {
       "PowerHint": "ML_ACC",
       "Node": "MLUclampBoost",
       "Duration": 2000,
