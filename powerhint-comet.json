@@ -71,6 +71,7 @@
       "Values": [
         "9999999",
         "1401000",
+        "700000",
         "0"
       ],
       "ResetOnInit": true
@@ -1746,7 +1747,7 @@
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "TAPreferHighCap",
       "Duration": 0,
-      "Value": "1"
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -1783,6 +1784,12 @@
       "Node": "VIRTUAL-SKIN-CPU-HIGH",
       "Duration": 0,
       "Value": "camera"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "BCIMinFreq",
+      "Duration": 0,
+      "Value": "700000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
