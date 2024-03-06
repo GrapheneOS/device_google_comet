@@ -381,3 +381,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Exynos RIL and telephony
 # Support RIL Domain-selection
 SUPPORT_RIL_DOMAIN_SELECTION := true
+
+# Thread HAL
+PRODUCT_PACKAGES += \
+   com.google.comet.hardware.threadnetwork
