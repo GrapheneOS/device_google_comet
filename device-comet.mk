@@ -173,6 +173,10 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES_DEBUG += \
     ewp_tool
 
+# Bluetotoh Auto On feature
+PRODUCT_PRODUCT_PROPERTIES +=\
+    bluetooth.server.automatic_turn_on=true
+
 # Bluetooth AAC VBR
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.a2dp_aac.vbr_supported=true
