@@ -275,7 +275,6 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Location
 # iGNSS
-include device/google/gs-common/gps/lsi/s5400.mk
 # gps.cfg
 PRODUCT_SOONG_NAMESPACES += device/google/comet/location
 $(call soong_config_set, gpssdk, buildtype, $(TARGET_BUILD_VARIANT))
