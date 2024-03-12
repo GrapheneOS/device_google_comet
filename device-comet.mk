@@ -380,6 +380,14 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.leaudio.allow_list=SM-R510
 
+# Battery Mitigation Config
+ifeq (,$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH))
+TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH := device/google/comet/battery_mitigation
+endif
+
+PRODUCT_COPY_FILES += \
+	$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH)/bm_config_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/bm_config.json
+
 # Exynos RIL and telephony
 # Support RIL Domain-selection
 SUPPORT_RIL_DOMAIN_SELECTION := true
