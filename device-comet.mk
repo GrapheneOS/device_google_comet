@@ -393,3 +393,8 @@ SUPPORT_RIL_DOMAIN_SELECTION := true
 # Thread HAL
 PRODUCT_PACKAGES += \
    com.google.comet.hardware.threadnetwork
+
+# ETM
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+$(call inherit-product-if-exists, device/google/common/etm/device-userdebug-modules.mk)
+endif
