@@ -251,7 +251,7 @@
       "Values": [
         "1280",
         "1100",
-        "1280 1100 1055"
+        "1100 1078 1024"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -1718,7 +1718,7 @@
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CPUDVFSHeadroom",
       "Duration": 0,
-      "Value": "1100"
+      "Value": "1100 1078 1024"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -1794,6 +1794,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "CPUDVFSHeadroom",
+      "Duration": 0,
+      "Value": "1280"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "PowerHALCameraRunning",
       "Duration": 0,
       "Value": "1"
@@ -1866,18 +1872,6 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
-      "Node": "CPUUtilThreshold",
-      "Duration": 0,
-      "Value": "1100 1024 1100"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_STANDARD",
-      "Node": "CPUDVFSHeadroom",
-      "Duration": 0,
-      "Value": "1280 1100 1055"
-    }
-    {
-      "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "CDPreferHighCap",
       "Duration": 0,
       "Value": "0"
@@ -1935,6 +1929,12 @@
       "Node": "VIRTUAL-SKIN-CPU-HIGH",
       "Duration": 0,
       "Value": "camera"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "CPUDVFSHeadroom",
+      "Duration": 0,
+      "Value": "1280"
     },
     {
       "PowerHint": "CAMERA_STREAMING_LOW",
@@ -2118,13 +2118,13 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
-      "Node": "CPUUtilThreshold",
+      "Node": "CPUDVFSHeadroom",
       "Duration": 0,
       "Value": "1100"
     },
     {
       "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
-      "Node": "CPUDVFSHeadroom",
+      "Node": "CPUUtilThreshold",
       "Duration": 0,
       "Value": "1100"
     },
