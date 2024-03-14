@@ -30,6 +30,10 @@ include device/google/zumapro/BoardConfig-common.mk
 include device/google/comet-sepolicy/comet-sepolicy.mk
 include device/google/comet/wifi/BoardConfig-wifi.mk
 
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+-include device/google/common/etm/6_1/BoardUserdebugModules.mk
+endif
+
 else
 
 include device/google/comet23/comet23/BoardConfig.mk
