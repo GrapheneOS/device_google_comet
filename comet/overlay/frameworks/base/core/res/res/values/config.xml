@@ -238,15 +238,15 @@
 
     <!-- Radius of the software rounded corners at the top of primary display in its natural
         orientation. If zero, the value of rounded_corner_radius is used. -->
-    <dimen name="rounded_corner_radius_top">52px</dimen>
+    <dimen name="rounded_corner_radius_top">85px</dimen>
     <!-- For secondary display -->
-    <dimen name="secondary_rounded_corner_radius_top">91px</dimen>
+    <dimen name="secondary_rounded_corner_radius_top">115px</dimen>
 
     <!-- Radius of the software rounded corners at the bottom of primary display in its natural
         orientation. If zero, the value of rounded_corner_radius is used. -->
-    <dimen name="rounded_corner_radius_bottom">48px</dimen>
+    <dimen name="rounded_corner_radius_bottom">85px</dimen>
     <!-- For secondary display -->
-    <dimen name="secondary_rounded_corner_radius_bottom">91px</dimen>
+    <dimen name="secondary_rounded_corner_radius_bottom">115px</dimen>
 
     <!-- A string config in svg path format for the main display shape.
          (@see https://www.w3.org/TR/SVG/paths.html#PathData).
