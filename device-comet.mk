@@ -314,7 +314,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # OIS with system imu
 PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.camera.ois_with_system_imu=true
+    persist.vendor.camera.ois_with_system_imu=false
 
 # Haptics
 # Placeholders for updates later, need to update:
