@@ -402,3 +402,7 @@ SUPPORT_RIL_DOMAIN_SELECTION := true
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 $(call inherit-product-if-exists, device/google/common/etm/device-userdebug-modules.mk)
 endif
+
+# Connectivity Resources Overlay
+PRODUCT_PACKAGES += \
+    ConnectivityResourcesOverlayCometOverride
