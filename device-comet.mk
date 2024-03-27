@@ -320,7 +320,7 @@ PRODUCT_PRODUCT_PROPERTIES += ro.odm.build.media_performance_class=34
 
 # OIS with system imu
 PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.camera.ois_with_system_imu=false
+    persist.vendor.camera.ois_with_system_imu=true
 
 # Haptics
 # Placeholders for updates later, need to update:
@@ -392,6 +392,14 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.leaudio.allow_list=SM-R510
 
+# Battery Mitigation Config
+ifeq (,$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH))
+TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH := device/google/comet/battery_mitigation
+endif
+
+PRODUCT_COPY_FILES += \
+	$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH)/bm_config_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/bm_config.json
+
 # Exynos RIL and telephony
 # Support RIL Domain-selection
 SUPPORT_RIL_DOMAIN_SELECTION := true
@@ -404,3 +412,7 @@ PRODUCT_PACKAGES += \
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 $(call inherit-product-if-exists, device/google/common/etm/device-userdebug-modules.mk)
 endif
+
+# Connectivity Resources Overlay
+PRODUCT_PACKAGES += \
+    ConnectivityResourcesOverlayCometOverride
