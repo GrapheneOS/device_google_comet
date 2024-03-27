@@ -320,7 +320,7 @@ PRODUCT_PRODUCT_PROPERTIES += ro.odm.build.media_performance_class=34
 
 # OIS with system imu
 PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.camera.ois_with_system_imu=false
+    persist.vendor.camera.ois_with_system_imu=true
 
 # Haptics
 # Placeholders for updates later, need to update:
