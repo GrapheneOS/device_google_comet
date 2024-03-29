@@ -68,6 +68,12 @@ on property:vendor.thermal.link_ready=1
     chown system system /dev/thermal/tz-by-name/charger_therm/trip_point_0_hyst
     chown system system /dev/thermal/tz-by-name/batoilo2/trip_point_0_temp
     chown system system /dev/thermal/tz-by-name/batoilo2/trip_point_0_hyst
+    chown system system /dev/thermal/tz-by-name/gnss_tcxo_therm/trip_point_0_temp
+    chown system system /dev/thermal/tz-by-name/gnss_tcxo_therm/trip_point_0_hyst
+    chown system system /dev/thermal/tz-by-name/modem_therm/trip_point_0_temp
+    chown system system /dev/thermal/tz-by-name/modem_therm/trip_point_0_hyst
+    chown system system /dev/thermal/tz-by-name/rffe_therm/trip_point_0_temp
+    chown system system /dev/thermal/tz-by-name/rffe_therm/trip_point_0_hyst
 
 # ODPM
 on early-boot && property:ro.boot.hardware.sku=GC15S
