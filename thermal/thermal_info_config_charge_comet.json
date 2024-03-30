@@ -3,26 +3,38 @@
     {
       "Name": "soc_therm",
       "Type": "UNKNOWN",
+      "HotThreshold": ["NaN", 34.29, "NaN", "NaN", "NaN", "NaN", "NaN"],
       "TempPath": "/dev/thermal/tz-by-name/soc_therm/tz_temp",
-      "Multiplier": 0.001
+      "Multiplier": 0.001,
+      "PollingDelay": 300000,
+      "PassiveDelay": 7000
     },
     {
       "Name": "rffe_therm",
       "Type": "UNKNOWN",
+      "HotThreshold": ["NaN", 35.07, "NaN", "NaN", "NaN", "NaN", "NaN"],
       "TempPath": "/dev/thermal/tz-by-name/rffe_therm/tz_temp",
-      "Multiplier": 0.001
+      "Multiplier": 0.001,
+      "PollingDelay": 300000,
+      "PassiveDelay": 7000
     },
     {
       "Name": "modem_therm",
       "Type": "UNKNOWN",
+      "HotThreshold": ["NaN", 33.31, "NaN", "NaN", "NaN", "NaN", "NaN"],
       "TempPath": "/dev/thermal/tz-by-name/modem_therm/tz_temp",
-      "Multiplier": 0.001
+      "Multiplier": 0.001,
+      "PollingDelay": 300000,
+      "PassiveDelay": 7000
     },
     {
       "Name": "gnss_tcxo_therm",
       "Type": "UNKNOWN",
+      "HotThreshold": ["NaN", 32.08, "NaN", "NaN", "NaN", "NaN", "NaN"],
       "TempPath": "/dev/thermal/tz-by-name/gnss_tcxo_therm/tz_temp",
-      "Multiplier": 0.001
+      "Multiplier": 0.001,
+      "PollingDelay": 300000,
+      "PassiveDelay": 7000
     },
     {
       "Name": "usb_conn_therm",
@@ -98,30 +110,108 @@
       "Multiplier": 0.001
     },
     {
-      "Name": "VIRTUAL-SKIN-CHARGE",
+      "Name": "thb_hda",
       "Type": "UNKNOWN",
-      "Version": "0.1",
+      "Multiplier": 1
+    },
+    {
+      "Name": "WLC_CHECK",
+      "Type": "UNKNOWN",
+      "Hidden": true,
       "VirtualSensor": true,
-      "TriggerSensor": "charger_therm",
+      "Formula": "COUNT_THRESHOLD",
+      "Combination": ["thb_hda", "thb_hda"],
+      "Coefficient": [1, -51],
+      "Multiplier": 1
+    },
+    {
+      "Name": "IS_WLC",
+      "Type": "UNKNOWN",
+      "VirtualSensor": true,
+      "Formula": "COUNT_THRESHOLD",
+      "Combination": ["WLC_CHECK"],
+      "Coefficient": [2],
+      "Multiplier": 1
+    },
+    {
+      "Name": "NO_WLC",
+      "Type": "UNKNOWN",
+      "Hidden": true,
+      "VirtualSensor": true,
+      "Formula": "COUNT_THRESHOLD",
+      "Combination": ["WLC_CHECK"],
+      "Coefficient": [-2],
+      "Multiplier": 1
+    },
+    {
+      "Name": "VIRTUAL-SKIN-CHARGE-WLC-EQ",
+      "Type": "UNKNOWN",
+      "Hidden": true,
+      "VirtualSensor": true,
       "Formula": "WEIGHTED_AVG",
-      "Combination": ["VIRTUAL-SKIN-CHARGE-OPEN", "VIRTUAL-SKIN-CHARGE-CLOSE"],
+      "Combination": ["rffe_therm", "charger_therm", "gnss_tcxo_therm"],
+      "Coefficient": [0.588, 0.066, 0.306],
+      "Offset": 787,
+      "Multiplier": 0.001
+    },
+    {
+      "Name": "VIRTUAL-SKIN-CHARGE-WIRED-OPEN",
+      "Type": "UNKNOWN",
+      "Hidden": true,
+      "VirtualSensor": true,
+      "Formula": "WEIGHTED_AVG",
+      "Combination": ["soc_therm", "rffe_therm", "modem_therm", "gnss_tcxo_therm"],
+      "Coefficient": [0.119, 0.103, 0.481, 0.288],
+      "Offset": -203,
+      "Multiplier": 0.001
+    },
+    {
+      "Name": "VIRTUAL-SKIN-CHARGE-WIRED-CLOSE",
+      "Type": "UNKNOWN",
+      "Hidden": true,
+      "VirtualSensor": true,
+      "Formula": "WEIGHTED_AVG",
+      "Combination": ["soc_therm", "rffe_therm", "modem_therm"],
+      "Coefficient": [0.223, 0.175, 0.493],
+      "Offset": 2631,
+      "Multiplier": 0.001
+    },
+    {
+      "Name": "VIRTUAL-SKIN-CHARGE-WIRED-EQ",
+      "Type": "UNKNOWN",
+      "Hidden": true,
+      "VirtualSensor": true,
+      "Formula": "WEIGHTED_AVG",
+      "Combination": ["VIRTUAL-SKIN-CHARGE-WIRED-OPEN", "VIRTUAL-SKIN-CHARGE-WIRED-CLOSE"],
       "Coefficient": ["OPEN_WEIGHT", "CLOSE_WEIGHT"],
       "CoefficientType": ["SENSOR", "SENSOR"],
-      "HotThreshold": ["NaN", 34.0, 38.0, 41.0, 45.0, 46.5, 57.0],
+      "Multiplier": 0.001
+    },
+    {
+      "Name": "VIRTUAL-SKIN-CHARGE-WIRED",
+      "Type": "UNKNOWN",
+      "Version": "0.2",
+      "VirtualSensor": true,
+      "TriggerSensor": "charger_therm",
+      "Formula": "MAXIMUM",
+      "Combination": ["VIRTUAL-SKIN-CHARGE-WIRED-EQ"],
+      "Coefficient": ["NO_WLC"],
+      "CoefficientType": ["SENSOR"],
+      "HotThreshold": ["NAN", 34.0, 38.0, 41.0, 45.0, 46.5, 57.0],
       "HotHysteresis": [0.0, 1.9, 3.9, 2.9, 3.9, 1.4, 1.9],
       "Multiplier": 0.001,
       "PollingDelay": 300000,
       "PassiveDelay": 7000,
       "PIDInfo": {
-        "K_Po": ["NaN", "NaN", 119, "NaN", "NaN", "NaN", "NaN"],
-        "K_Pu": ["NaN", "NaN", 119, "NaN", "NaN", "NaN", "NaN"],
-        "K_I": ["NaN", "NaN", 25, "NaN", "NaN", "NaN", "NaN"],
-        "K_D": ["NaN", "NaN", 0, "NaN", "NaN", "NaN", "NaN"],
-        "I_Max": ["NaN", "NaN", 1302, "NaN", "NaN", "NaN", "NaN"],
-        "S_Power": ["NaN", "NaN", 2527, "NaN", "NaN", "NaN", "NaN"],
-        "MinAllocPower": ["NaN", "NaN", 0, "NaN", "NaN", "NaN", "NaN"],
-        "MaxAllocPower": ["NaN", "NaN", 6219, "NaN", "NaN", "NaN", "NaN"],
-        "I_Cutoff": ["NaN", "NaN", 6, "NaN", "NaN", "NaN", "NaN"],
+        "K_Po": ["NAN", "NAN", 119, "NAN", "NAN", "NAN", "NAN"],
+        "K_Pu": ["NAN", "NAN", 119, "NAN", "NAN", "NAN", "NAN"],
+        "K_I": ["NAN", "NAN", 25, "NAN", "NAN", "NAN", "NAN"],
+        "K_D": ["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
+        "I_Max": ["NAN", "NAN", 1302, "NAN", "NAN", "NAN", "NAN"],
+        "S_Power": ["NAN", "NAN", 2527, "NAN", "NAN", "NAN", "NAN"],
+        "MinAllocPower": ["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
+        "MaxAllocPower": ["NAN", "NAN", 6219, "NAN", "NAN", "NAN", "NAN"],
+        "I_Cutoff": ["NAN", "NAN", 6, "NAN", "NAN", "NAN", "NAN"],
         "I_Default": 1302
       },
       "ExcludedPowerInfo": [
@@ -138,6 +228,50 @@
           "MaxThrottleStep": 1,
           "CdevCeiling": [0, 25, 25, 25, 26, 26, 26],
           "LimitInfo": [0, 0, 1, 1, 1, 26, 26]
+        }
+      ]
+    },
+    {
+      "Name": "VIRTUAL-SKIN-CHARGE-PERSIST",
+      "Type": "UNKNOWN",
+      "Version": "2.0",
+      "VirtualSensor": true,
+      "TriggerSensor": ["soc_therm", "rffe_therm", "charger_therm", "modem_therm", "gnss_tcxo_therm"],
+      "Formula": "MAXIMUM",
+      "Combination":["VIRTUAL-SKIN-CHARGE-WLC-EQ", "VIRTUAL-SKIN-CHARGE-WIRED-EQ"],
+      "Coefficient":["IS_WLC", "NO_WLC"],
+      "CoefficientType": ["SENSOR", "SENSOR"],
+      "HotThreshold": ["NaN", 35.0, 41.0, 45.0, 47.0, 51.0, 57.0],
+      "HotHysteresis": [0.0, 1.9, 1.9, 3.9, 1.9, 1.9, 1.9],
+      "Multiplier": 0.001,
+      "PollingDelay": 300000,
+      "PassiveDelay": 7000,
+      "PIDInfo": {
+        "K_Po": ["NaN", "NaN", 213, "NaN", "NaN", "NaN", "NaN"],
+        "K_Pu": ["NaN", "NaN", 213, "NaN", "NaN", "NaN", "NaN"],
+        "K_I": ["NaN", "NaN", 27, "NaN", "NaN", "NaN", "NaN"],
+        "K_D": ["NaN", "NaN", 0, "NaN", "NaN", "NaN", "NaN"],
+        "I_Max": ["NaN", "NaN", 1383, "NaN", "NaN", "NaN", "NaN"],
+        "S_Power": ["NaN", "NaN", 2383, "NaN", "NaN", "NaN", "NaN"],
+        "MinAllocPower": ["NaN", "NaN", 0, "NaN", "NaN", "NaN", "NaN"],
+        "MaxAllocPower": ["NaN", "NaN", 8022, "NaN", "NaN", "NaN", "NaN"],
+        "I_Cutoff": ["NaN", "NaN", 8, "NaN", "NaN", "NaN", "NaN"],
+        "I_Default": 1383
+      },
+      "ExcludedPowerInfo": [
+        {
+          "PowerRail": "PARTIAL_SYSTEM_POWER",
+          "PowerWeight": [0.21, 0.21, 0.21, 0.21, 0.42, 0.42, 0.42]
+        }
+      ],
+      "BindedCdevInfo": [
+        {
+          "CdevRequest": "chg_mdis",
+          "CdevWeightForPID": [1, 1, 1, 1, 1, 1, 1],
+          "MaxReleaseStep": 1,
+          "MaxThrottleStep": 1,
+          "CdevCeiling": [0, 25, 25, 26, 26, 26, 26],
+          "LimitInfo": [0, 0, 1, 1, 26, 26, 26]
         }
       ]
     },
