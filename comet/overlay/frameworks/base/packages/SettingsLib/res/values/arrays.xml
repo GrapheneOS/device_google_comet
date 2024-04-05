@@ -22,10 +22,10 @@
     <!-- NOTE: if you change this, you must also add the corresponding scale key and lookup table to
      frameworks/base/core/java/android/content/res/FontScaleConverterFactory.java -->
     <string-array name="entryvalues_font_size" translatable="false">
-        <item>0.85</item>
         <item>1.0</item>
+        <item>1.05</item>
         <item>1.1</item>
-        <item>1.15</item>
+        <item>1.20</item>
         <item>1.30</item>
         <item>1.50</item>
         <item>1.80</item>
