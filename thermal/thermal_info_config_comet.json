@@ -897,9 +897,9 @@
             "Hidden": true,
             "VirtualSensor": true,
             "Formula": "WEIGHTED_AVG",
-            "Combination": ["usb_conn_therm"],
-            "Coefficient": [0.561],
-            "Offset": 10729,
+            "Combination": ["display_therm", "maxfg_secondary"],
+            "Coefficient": [0.516, 0.535],
+            "Offset": -26,
             "Multiplier": 0.001
         },
         {
@@ -908,9 +908,9 @@
             "Hidden": true,
             "VirtualSensor": true,
             "Formula": "WEIGHTED_AVG",
-            "Combination": ["soc_therm"],
-            "Coefficient": [0.799],
-            "Offset": 1620,
+            "Combination": ["usb_conn_therm", "maxfg_base"],
+            "Coefficient": [0.045, 0.849],
+            "Offset": 2975,
             "Multiplier": 0.001
         },
         {
