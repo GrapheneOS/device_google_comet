@@ -849,6 +849,7 @@
             "Name": "USB-MINUS-CHARGER",
             "Type": "UNKNOWN",
             "VirtualSensor": true,
+            "Hidden": true,
             "TriggerSensor": "usb_conn_therm",
             "Formula": "WEIGHTED_AVG",
             "Combination": ["usb_conn_therm", "charger_therm"],
