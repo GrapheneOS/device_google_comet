@@ -240,7 +240,7 @@
         "2048 1280 1280",
         "1280",
         "1100",
-        "1100 1078 1024"
+        "1100 1024 1100"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -251,7 +251,7 @@
       "Values": [
         "1280",
         "1100",
-        "1100 1078 1024"
+        "1280 1100 1055"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -1729,7 +1729,7 @@
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CPUDVFSHeadroom",
       "Duration": 0,
-      "Value": "1100 1078 1024"
+      "Value": "1100"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -1805,12 +1805,6 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
-      "Node": "CPUDVFSHeadroom",
-      "Duration": 0,
-      "Value": "1280"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "PowerHALCameraRunning",
       "Duration": 0,
       "Value": "1"
@@ -1880,6 +1874,18 @@
       "Node": "EM_Profile",
       "Duration": 0,
       "Value": "cam2"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "CPUUtilThreshold",
+      "Duration": 0,
+      "Value": "1100 1024 1100"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "CPUDVFSHeadroom",
+      "Duration": 0,
+      "Value": "1280 1100 1055"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
@@ -2465,72 +2471,6 @@
       "Value": "419000"
     },
     {
-      "PowerHint": "GAME",
-      "Node": "VIRTUAL-SKIN-CPU-LIGHT-ODPM",
-      "Duration": 0,
-      "Value": "game"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "VIRTUAL-SKIN-CPU-MID",
-      "Duration": 0,
-      "Value": "game"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "VIRTUAL-SKIN-CPU-HIGH",
-      "Duration": 0,
-      "Value": "game"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "CPUDVFSHeadroom",
-      "Duration": 0,
-      "Value": "1100"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "CPUTaperedDVFSHeadroomEnable",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "CPULittleClusterDownRateLimitUs",
-      "Duration": 0,
-      "Value": "500"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "CPUMidClusterDownRateLimitUs",
-      "Duration": 0,
-      "Value": "3000"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "CPUBigClusterDownRateLimitUs",
-      "Duration": 0,
-      "Value": "3000"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "TAPreferIdle",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "FGPreferIdle",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "NPITaskPacking",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
       "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
       "Node": "PMU_POLL",
       "Duration": 0,
@@ -2635,6 +2575,72 @@
     {
       "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
       "Node": "Dex2oatThreads",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "PMU_POLL",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "VIRTUAL-SKIN-CPU-LIGHT-ODPM",
+      "Duration": 0,
+      "Value": "game"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "VIRTUAL-SKIN-CPU-MID",
+      "Duration": 0,
+      "Value": "game"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "VIRTUAL-SKIN-CPU-HIGH",
+      "Duration": 0,
+      "Value": "game"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUTaperedDVFSHeadroomEnable",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPULittleClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "500"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUMidClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "3000"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUBigClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "3000"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "TAPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "FGPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "NPITaskPacking",
       "Duration": 0,
       "Value": "1"
     },
