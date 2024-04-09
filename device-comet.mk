@@ -126,6 +126,10 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml \
 	device/google/comet/nfc/libse-gto-hal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libse-gto-hal.conf
 
+#Thermal VT estimator
+PRODUCT_PACKAGES += \
+    libthermal_tflite_wrapper
+
 # Thermal Config
 ifeq (,$(TARGET_VENDOR_THERMAL_CONFIG_PATH))
 TARGET_VENDOR_THERMAL_CONFIG_PATH := device/google/comet/thermal
@@ -135,6 +139,7 @@ PRODUCT_COPY_FILES += \
 	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/thermal_info_config_charge_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_charge.json \
 	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/thermal_info_config_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
 	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/thermal_info_config_backup_comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_backup.json \
+	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/vt_estimation_model_comet.tflite:$(TARGET_COPY_OUT_VENDOR)/etc/vt_estimation_model.tflite \
 
 PRODUCT_PACKAGES += \
 	init_thermal_config
