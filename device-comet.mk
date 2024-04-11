@@ -182,7 +182,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Bluetotoh Auto On feature
 PRODUCT_PRODUCT_PROPERTIES +=\
-    bluetooth.server.automatic_turn_on=true
+    bluetooth.server.automatic_turn_on=false
 
 # Bluetooth AAC VBR
 PRODUCT_PRODUCT_PROPERTIES += \
