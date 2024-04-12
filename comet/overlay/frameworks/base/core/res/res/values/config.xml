@@ -288,5 +288,5 @@
     <!-- Corners radius for activity presented the letterbox mode. Values < 0 enable rounded
          corners with radius equal to min between device bottom corner radii. Default 0 value turns
          off rounded corners logic in LetterboxUiController. Values are in pixel. -->
-    <integer name="config_letterboxActivityCornersRadius">88</integer>
+    <integer name="config_letterboxActivityCornersRadius">64</integer>
 </resources>
