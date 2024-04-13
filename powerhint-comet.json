@@ -25,58 +25,6 @@
       "ResetOnInit": true
     },
     {
-      "Name": "MemFreq",
-      "Path": "/sys/devices/platform/17000010.devfreq_mif/devfreq/17000010.devfreq_mif/min_freq",
-      "Values": [
-        "9999999",
-        "1352000",
-        "1014000",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "IntFreq",
-      "Path": "/sys/devices/platform/17000020.devfreq_int/devfreq/17000020.devfreq_int/min_freq",
-      "Values": [
-        "9999999",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "DsuMinFreq",
-      "Path": "/sys/devices/platform/17000090.devfreq_dsu/devfreq/17000090.devfreq_dsu/min_freq",
-      "Values": [
-        "9999999",
-        "1800000",
-        "1548000",
-        "820000",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "DsuMaxFreq",
-      "Path": "/sys/devices/platform/17000090.devfreq_dsu/devfreq/17000090.devfreq_dsu/max_freq",
-      "Values": [
-        "9999999"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": true
-    },
-    {
-      "Name": "BCIMinFreq",
-      "Path": "/sys/devices/platform/170000a0.devfreq_bci/devfreq/170000a0.devfreq_bci/min_freq",
-      "Values": [
-        "9999999",
-        "1401000",
-        "700000",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
       "Name": "CPULittleClusterMaxFreq",
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
       "Values": [
@@ -287,6 +235,16 @@
       "ResetOnInit": true
     },
     {
+      "Name": "CPUSkipMask",
+      "Path": "/proc/vendor_sched/cpu_skip_mask",
+      "Values": [
+        "0x0",
+        "0x80"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "BGUClampMaxBoost",
       "Path": "/proc/vendor_sched/groups/bg/uclamp_max",
       "Values": [
@@ -301,6 +259,7 @@
       "Path": "/proc/vendor_sched/groups/cam/uclamp_min",
       "Values": [
         "765",
+        "250",
         "0"
       ],
       "ResetOnInit": true
@@ -368,9 +327,10 @@
         "0-3",
         "4-7",
         "4-6",
-        "0-6",
-        "0-7"
+        "0-7",
+        "0-6"
       ],
+      "DefaultIndex": 3,
       "ResetOnInit": true
     },
     {
@@ -487,36 +447,6 @@
         "0"
       ],
       "Type": "Property",
-      "ResetOnInit": true
-    },
-    {
-      "Name": "INTCAMFreq",
-      "Path": "/sys/devices/platform/17000030.devfreq_intcam/devfreq/17000030.devfreq_intcam/min_freq",
-      "Values": [
-        "664000",
-        "233000",
-        "67000"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "TNRMaxFreq",
-      "Path": "/sys/devices/platform/17000060.devfreq_tnr/devfreq/17000060.devfreq_tnr/max_freq",
-      "Values": [
-        "664000",
-        "111000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": true
-    },
-    {
-      "Name": "TNRFreq",
-      "Path": "/sys/devices/platform/17000060.devfreq_tnr/devfreq/17000060.devfreq_tnr/min_freq",
-      "Values": [
-        "664000",
-        "233000",
-        "67000"
-      ],
       "ResetOnInit": true
     },
     {
@@ -804,6 +734,89 @@
       "Values": [
         "20 80",
         "20 40"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "MemFreq",
+      "Path": "/sys/devices/platform/17000010.devfreq_mif/devfreq/17000010.devfreq_mif/min_freq",
+      "Values": [
+        "9999999",
+        "1539000",
+        "1352000",
+        "1014000",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "IntFreq",
+      "Path": "/sys/devices/platform/17000020.devfreq_int/devfreq/17000020.devfreq_int/min_freq",
+      "Values": [
+        "9999999",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "DsuMinFreq",
+      "Path": "/sys/devices/platform/17000090.devfreq_dsu/devfreq/17000090.devfreq_dsu/min_freq",
+      "Values": [
+        "9999999",
+        "1800000",
+        "1548000",
+        "820000",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "DsuMaxFreq",
+      "Path": "/sys/devices/platform/17000090.devfreq_dsu/devfreq/17000090.devfreq_dsu/max_freq",
+      "Values": [
+        "9999999"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "BCIMinFreq",
+      "Path": "/sys/devices/platform/170000a0.devfreq_bci/devfreq/170000a0.devfreq_bci/min_freq",
+      "Values": [
+        "9999999",
+        "1401000",
+        "700000",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "INTCAMFreq",
+      "Path": "/sys/devices/platform/17000030.devfreq_intcam/devfreq/17000030.devfreq_intcam/min_freq",
+      "Values": [
+        "664000",
+        "233000",
+        "67000"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TNRMaxFreq",
+      "Path": "/sys/devices/platform/17000060.devfreq_tnr/devfreq/17000060.devfreq_tnr/max_freq",
+      "Values": [
+        "664000",
+        "111000"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TNRFreq",
+      "Path": "/sys/devices/platform/17000060.devfreq_tnr/devfreq/17000060.devfreq_tnr/min_freq",
+      "Values": [
+        "664000",
+        "233000",
+        "67000"
       ],
       "ResetOnInit": true
     }
@@ -1290,6 +1303,30 @@
       "Node": "PMU_POLL",
       "Duration": 3000,
       "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_THERMAL_SEVERE_BOOST",
+      "Node": "CDPreferHighCap",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_THERMAL_SEVERE_BOOST",
+      "Node": "CAMUClampBoost",
+      "Duration": 0,
+      "Value": "250"
+    },
+    {
+      "PowerHint": "CAMERA_THERMAL_SEVERE_BOOST",
+      "Node": "CPUSkipMask",
+      "Duration": 0,
+      "Value": "0x0"
+    },
+    {
+      "PowerHint": "CAMERA_THERMAL_SEVERE_BOOST",
+      "Node": "CDCpuset",
+      "Duration": 0,
+      "Value": "0-7"
     },
     {
       "PowerHint": "CAMERA_SHOT",
@@ -1785,12 +1822,6 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
-      "Node": "CDPreferIdle",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
       "Value": "1548000"
@@ -1799,7 +1830,7 @@
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "MemFreq",
       "Duration": 0,
-      "Value": "1352000"
+      "Value": "1539000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -1839,6 +1870,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "CDCpuset",
+      "Duration": 0,
+      "Value": "0-6"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "VIRTUAL-SKIN-CPU-MID",
       "Duration": 0,
       "Value": "camera"
@@ -1854,6 +1891,12 @@
       "Node": "BCIMinFreq",
       "Duration": 0,
       "Value": "700000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "CPUSkipMask",
+      "Duration": 0,
+      "Value": "0x80"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
@@ -1953,13 +1996,13 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
-      "Node": "CDPreferIdle",
+      "Node": "TAPreferHighCap",
       "Duration": 0,
       "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
-      "Node": "TAPreferHighCap",
+      "Node": "TAPreferIdle",
       "Duration": 0,
       "Value": "0"
     },
@@ -1991,7 +2034,7 @@
       "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "CDCpuset",
       "Duration": 0,
-      "Value": "0-7"
+      "Value": "0-6"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
@@ -2004,6 +2047,12 @@
       "Node": "VIRTUAL-SKIN-CPU-HIGH",
       "Duration": 0,
       "Value": "camera"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "CPUSkipMask",
+      "Duration": 0,
+      "Value": "0x80"
     },
     {
       "PowerHint": "CAMERA_STREAMING_LOW",
