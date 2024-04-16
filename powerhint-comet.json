@@ -312,6 +312,16 @@
       "ResetOnInit": true
     },
     {
+      "Name": "SystemCpuset",
+      "Path": "/dev/cpuset/system/cpus",
+      "Values": [
+        "0-7",
+        "0-6"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "FGCpuset",
       "Path": "/dev/cpuset/foreground/cpus",
       "Values": [
@@ -382,6 +392,33 @@
         "0"
       ],
       "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TAPreferredIdleMaskHigh",
+      "Path": "/proc/vendor_sched/groups/ta/preferred_idle_mask_high",
+      "Values": [
+        "0xff",
+        "0x7f"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TAPreferredIdleMaskMid",
+      "Path": "/proc/vendor_sched/groups/ta/preferred_idle_mask_mid",
+      "Values": [
+        "0xff",
+        "0x7f"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TAPreferredIdleMaskLow",
+      "Path": "/proc/vendor_sched/groups/ta/preferred_idle_mask_low",
+      "Values": [
+        "0xff",
+        "0x7f"
+      ],
       "ResetOnInit": true
     },
     {
@@ -974,6 +1011,18 @@
       "Node": "TAPreferIdle",
       "Duration": 5000,
       "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TAPreferredIdleMaskHigh",
+      "Duration": 5000,
+      "Value": "0xff"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TAPreferredIdleMaskMid",
+      "Duration": 5000,
+      "Value": "0xff"
     },
     {
       "PowerHint": "LAUNCH",
@@ -2542,6 +2591,12 @@
       "Value": "DISPLAY_UPDATE_IMMINENT"
     },
     {
+      "PowerHint": "DISPLAY_IDLE",
+      "Node": "SystemCpuset",
+      "Duration": 0,
+      "Value": "0-6"
+    },
+    {
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
       "Node": "CPULittleClusterDownRateLimitUs",
       "Duration": 50,
@@ -3040,6 +3095,7 @@
       "HBoostOffMissedCycles": 5,
       "HBoostPidPuFactor": 0.5,
       "HBoostUclampMin": 722,
+      "JunkCheckTimeFactor": 1.2,
       "LowFrameRateThreshold": 25,
       "MaxRecordsNum": 300
     },
@@ -3072,6 +3128,7 @@
       "HBoostOffMissedCycles": 5,
       "HBoostPidPuFactor": 0.5,
       "HBoostUclampMin": 722,
+      "JunkCheckTimeFactor": 1.2,
       "LowFrameRateThreshold": 25,
       "MaxRecordsNum": 300
     },
@@ -3104,6 +3161,7 @@
       "HBoostOffMissedCycles": 5,
       "HBoostPidPuFactor": 0.5,
       "HBoostUclampMin": 722,
+      "JunkCheckTimeFactor": 1.2,
       "LowFrameRateThreshold": 25,
       "MaxRecordsNum": 300
     },
