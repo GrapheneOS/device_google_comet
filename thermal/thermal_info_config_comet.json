@@ -709,18 +709,21 @@
             "Type": "UNKNOWN",
             "VirtualSensor": true,
             "Formula": "COUNT_THRESHOLD",
+            "StepRatio": 0.2,
             "Combination": ["WLC_CHECK"],
             "Coefficient": [2],
-            "Multiplier": 1
+            "Multiplier": 1,
+            "PassiveDelay": 7000
         },
         {
             "Name": "NO_WLC",
             "Type": "UNKNOWN",
             "Hidden": true,
             "VirtualSensor": true,
-            "Formula": "COUNT_THRESHOLD",
-            "Combination": ["WLC_CHECK"],
-            "Coefficient": [-2],
+            "Formula": "WEIGHTED_AVG",
+            "Combination": ["1", "IS_WLC"],
+            "CombinationType": ["CONSTANT", "SENSOR"],
+            "Coefficient": [1.0, -1.0],
             "Multiplier": 1
         },
         {
@@ -817,7 +820,7 @@
             "Version": "2.0",
             "VirtualSensor": true,
             "TriggerSensor": ["soc_therm", "rffe_therm", "charger_therm", "modem_therm", "gnss_tcxo_therm"],
-            "Formula": "MAXIMUM",
+            "Formula": "WEIGHTED_AVG",
             "Combination":["VIRTUAL-SKIN-CHARGE-WLC-EQ", "VIRTUAL-SKIN-CHARGE-WIRED-EQ"],
             "Coefficient":["IS_WLC", "NO_WLC"],
             "CoefficientType": ["SENSOR", "SENSOR"],
