@@ -102,6 +102,7 @@ on fs
     chown system system /sys/devices/platform/exynos-drm/secondary-panel/panel_idle
     chown system system /sys/devices/platform/exynos-drm/secondary-panel/panel_need_handle_idle_exit
     chown system system /sys/devices/platform/exynos-drm/secondary-panel/op_hz
+    chown system system /sys/devices/platform/exynos-drm/secondary-panel/power_state
     chown system system /sys/class/dqe1/atc/ambient_light
     chown system system /sys/class/dqe1/atc/st
     chown system system /sys/class/dqe1/atc/en
