@@ -246,20 +246,6 @@
             "Multiplier": 1
         },
         {
-            "Name": "STATS-UPDATOR",
-            "Type": "UNKNOWN",
-            "VirtualSensor": true,
-            "Hidden": true,
-            "TriggerSensor": ["soc_therm", "rffe_therm", "charger_therm", "modem_therm", "gnss_tcxo_therm"],
-            "Formula": "WEIGHTED_AVG",
-            "Combination": ["VIRTUAL-SKIN-MODEL", "VIRTUAL-SKIN-LEGACY", "VIRTUAL-SKIN-MODEL-LEGACY-DIFF"],
-            "Coefficient": [0.0, 0.0, 0.0],
-            "Multiplier": 1,
-            "SendPowerHint": true,
-            "PollingDelay": 300000,
-            "PassiveDelay": 7000
-        },
-        {
             "Name": "VIRTUAL-SKIN",
             "Type": "SKIN",
             "Version": "2.1",
@@ -867,17 +853,50 @@
             ]
         },
         {
-            "Name": "VIRTUAL-SKIN-SPEAKER",
+            "Name": "VIRTUAL-SKIN-SPEAKER-LEGACY",
             "Type": "UNKNOWN",
             "Version": "0.1",
+            "Hidden": true,
             "VirtualSensor": true,
-            "TriggerSensor": "usb_conn_therm",
             "Formula": "WEIGHTED_AVG",
             "Combination": ["usb_conn_therm", "maxfg_base"],
             "Coefficient": [0.89, 0.01],
+            "Offset": 8426,
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "VIRTUAL-SKIN-SPEAKER-MODEL",
+            "Type": "UNKNOWN",
+            "Version": "1.0",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "ModelPath": "vt_speaker_estimation_model.tflite",
+            "Formula": "USE_ML_MODEL",
+            "Combination": ["soc_therm", "rffe_therm", "charger_therm", "usb_conn_therm", "modem_therm", "inner_display_therm", "display_therm",  "gnss_tcxo_therm", "maxfg_base", "maxfg_secondary", "inner_brightness"],
+            "Multiplier": 0.001,
+            "PreviousSampleCount": 3
+        },
+        {
+            "Name": "VIRTUAL-SKIN-SPEAKER-MODEL-LEGACY-DIFF",
+            "Type": "UNKNOWN",
+            "VirtualSensor": true,
+            "Hidden": true,
+            "Formula": "WEIGHTED_AVG",
+            "Combination": ["VIRTUAL-SKIN-SPEAKER-MODEL", "VIRTUAL-SKIN-SPEAKER-LEGACY"],
+            "Coefficient": [1.0, -1.0],
+            "Multiplier": 1
+        },
+        {
+            "Name": "VIRTUAL-SKIN-SPEAKER",
+            "Type": "UNKNOWN",
+            "Version": "1.0",
+            "VirtualSensor": true,
+            "TriggerSensor": "usb_conn_therm",
+            "Formula": "MAXIMUM",
+            "Combination": ["VIRTUAL-SKIN-SPEAKER-MODEL"],
+            "Coefficient": [1.0],
             "HotThreshold": ["NAN", 37.0, "NAN", "NAN", "NAN", "NAN", "NAN"],
             "HotHysteresis": [0.0, 1.9, 0.0, 0.0, 0.0, 0.0, 0.0],
-            "Offset": 8426,
             "Multiplier": 0.001,
             "PollingDelay": 300000,
             "PassiveDelay": 7000,
@@ -992,6 +1011,21 @@
             "Type": "NPU",
             "HotThreshold": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"],
             "Multiplier": 0.001
+        },
+        {
+            "Name": "STATS-UPDATOR",
+            "Type": "UNKNOWN",
+            "VirtualSensor": true,
+            "Hidden": true,
+            "TriggerSensor": ["soc_therm", "rffe_therm", "charger_therm", "modem_therm", "gnss_tcxo_therm", "usb_conn_therm"],
+            "Formula": "WEIGHTED_AVG",
+            "Combination": ["VIRTUAL-SKIN-MODEL", "VIRTUAL-SKIN-LEGACY", "VIRTUAL-SKIN-MODEL-LEGACY-DIFF",
+                            "VIRTUAL-SKIN-SPEAKER-MODEL", "VIRTUAL-SKIN-SPEAKER-LEGACY", "VIRTUAL-SKIN-SPEAKER-MODEL-LEGACY-DIFF"],
+            "Coefficient": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+            "Multiplier": 1,
+            "SendPowerHint": true,
+            "PollingDelay": 300000,
+            "PassiveDelay": 7000
         }
     ],
     "CoolingDevices": [
@@ -1116,8 +1150,8 @@
                     ]
                 },
                 {
-                    "Name": "VIRTUAL-SKIN-SPEAKER",
-                    "Thresholds": [35, 37]
+                    "Name": "VIRTUAL-SKIN-SPEAKER-MODEL",
+                    "Thresholds": [0, 37, 42, 47, 57, 100]
                 }
             ],
             "Abnormality": {
@@ -1132,8 +1166,16 @@
                             "TempRange": [0.0, 57.0]
                         },
                         {
+                            "Monitor": ["VIRTUAL-SKIN-SPEAKER-MODEL"],
+                            "TempRange": [0.0, 57.0]
+                        },
+                        {
                             "Monitor": ["VIRTUAL-SKIN-MODEL-LEGACY-DIFF"],
                             "TempRange": [-7000, 7000]
+                        },
+                        {
+                            "Monitor": ["VIRTUAL-SKIN-SPEAKER-MODEL-LEGACY-DIFF"],
+                            "TempRange": [-15000, 15000]
                         }
                     ]
                 },
