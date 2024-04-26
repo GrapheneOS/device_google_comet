@@ -15,8 +15,10 @@
 #
 
 TARGET_KERNEL_DIR ?= device/google/comet-kernel
-TARGET_BOARD_KERNEL_HEADERS := device/google/comet-kernel/kernel-headers
+TARGET_BOARD_KERNEL_HEADERS ?= device/google/comet-kernel/kernel-headers
 TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_RIGHT
+
+LOCAL_PATH := device/google/comet
 
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
     USE_UWBFIELDTESTQM := true
