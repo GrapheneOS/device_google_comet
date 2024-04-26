@@ -44,7 +44,6 @@
             "Name": "soc_therm",
             "Type": "UNKNOWN",
             "HotThreshold": ["NaN", 34.29, "NaN", "NaN", "NaN", "NaN", "NaN"],
-            "TempPath": "/dev/thermal/tz-by-name/soc_therm/tz_temp",
             "Multiplier": 0.001,
             "PollingDelay": 300000,
             "PassiveDelay": 7000
@@ -53,7 +52,6 @@
             "Name": "rffe_therm",
             "Type": "UNKNOWN",
             "HotThreshold": ["NaN", 35.07, "NaN", "NaN", "NaN", "NaN", "NaN"],
-            "TempPath": "/dev/thermal/tz-by-name/rffe_therm/tz_temp",
             "Multiplier": 0.001,
             "PollingDelay": 300000,
             "PassiveDelay": 7000
@@ -62,7 +60,6 @@
             "Name": "modem_therm",
             "Type": "UNKNOWN",
             "HotThreshold": ["NaN", 33.31, "NaN", "NaN", "NaN", "NaN", "NaN"],
-            "TempPath": "/dev/thermal/tz-by-name/modem_therm/tz_temp",
             "Multiplier": 0.001,
             "PollingDelay": 300000,
             "PassiveDelay": 7000
@@ -71,7 +68,6 @@
             "Name": "gnss_tcxo_therm",
             "Type": "UNKNOWN",
             "HotThreshold": ["NaN", 32.08, "NaN", "NaN", "NaN", "NaN", "NaN"],
-            "TempPath": "/dev/thermal/tz-by-name/gnss_tcxo_therm/tz_temp",
             "Multiplier": 0.001,
             "PollingDelay": 300000,
             "PassiveDelay": 7000
@@ -80,7 +76,6 @@
             "Name": "usb_conn_therm",
             "Type": "UNKNOWN",
             "HotThreshold": ["NAN", 30.79, "NAN", "NAN", "NAN", "NAN", "NAN"],
-            "TempPath": "/dev/thermal/tz-by-name/usb_conn_therm/tz_temp",
             "Multiplier": 0.001,
             "PollingDelay": 300000,
             "PassiveDelay": 7000
@@ -89,7 +84,6 @@
             "Name": "charger_therm",
             "Type": "UNKNOWN",
             "HotThreshold": ["NAN", 34.89, "NAN", "NAN", "NAN", "NAN", "NAN"],
-            "TempPath": "/dev/thermal/tz-by-name/charger_therm/tz_temp",
             "Multiplier": 0.001,
             "PollingDelay": 300000,
             "PassiveDelay": 7000
@@ -97,13 +91,11 @@
         {
             "Name": "inner_display_therm",
             "Type": "UNKNOWN",
-            "TempPath": "/dev/thermal/tz-by-name/inner_display_therm/tz_temp",
             "Multiplier": 0.001
         },
         {
             "Name": "display_therm",
             "Type": "UNKNOWN",
-            "TempPath": "/dev/thermal/tz-by-name/display_therm/tz_temp",
             "Multiplier": 0.001
         },
         {
