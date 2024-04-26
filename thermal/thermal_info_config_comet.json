@@ -229,14 +229,11 @@
             "Type":"UNKNOWN",
             "Version": "1.0",
             "VirtualSensor":true,
-            "Hidden": true,
             "ModelPath":"vt_estimation_model.tflite",
             "Formula": "USE_ML_MODEL",
             "Combination":["soc_therm", "rffe_therm", "charger_therm", "usb_conn_therm", "modem_therm", "inner_display_therm", "display_therm",  "gnss_tcxo_therm", "maxfg_base", "maxfg_secondary", "inner_brightness"],
             "Multiplier":0.001,
-            "PreviousSampleCount": 3,
-            "BackupSensor": "VIRTUAL-SKIN-LEGACY",
-            "ValidateInput": true
+            "PreviousSampleCount": 3
         },
         {
             "Name": "VIRTUAL-SKIN-MODEL-LEGACY-DIFF",
@@ -1136,7 +1133,7 @@
                         },
                         {
                             "Monitor": ["VIRTUAL-SKIN-MODEL-LEGACY-DIFF"],
-                            "TempRange": [-12000, 12000]
+                            "TempRange": [-7000, 7000]
                         }
                     ]
                 },
