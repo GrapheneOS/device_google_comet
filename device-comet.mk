@@ -14,8 +14,14 @@
 # limitations under the License.
 #
 
-TARGET_KERNEL_DIR ?= device/google/comet-kernel
-TARGET_BOARD_KERNEL_HEADERS := device/google/comet-kernel/kernel-headers
+ifdef RELEASE_GOOGLE_COMET_KERNEL_DIR
+TARGET_KERNEL_DIR ?= $(RELEASE_GOOGLE_COMET_KERNEL_DIR)
+TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_GOOGLE_COMET_KERNEL_DIR)/kernel-headers
+else
+TARGET_KERNEL_DIR ?= device/google/comet-kernels/6.1/24D1
+TARGET_BOARD_KERNEL_HEADERS ?= device/google/comet-kernels/6.1/24D1/kernel-headers
+endif
+
 TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_RIGHT
 
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
