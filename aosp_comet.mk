@@ -17,7 +17,7 @@
 TARGET_LINUX_KERNEL_VERSION := 6.1
 
 $(call inherit-product, device/google/zumapro/aosp_common.mk)
-$(call inherit-product, device/google/comet/device-comet.mk)
+$(call inherit-product, device/google/comet/comet_generic.mk)
 
 PRODUCT_NAME := aosp_comet
 PRODUCT_DEVICE := comet
