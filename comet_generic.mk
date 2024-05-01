@@ -15,3 +15,6 @@
 #
 
 $(call inherit-product, device/google/comet/device-comet.mk)
+
+# preloaded_nanoapps.json
+PRODUCT_SOONG_NAMESPACES += vendor/google_contexthub/devices/p24_common
