@@ -91,6 +91,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display Config
 PRODUCT_COPY_FILES += \
         device/google/comet/display/display_colordata_cal1.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_colordata_cal1.pb
+PRODUCT_PROPERTY_OVERRIDES += \
+	vendor.display.png.premultiplied=true
 
 # Coex Config
 PRODUCT_SOONG_NAMESPACES += device/google/comet/radio/coex
