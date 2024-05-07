@@ -35,6 +35,7 @@
     </feature>
     <feature name="RuntimeTuningDump" />
     <feature name="SoundDose" />
+    <feature name="MicrophoneCompensation" />
     <feature name="spatializer-offload" />
   </features>
 
@@ -114,10 +115,12 @@
     <enablement useCase="primary-capture" deviceInterface="microphones">
       <source>MIC</source>
       <source>CAMCORDER</source>
+      <source>VOICE_RECOGNITION</source>
     </enablement>
     <enablement useCase="primary-capture" deviceInterface="back-microphones">
       <source>MIC</source>
       <source>CAMCORDER</source>
+      <source>VOICE_RECOGNITION</source>
     </enablement>
   </spatialCapture>
 

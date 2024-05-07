@@ -49,7 +49,6 @@ include device/google/zumapro/device-shipping-common.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti_dual.mk
-include device/google/gs-common/touch/syna/predump_syna19.mk
 include device/google/gs-common/display/dump_second_display.mk
 
 # go/lyric-soong-variables
@@ -77,6 +76,7 @@ PRODUCT_COPY_FILES += \
 
 ifeq ($(filter factory_comet, $(TARGET_PRODUCT)),)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.xrr.version=2.1
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.blocking_zone.min_refresh_rate_by_nits=20:120,30:60,:1
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.headsup_ns=30000000
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.timeout_ns=500000000
 endif
