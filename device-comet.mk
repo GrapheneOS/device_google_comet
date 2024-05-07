@@ -47,7 +47,6 @@ include device/google/zumapro/device-shipping-common.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti_dual.mk
-include device/google/gs-common/touch/syna/predump_syna19.mk
 include device/google/gs-common/display/dump_second_display.mk
 
 # go/lyric-soong-variables
@@ -191,6 +190,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Bluetooth Super Wide Band
 PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.hfp.swb.supported=true
+
+# Support LE & Classic concurrent encryption (b/330704060)
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.ble.allow_enc_with_bredr=true
 
 # POF
 PRODUCT_PRODUCT_PROPERTIES += \
