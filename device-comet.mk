@@ -14,8 +14,25 @@
 # limitations under the License.
 #
 
-TARGET_KERNEL_DIR ?= device/google/comet-kernel
-TARGET_BOARD_KERNEL_HEADERS := device/google/comet-kernel/kernel-headers
+ifdef RELEASE_GOOGLE_COMET_RADIO_DIR
+RELEASE_GOOGLE_PRODUCT_RADIO_DIR := $(RELEASE_GOOGLE_COMET_RADIO_DIR)
+endif
+ifdef RELEASE_GOOGLE_COMET_RADIOCFG_DIR
+RELEASE_GOOGLE_PRODUCT_RADIOCFG_DIR := $(RELEASE_GOOGLE_COMET_RADIOCFG_DIR)
+endif
+RELEASE_GOOGLE_BOOTLOADER_COMET_DIR ?= 24D1# Keep this for pdk TODO: b/327119000
+RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/$(RELEASE_GOOGLE_BOOTLOADER_COMET_DIR)
+$(call soong_config_set,comet_bootloader,prebuilt_dir,$(RELEASE_GOOGLE_BOOTLOADER_COMET_DIR))
+
+
+ifdef RELEASE_GOOGLE_COMET_KERNEL_DIR
+TARGET_KERNEL_DIR ?= $(RELEASE_GOOGLE_COMET_KERNEL_DIR)
+TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_GOOGLE_COMET_KERNEL_DIR)/kernel-headers
+else
+TARGET_KERNEL_DIR ?= device/google/comet-kernels/6.1/24D1
+TARGET_BOARD_KERNEL_HEADERS ?= device/google/comet-kernels/6.1/24D1/kernel-headers
+endif
+
 TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_RIGHT
 
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -74,6 +91,7 @@ PRODUCT_COPY_FILES += \
 
 ifeq ($(filter factory_comet, $(TARGET_PRODUCT)),)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.xrr.version=2.1@202504:1.2@202404
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.blocking_zone.min_refresh_rate_by_nits=20:120,30:60,:1
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.headsup_ns=30000000
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.timeout_ns=500000000
 endif
