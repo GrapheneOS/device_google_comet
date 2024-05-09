@@ -19,7 +19,17 @@
 #include <string>
 
 namespace {
+constexpr std::string_view  kWingBoardHwId("0x00060603000100020000000000000000");
 using android::base::GetProperty;
+bool useThermalWingBoardConfig() {
+  const auto cdt_hwid = GetProperty("ro.boot.cdt_hwid", "");
+  if (cdt_hwid == kWingBoardHwId) {
+    LOG(INFO) << "Using wingboard thermal config as found cdt_hwid " << cdt_hwid;
+    return true;
+  }
+  return false;
+}
+
 bool useThermalBackupConfig() {
     const auto panel_drv = GetProperty("ro.boot.primary_panel_drv", "");
     const auto is_panel_available = (panel_drv.find("panel-google-ct3a") != std::string::npos) ||
@@ -39,11 +49,18 @@ bool useThermalBackupConfig() {
 }  // namespace
 
 int main() {
-    if (useThermalBackupConfig()) {
+    if (useThermalWingBoardConfig()) {
+        if (!android::base::SetProperty("vendor.thermal.config",
+                                        "thermal_info_config_wingboard.json")) {
+            LOG(FATAL) << "Failed to set property vendor.thermal.config to "
+                          "thermal_info_config_wingboard.";
+        }
+    } else if (useThermalBackupConfig()) {
         if (!android::base::SetProperty("vendor.thermal.config",
                                         "thermal_info_config_backup.json")) {
             LOG(FATAL) << "Failed to set property vendor.thermal.config to "
                           "thermal_info_config_backup.";
         }
     }
+    return 0;
 }
