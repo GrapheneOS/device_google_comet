@@ -366,6 +366,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 # remove ro.vendor.vibrator.hal.dbc.enable (needed for setting pm.activetimeout)
 # remove pm.activetimeout
 # ro.vendor.vibrator.hal.loc.coeff.folded currently unused
+$(call soong_config_set,haptics,kernel_ver,v$(subst .,_,$(TARGET_LINUX_KERNEL_VERSION)))
 ACTUATOR_MODEL := luxshare_ict_081545
 ADAPTIVE_HAPTICS_FEATURE := adaptive_haptics_v1
 PRODUCT_VENDOR_PROPERTIES += \
