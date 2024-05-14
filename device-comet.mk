@@ -25,6 +25,7 @@ RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/$(RELEASE_GOOGLE_BOOTLOADER_
 $(call soong_config_set,comet_bootloader,prebuilt_dir,$(RELEASE_GOOGLE_BOOTLOADER_COMET_DIR))
 
 
+TARGET_LINUX_KERNEL_VERSION ?= 6.1
 ifdef RELEASE_GOOGLE_COMET_KERNEL_DIR
 TARGET_KERNEL_DIR ?= $(RELEASE_GOOGLE_COMET_KERNEL_DIR)
 TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_GOOGLE_COMET_KERNEL_DIR)/kernel-headers
@@ -253,13 +254,6 @@ endif
 # Audio CCA property
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.audio.cca.enabled=false
-
-# HdMic Audio
-PRODUCT_SOONG_NAMESPACES += device/google/comet/audio/comet/prebuilt/libspeechenhancer
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.audio.hdmic.version=1
-PRODUCT_PACKAGES += \
-    libspeechenhancer
 
 # Keymaster HAL
 #LOCAL_KEYMASTER_PRODUCT_PACKAGE ?= android.hardware.keymaster@4.1-service
