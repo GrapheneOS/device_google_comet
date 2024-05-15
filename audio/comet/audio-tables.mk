@@ -60,6 +60,8 @@ PRODUCT_PACKAGES += \
     mcps.dat \
     waves_config.ini \
     waves_preset.mps \
+    waves_config_nx.ini \
+    waves_preset_nx.mps \
     compens_spk_l_1.conf \
     compens_spk_l_2.conf \
     compens_spk_r_1.conf \
@@ -89,3 +91,7 @@ PRODUCT_PACKAGES += \
     vendor.google.whitechapel.audio.hal.effect.spatializer.mode_2_ch \
     vendor.google.whitechapel.audio.hal.effect.spatializer.mode_6_ch \
     vendor.google.whitechapel.audio.hal.effect.spatializer.mode_xaural
+
+# Waves nx config
+PRODUCT_PACKAGES += \
+    libNX_Google_Pixel_Android
