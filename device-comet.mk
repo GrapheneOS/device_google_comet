@@ -442,3 +442,7 @@ endif
 # Connectivity Resources Overlay
 PRODUCT_PACKAGES += \
     ConnectivityResourcesOverlayCometOverride
+
+# Camera concurrent foldable dual front feature support
+PRODUCT_PACKAGES += \
+    concurrent_foldable_dual_front_xml
