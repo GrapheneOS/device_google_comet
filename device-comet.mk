@@ -482,3 +482,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Camera concurrent foldable dual front feature support
 PRODUCT_PACKAGES += \
     concurrent_foldable_dual_front_xml
+
+# sysconfigs from stock OS
+PRODUCT_COPY_FILES += \
+    device/google/comet/product-sysconfig-stock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/product-sysconfig-stock.xml
