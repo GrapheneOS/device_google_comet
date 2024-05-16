@@ -146,3 +146,9 @@ on property:sys.boot_completed=1
     chmod 660 /dev/touch_offload
     chmod 660 /dev/touch_offload_outer
     start twoshay
+
+# For Japan sku, always enforce camera shutter sound
+# Since this property is read by the audio server in system service,
+# it should be written by the system init.
+on property:ro.boot.hardware.sku=GC15S
+    setprop audio.camerasound.force true
