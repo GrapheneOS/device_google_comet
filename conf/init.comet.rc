@@ -152,3 +152,10 @@ on property:sys.boot_completed=1
 # it should be written by the system init.
 on property:ro.boot.hardware.sku=GC15S
     setprop audio.camerasound.force true
+
+# Enable bootstrap for US devices
+on boot && property:ro.boot.warranty.sku=UVZ
+    setprop setupwizard.feature.provisioning_profile_mode true
+on boot && property:ro.boot.warranty.sku=UTM
+    setprop setupwizard.feature.provisioning_profile_mode true
+
