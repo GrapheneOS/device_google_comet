@@ -2156,7 +2156,7 @@
       "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "CPUDVFSHeadroom",
       "Duration": 0,
-      "Value": "1280 1100 1055"
+      "Value": "1100"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
@@ -2336,7 +2336,7 @@
       "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
       "Node": "CDPreferHighCap",
       "Duration": 0,
-      "Value": "1"
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
@@ -3135,7 +3135,7 @@
       "PowerHint": "CAMERA_PROJECT11",
       "Node": "CPUDVFSHeadroom",
       "Duration": 0,
-      "Value": "1280 1100 1055"
+      "Value": "1100"
     },
     {
       "PowerHint": "CAMERA_PROJECT11",
