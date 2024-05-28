@@ -899,7 +899,8 @@
             "Combination": ["soc_therm", "rffe_therm", "charger_therm", "usb_conn_therm", "modem_therm", "inner_display_therm", "display_therm",  "gnss_tcxo_therm", "maxfg_base", "maxfg_secondary", "inner_brightness"],
             "Multiplier": 0.001,
             "PreviousSampleCount": 3,
-            "SupportUnderSampling": true
+            "BackupSensor" : "VIRTUAL-SKIN-SPEAKER-LEGACY",
+            "TimeResolution": 7000
         },
         {
             "Name": "VIRTUAL-SKIN-SPEAKER-MODEL-LEGACY-DIFF",
@@ -912,14 +913,45 @@
             "Multiplier": 1
         },
         {
+            "Name": "IS_VSKIN_SPEAKER_MODEL_WITHIN_RANGE_CHECK",
+            "Type": "UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["VIRTUAL-SKIN-SPEAKER-MODEL", "VIRTUAL-SKIN-SPEAKER-MODEL"],
+            "Coefficient":[20000, -57000],
+            "Multiplier":1
+        },
+        {
+            "Name":"IS_VSKIN_SPEAKER_MODEL_WITHIN_RANGE",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_VSKIN_SPEAKER_MODEL_WITHIN_RANGE_CHECK"],
+            "Coefficient":[2],
+            "Multiplier":1
+        },
+        {
+            "Name":"NO_VSKIN_SPEAKER_MODEL_WITHIN_RANGE",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_VSKIN_SPEAKER_MODEL_WITHIN_RANGE_CHECK"],
+            "Coefficient":[-2],
+            "Multiplier":1
+        },
+        {
             "Name": "VIRTUAL-SKIN-SPEAKER",
             "Type": "UNKNOWN",
-            "Version": "1.0",
+            "Version": "2.0",
             "VirtualSensor": true,
             "TriggerSensor": "usb_conn_therm",
-            "Formula": "MAXIMUM",
-            "Combination": ["VIRTUAL-SKIN-SPEAKER-MODEL"],
-            "Coefficient": [1.0],
+            "Formula": "WEIGHTED_AVG",
+            "Combination": ["VIRTUAL-SKIN-SPEAKER-MODEL", "VIRTUAL-SKIN-SPEAKER-LEGACY"],
+            "Coefficient": ["IS_VSKIN_SPEAKER_MODEL_WITHIN_RANGE", "NO_VSKIN_SPEAKER_MODEL_WITHIN_RANGE"],
+            "CoefficientType": ["SENSOR", "SENSOR"],
             "HotThreshold": ["NAN", 37.0, "NAN", "NAN", "NAN", "NAN", "NAN"],
             "HotHysteresis": [0.0, 1.9, 0.0, 0.0, 0.0, 0.0, 0.0],
             "Multiplier": 0.001,
