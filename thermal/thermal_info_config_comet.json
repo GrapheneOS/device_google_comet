@@ -234,7 +234,8 @@
             "Combination":["soc_therm", "rffe_therm", "charger_therm", "usb_conn_therm", "modem_therm", "inner_display_therm", "display_therm",  "gnss_tcxo_therm", "maxfg_base", "maxfg_secondary", "inner_brightness"],
             "Multiplier":0.001,
             "PreviousSampleCount": 3,
-            "SupportUnderSampling": true
+            "BackupSensor" : "VIRTUAL-SKIN-LEGACY",
+            "TimeResolution": 7000
         },
         {
             "Name": "VIRTUAL-SKIN-MODEL-LEGACY-DIFF",
