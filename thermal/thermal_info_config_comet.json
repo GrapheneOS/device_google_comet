@@ -1157,15 +1157,23 @@
     ],
     "Stats": {
         "Sensors": {
-            "RecordWithDefaultThreshold": ["VIRTUAL-SKIN"],
+            "RecordWithDefaultThreshold": ["VIRTUAL-SKIN", "VIRTUAL-SKIN-OUTER-DISPLAY"],
             "RecordWithThreshold": [
                 {
                     "Name": "VIRTUAL-SKIN",
                     "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 55]
                 },
                 {
+                    "Name": "VIRTUAL-SKIN-LEGACY",
+                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+                },
+                {
                     "Name": "VIRTUAL-SKIN-MODEL",
-                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 55]
+                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+                },
+                {
+                    "Name": "VIRTUAL-SKIN-OUTER-DISPLAY",
+                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
                 },
                 {
                     "Name": "VIRTUAL-SKIN-MODEL-LEGACY-DIFF",
@@ -1185,7 +1193,7 @@
                 },
                 {
                     "Name": "VIRTUAL-SKIN-SPEAKER-MODEL",
-                    "Thresholds": [0, 37, 42, 47, 57, 100]
+                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
                 }
             ],
             "Abnormality": {
