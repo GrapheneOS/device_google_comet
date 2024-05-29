@@ -347,6 +347,10 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
     persist.vendor.udfps.lhbm_controlled_in_hal_supported=true
 
+# Allow external binning setting
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.allow_external_binning_setting=true
+
 # Camera Vendor property
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.front_720P_always_binning=true
