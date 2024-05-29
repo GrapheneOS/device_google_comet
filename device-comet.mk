@@ -24,7 +24,6 @@ RELEASE_GOOGLE_BOOTLOADER_COMET_DIR ?= 24D1# Keep this for pdk TODO: b/327119000
 RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/$(RELEASE_GOOGLE_BOOTLOADER_COMET_DIR)
 $(call soong_config_set,comet_bootloader,prebuilt_dir,$(RELEASE_GOOGLE_BOOTLOADER_COMET_DIR))
 
-
 TARGET_LINUX_KERNEL_VERSION ?= 6.1
 ifdef RELEASE_KERNEL_COMET_DIR
 TARGET_KERNEL_DIR ?= $(RELEASE_KERNEL_COMET_DIR)
@@ -68,6 +67,10 @@ include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti_dual.mk
 include device/google/gs-common/display/dump_second_display.mk
+
+# Increment the SVN for any official public releases
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.build.svn=1
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,comet)
@@ -358,6 +361,10 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
     persist.vendor.udfps.lhbm_controlled_in_hal_supported=true
 
+# Allow external binning setting
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.allow_external_binning_setting=true
+
 # Camera Vendor property
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.front_720P_always_binning=true
@@ -475,3 +482,7 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES += \
    com.google.comet.hardware.threadnetwork
 endif
+
+# Camera concurrent foldable dual front feature support
+PRODUCT_PACKAGES += \
+    concurrent_foldable_dual_front_xml
