@@ -105,8 +105,8 @@
       "VirtualSensor": true,
       "Formula": "WEIGHTED_AVG",
       "Combination": ["charger_therm", "modem_therm", "gnss_tcxo_therm"],
-      "Coefficient": [0.144, 0.448, 0.402],
-      "Offset": -1113,
+      "Coefficient": [0.263, 0.332, 0.519],
+      "Offset": -6068,
       "Multiplier": 0.001
     },
     {
@@ -123,7 +123,7 @@
     {
       "Name": "VIRTUAL-SKIN",
       "Type": "SKIN",
-      "Version": "2.1",
+      "Version": "2.2",
       "VirtualSensor": true,
       "TriggerSensor": ["soc_therm", "rffe_therm", "charger_therm", "modem_therm", "gnss_tcxo_therm"],
       "Formula": "MAXIMUM",
