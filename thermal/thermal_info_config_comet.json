@@ -133,8 +133,8 @@
             "VirtualSensor": true,
             "Formula": "WEIGHTED_AVG",
             "Combination": ["charger_therm", "modem_therm", "gnss_tcxo_therm"],
-            "Coefficient": [0.144, 0.448, 0.402],
-            "Offset": -1113,
+            "Coefficient": [0.263, 0.332, 0.519],
+            "Offset": -6068,
             "Multiplier": 0.001
         },
         {
@@ -215,7 +215,7 @@
         {
             "Name": "VIRTUAL-SKIN-LEGACY",
             "Type": "UNKNOWN",
-            "Version": "2.1",
+            "Version": "2.2",
             "VirtualSensor": true,
             "Hidden": true,
             "Formula": "WEIGHTED_AVG",
@@ -250,7 +250,7 @@
         {
             "Name": "VIRTUAL-SKIN",
             "Type": "SKIN",
-            "Version": "2.2",
+            "Version": "2.3",
             "VirtualSensor": true,
             "TriggerSensor": ["soc_therm", "rffe_therm", "charger_therm", "modem_therm", "gnss_tcxo_therm"],
             "Formula": "MAXIMUM",
@@ -806,19 +806,19 @@
             "PIDInfo": {
                 "K_Po": ["NAN", "NAN", 119, "NAN", "NAN", "NAN", "NAN"],
                 "K_Pu": ["NAN", "NAN", 119, "NAN", "NAN", "NAN", "NAN"],
-                "K_I": ["NAN", "NAN", 25, "NAN", "NAN", "NAN", "NAN"],
+                "K_I": ["NAN", "NAN", 50, "NAN", "NAN", "NAN", "NAN"],
                 "K_D": ["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
                 "I_Max": ["NAN", "NAN", 1302, "NAN", "NAN", "NAN", "NAN"],
                 "S_Power": ["NAN", "NAN", 2527, "NAN", "NAN", "NAN", "NAN"],
                 "MinAllocPower": ["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
                 "MaxAllocPower": ["NAN", "NAN", 6219, "NAN", "NAN", "NAN", "NAN"],
                 "I_Cutoff": ["NAN", "NAN", 6, "NAN", "NAN", "NAN", "NAN"],
-                "I_Default": 1302
+                "I_Default": 846
             },
             "ExcludedPowerInfo": [
                 {
                     "PowerRail": "PARTIAL_SYSTEM_POWER",
-                    "PowerWeight": [0.12, 0.12, 0.06, 0.06, 0.24, 0.24, 0.24]
+                    "PowerWeight": [0.12, 0.12, 1.0, 1.0, 1.0, 1.0, 1.0]
                 }
             ],
             "BindedCdevInfo": [
