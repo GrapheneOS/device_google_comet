@@ -189,7 +189,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv \
     $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_JP.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_JP.csv \
     $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_CA.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_CE.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_CE.csv \
+    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_EU.csv \
     $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_US.csv
 
 # DCK properties based on target
@@ -312,24 +312,9 @@ PRODUCT_SOONG_NAMESPACES += \
     device/google/comet/uwb
 
 # Location
-# iGNSS
-# gps.cfg
 PRODUCT_SOONG_NAMESPACES += device/google/comet/location
 $(call soong_config_set, gpssdk, buildtype, $(TARGET_BUILD_VARIANT))
 PRODUCT_PACKAGES += gps.cfg
-# eGNSS
-# SDK build system
-$(call soong_config_set, include_libsitril_gps_wifi, board_without_radio, $(BOARD_WITHOUT_RADIO))
-include device/google/gs-common/gps/brcm/device.mk
-PRODUCT_SOONG_NAMESPACES += device/google/comet/location
-SOONG_CONFIG_NAMESPACES += gpssdk
-SOONG_CONFIG_gpssdk += gpsconf
-SOONG_CONFIG_gpssdk_gpsconf ?= $(TARGET_BUILD_VARIANT)
-PRODUCT_PACKAGES += \
-	gps.cer \
-	gps.xml \
-	scd.conf \
-	lhd.conf
 
 # Display
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
