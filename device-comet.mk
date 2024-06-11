@@ -70,17 +70,6 @@ include device/google/gs-common/touch/gti/predump_gti_dual.mk
 include device/google/gs-common/display/dump_second_display.mk
 include device/google/gs-common/gril/hidl/1.7/gril_hidl.mk
 
-# Increment the SVN for any official public releases
-ifdef RELEASE_SVN_COMET
-TARGET_SVN ?= $(RELEASE_SVN_COMET)
-else
-# Set this for older releases that don't use build flag
-TARGET_SVN ?= 04
-endif
-
-PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.build.svn=$(TARGET_SVN)
-
 # Set device family property for SMR
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.device_family=CT3
