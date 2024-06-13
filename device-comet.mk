@@ -327,6 +327,8 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Location
 PRODUCT_SOONG_NAMESPACES += device/google/comet/location
+# For GPS property
+PRODUCT_VENDOR_PROPERTIES += ro.vendor.gps.pps.enabled=true
 $(call soong_config_set, gpssdk, buildtype, $(TARGET_BUILD_VARIANT))
 PRODUCT_PACKAGES += gps.cfg
 
