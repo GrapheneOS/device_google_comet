@@ -438,6 +438,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.leaudio.allow_list=SM-R510
 
+# Telephony Satellite Feature
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.satellite.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.satellite.xml
+
 # Battery Mitigation Config
 ifeq (,$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH))
 TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH := device/google/comet/battery_mitigation
