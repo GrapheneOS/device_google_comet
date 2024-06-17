@@ -192,7 +192,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv \
     $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_JP.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_JP.csv \
     $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_CA.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_CE.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_CE.csv \
+    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_EU.csv \
     $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_US.csv
 
 # DCK properties based on target
@@ -326,24 +326,11 @@ PRODUCT_SOONG_NAMESPACES += \
     device/google/comet/uwb
 
 # Location
-# iGNSS
-# gps.cfg
 PRODUCT_SOONG_NAMESPACES += device/google/comet/location
+# For GPS property
+PRODUCT_VENDOR_PROPERTIES += ro.vendor.gps.pps.enabled=true
 $(call soong_config_set, gpssdk, buildtype, $(TARGET_BUILD_VARIANT))
 PRODUCT_PACKAGES += gps.cfg
-# eGNSS
-# SDK build system
-$(call soong_config_set, include_libsitril_gps_wifi, board_without_radio, $(BOARD_WITHOUT_RADIO))
-include device/google/gs-common/gps/brcm/device.mk
-PRODUCT_SOONG_NAMESPACES += device/google/comet/location
-SOONG_CONFIG_NAMESPACES += gpssdk
-SOONG_CONFIG_gpssdk += gpsconf
-SOONG_CONFIG_gpssdk_gpsconf ?= $(TARGET_BUILD_VARIANT)
-PRODUCT_PACKAGES += \
-	gps.cer \
-	gps.xml \
-	scd.conf \
-	lhd.conf
 
 # Display
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -368,6 +355,10 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Camera Vendor property
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.front_720P_always_binning=true
+
+# Enable camera exif model/make reporting
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.exif_reveal_make_model=true
 
 # Media Performance Class 14
 PRODUCT_PRODUCT_PROPERTIES += ro.odm.build.media_performance_class=34
@@ -452,6 +443,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # LE Audio Unicast Allowlist
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.leaudio.allow_list=SM-R510
+
+# Telephony Satellite Feature
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.satellite.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.satellite.xml
 
 # Battery Mitigation Config
 ifeq (,$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH))

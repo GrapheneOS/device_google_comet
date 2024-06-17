@@ -133,8 +133,8 @@
             "VirtualSensor": true,
             "Formula": "WEIGHTED_AVG",
             "Combination": ["charger_therm", "modem_therm", "gnss_tcxo_therm"],
-            "Coefficient": [0.144, 0.448, 0.402],
-            "Offset": -1113,
+            "Coefficient": [0.263, 0.332, 0.519],
+            "Offset": -6068,
             "Multiplier": 0.001
         },
         {
@@ -215,7 +215,7 @@
         {
             "Name": "VIRTUAL-SKIN-LEGACY",
             "Type": "UNKNOWN",
-            "Version": "2.1",
+            "Version": "2.2",
             "VirtualSensor": true,
             "Hidden": true,
             "Formula": "WEIGHTED_AVG",
@@ -234,7 +234,8 @@
             "Combination":["soc_therm", "rffe_therm", "charger_therm", "usb_conn_therm", "modem_therm", "inner_display_therm", "display_therm",  "gnss_tcxo_therm", "maxfg_base", "maxfg_secondary", "inner_brightness"],
             "Multiplier":0.001,
             "PreviousSampleCount": 3,
-            "SupportUnderSampling": true
+            "BackupSensor" : "VIRTUAL-SKIN-LEGACY",
+            "TimeResolution": 7000
         },
         {
             "Name": "VIRTUAL-SKIN-MODEL-LEGACY-DIFF",
@@ -249,7 +250,7 @@
         {
             "Name": "VIRTUAL-SKIN",
             "Type": "SKIN",
-            "Version": "2.2",
+            "Version": "2.3",
             "VirtualSensor": true,
             "TriggerSensor": ["soc_therm", "rffe_therm", "charger_therm", "modem_therm", "gnss_tcxo_therm"],
             "Formula": "MAXIMUM",
@@ -805,19 +806,19 @@
             "PIDInfo": {
                 "K_Po": ["NAN", "NAN", 119, "NAN", "NAN", "NAN", "NAN"],
                 "K_Pu": ["NAN", "NAN", 119, "NAN", "NAN", "NAN", "NAN"],
-                "K_I": ["NAN", "NAN", 25, "NAN", "NAN", "NAN", "NAN"],
+                "K_I": ["NAN", "NAN", 50, "NAN", "NAN", "NAN", "NAN"],
                 "K_D": ["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
                 "I_Max": ["NAN", "NAN", 1302, "NAN", "NAN", "NAN", "NAN"],
                 "S_Power": ["NAN", "NAN", 2527, "NAN", "NAN", "NAN", "NAN"],
                 "MinAllocPower": ["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
                 "MaxAllocPower": ["NAN", "NAN", 6219, "NAN", "NAN", "NAN", "NAN"],
                 "I_Cutoff": ["NAN", "NAN", 6, "NAN", "NAN", "NAN", "NAN"],
-                "I_Default": 1302
+                "I_Default": 846
             },
             "ExcludedPowerInfo": [
                 {
                     "PowerRail": "PARTIAL_SYSTEM_POWER",
-                    "PowerWeight": [0.12, 0.12, 0.06, 0.06, 0.24, 0.24, 0.24]
+                    "PowerWeight": [0.12, 0.12, 1.0, 1.0, 1.0, 1.0, 1.0]
                 }
             ],
             "BindedCdevInfo": [
@@ -898,7 +899,8 @@
             "Combination": ["soc_therm", "rffe_therm", "charger_therm", "usb_conn_therm", "modem_therm", "inner_display_therm", "display_therm",  "gnss_tcxo_therm", "maxfg_base", "maxfg_secondary", "inner_brightness"],
             "Multiplier": 0.001,
             "PreviousSampleCount": 3,
-            "SupportUnderSampling": true
+            "BackupSensor" : "VIRTUAL-SKIN-SPEAKER-LEGACY",
+            "TimeResolution": 7000
         },
         {
             "Name": "VIRTUAL-SKIN-SPEAKER-MODEL-LEGACY-DIFF",
@@ -911,14 +913,45 @@
             "Multiplier": 1
         },
         {
+            "Name": "IS_VSKIN_SPEAKER_MODEL_WITHIN_RANGE_CHECK",
+            "Type": "UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["VIRTUAL-SKIN-SPEAKER-MODEL", "VIRTUAL-SKIN-SPEAKER-MODEL"],
+            "Coefficient":[20000, -57000],
+            "Multiplier":1
+        },
+        {
+            "Name":"IS_VSKIN_SPEAKER_MODEL_WITHIN_RANGE",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_VSKIN_SPEAKER_MODEL_WITHIN_RANGE_CHECK"],
+            "Coefficient":[2],
+            "Multiplier":1
+        },
+        {
+            "Name":"NO_VSKIN_SPEAKER_MODEL_WITHIN_RANGE",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_VSKIN_SPEAKER_MODEL_WITHIN_RANGE_CHECK"],
+            "Coefficient":[-2],
+            "Multiplier":1
+        },
+        {
             "Name": "VIRTUAL-SKIN-SPEAKER",
             "Type": "UNKNOWN",
-            "Version": "1.0",
+            "Version": "2.0",
             "VirtualSensor": true,
             "TriggerSensor": "usb_conn_therm",
-            "Formula": "MAXIMUM",
-            "Combination": ["VIRTUAL-SKIN-SPEAKER-MODEL"],
-            "Coefficient": [1.0],
+            "Formula": "WEIGHTED_AVG",
+            "Combination": ["VIRTUAL-SKIN-SPEAKER-MODEL", "VIRTUAL-SKIN-SPEAKER-LEGACY"],
+            "Coefficient": ["IS_VSKIN_SPEAKER_MODEL_WITHIN_RANGE", "NO_VSKIN_SPEAKER_MODEL_WITHIN_RANGE"],
+            "CoefficientType": ["SENSOR", "SENSOR"],
             "HotThreshold": ["NAN", 37.0, "NAN", "NAN", "NAN", "NAN", "NAN"],
             "HotHysteresis": [0.0, 1.9, 0.0, 0.0, 0.0, 0.0, 0.0],
             "Multiplier": 0.001,
@@ -1051,6 +1084,306 @@
             "SendPowerHint": true,
             "PollingDelay": 300000,
             "PassiveDelay": 7000
+        },
+        {
+            "Name": "IS_WLC_WITHOUT_STEP_RATIO",
+            "Type": "UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["WLC_CHECK"],
+            "Coefficient":[2],
+            "Multiplier":1
+        },
+        {
+            "Name": "NO_WLC_WITHOUT_STEP_RATIO",
+            "Type": "UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["WLC_CHECK"],
+            "Coefficient":[-2],
+            "Multiplier":1
+        },
+        {
+            "Name": "VIRTUAL-SKIN-CHARGE-DURING-WLC-STATS",
+            "Type":"UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor":true,
+            "Formula":"WEIGHTED_AVG",
+            "Combination":["VIRTUAL-SKIN-CHARGE-WLC-EQ", -1000000],
+            "CombinationType": ["SENSOR", "CONSTANT"],
+            "Coefficient":["IS_WLC_WITHOUT_STEP_RATIO", "NO_WLC_WITHOUT_STEP_RATIO"],
+            "CoefficientType": ["SENSOR", "SENSOR"],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "IS_WIRED_SUB5W_CHECK",
+            "Type": "UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["thb_hda", "thb_hda"],
+            "Coefficient":[51, -52],
+            "Multiplier":1
+        },
+        {
+            "Name":"IS_WIRED_SUB5W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_SUB5W_CHECK"],
+            "Coefficient":[2],
+            "Multiplier":1
+        },
+        {
+            "Name":"NO_WIRED_SUB5W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_SUB5W_CHECK"],
+            "Coefficient":[-2],
+            "Multiplier":1
+        },
+        {
+            "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-SUB5W-STATS",
+            "Type":"UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor":true,
+            "Formula":"WEIGHTED_AVG",
+            "Combination":["VIRTUAL-SKIN-CHARGE-WIRED-EQ", -1000000],
+            "CombinationType": ["SENSOR", "CONSTANT"],
+            "Coefficient":["IS_WIRED_SUB5W", "NO_WIRED_SUB5W"],
+            "CoefficientType": ["SENSOR", "SENSOR"],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "IS_WIRED_5W_CHECK",
+            "Type": "UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["thb_hda", "thb_hda"],
+            "Coefficient":[52, -53],
+            "Multiplier":1
+        },
+        {
+            "Name":"IS_WIRED_5W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_5W_CHECK"],
+            "Coefficient":[2],
+            "Multiplier":1
+        },
+        {
+            "Name":"NO_WIRED_5W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_5W_CHECK"],
+            "Coefficient":[-2],
+            "Multiplier":1
+        },
+        {
+            "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-5W-STATS",
+            "Type":"UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor":true,
+            "Formula":"WEIGHTED_AVG",
+            "Combination":["VIRTUAL-SKIN-CHARGE-WIRED-EQ", -1000000],
+            "CombinationType": ["SENSOR", "CONSTANT"],
+            "Coefficient":["IS_WIRED_5W", "NO_WIRED_5W"],
+            "CoefficientType": ["SENSOR", "SENSOR"],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "IS_WIRED_7_5W_CHECK",
+            "Type": "UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["thb_hda", "thb_hda"],
+            "Coefficient":[53, -54],
+            "Multiplier":1
+        },
+        {
+            "Name":"IS_WIRED_7_5W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_7_5W_CHECK"],
+            "Coefficient":[2],
+            "Multiplier":1
+        },
+        {
+            "Name":"NO_WIRED_7_5W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_7_5W_CHECK"],
+            "Coefficient":[-2],
+            "Multiplier":1
+        },
+        {
+            "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-7-5W-STATS",
+            "Type":"UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor":true,
+            "Formula":"WEIGHTED_AVG",
+            "Combination":["VIRTUAL-SKIN-CHARGE-WIRED-EQ", -1000000],
+            "CombinationType": ["SENSOR", "CONSTANT"],
+            "Coefficient":["IS_WIRED_7_5W", "NO_WIRED_7_5W"],
+            "CoefficientType": ["SENSOR", "SENSOR"],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "IS_WIRED_15W_CHECK",
+            "Type": "UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["thb_hda", "thb_hda"],
+            "Coefficient":[54, -55],
+            "Multiplier":1
+        },
+        {
+            "Name":"IS_WIRED_15W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_15W_CHECK"],
+            "Coefficient":[2],
+            "Multiplier":1
+        },
+        {
+            "Name":"NO_WIRED_15W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_15W_CHECK"],
+            "Coefficient":[-2],
+            "Multiplier":1
+        },
+        {
+            "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-15W-STATS",
+            "Type":"UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor":true,
+            "Formula":"WEIGHTED_AVG",
+            "Combination":["VIRTUAL-SKIN-CHARGE-WIRED-EQ", -1000000],
+            "CombinationType": ["SENSOR", "CONSTANT"],
+            "Coefficient":["IS_WIRED_15W", "NO_WIRED_15W"],
+            "CoefficientType": ["SENSOR", "SENSOR"],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "IS_WIRED_18W_CHECK",
+            "Type": "UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["thb_hda", "thb_hda"],
+            "Coefficient":[55, -56],
+            "Multiplier":1
+        },
+        {
+            "Name":"IS_WIRED_18W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_18W_CHECK"],
+            "Coefficient":[2],
+            "Multiplier":1
+        },
+        {
+            "Name":"NO_WIRED_18W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_18W_CHECK"],
+            "Coefficient":[-2],
+            "Multiplier":1
+        },
+        {
+            "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-18W-STATS",
+            "Type":"UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor":true,
+            "Formula":"WEIGHTED_AVG",
+            "Combination":["VIRTUAL-SKIN-CHARGE-WIRED-EQ", -1000000],
+            "CombinationType": ["SENSOR", "CONSTANT"],
+            "Coefficient":["IS_WIRED_18W", "NO_WIRED_18W"],
+            "CoefficientType": ["SENSOR", "SENSOR"],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "IS_WIRED_GT18W_CHECK",
+            "Type": "UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["thb_hda", "thb_hda"],
+            "Coefficient":[56, -57],
+            "Multiplier":1
+        },
+        {
+            "Name":"IS_WIRED_GT18W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_GT18W_CHECK"],
+            "Coefficient":[2],
+            "Multiplier":1
+        },
+        {
+            "Name":"NO_WIRED_GT18W",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["IS_WIRED_GT18W_CHECK"],
+            "Coefficient":[-2],
+            "Multiplier":1
+        },
+        {
+            "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-GT18W-STATS",
+            "Type":"UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor":true,
+            "Formula":"WEIGHTED_AVG",
+            "Combination":["VIRTUAL-SKIN-CHARGE-WIRED-EQ", -1000000],
+            "CombinationType": ["SENSOR", "CONSTANT"],
+            "Coefficient":["IS_WIRED_GT18W", "NO_WIRED_GT18W"],
+            "CoefficientType": ["SENSOR", "SENSOR"],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "CHARGING-STATS-UPDATOR",
+            "Type": "UNKNOWN",
+            "VirtualSensor": true,
+            "Hidden": true,
+            "TriggerSensor": ["soc_therm", "rffe_therm", "charger_therm", "modem_therm", "gnss_tcxo_therm"],
+            "Formula": "WEIGHTED_AVG",
+            "Combination": ["VIRTUAL-SKIN-CHARGE-DURING-WLC-STATS", "VIRTUAL-SKIN-CHARGE-DURING-WIRED-SUB5W-STATS", "VIRTUAL-SKIN-CHARGE-DURING-WIRED-5W-STATS",
+                "VIRTUAL-SKIN-CHARGE-DURING-WIRED-7-5W-STATS", "VIRTUAL-SKIN-CHARGE-DURING-WIRED-15W-STATS", "VIRTUAL-SKIN-CHARGE-DURING-WIRED-18W-STATS",
+                "VIRTUAL-SKIN-CHARGE-DURING-WIRED-GT18W-STATS"],
+            "Coefficient": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+            "Multiplier": 1,
+            "SendPowerHint": true,
+            "PollingDelay": 300000,
+            "PassiveDelay": 7000
         }
     ],
     "CoolingDevices": [
@@ -1157,15 +1490,23 @@
     ],
     "Stats": {
         "Sensors": {
-            "RecordWithDefaultThreshold": ["VIRTUAL-SKIN"],
+            "RecordWithDefaultThreshold": ["VIRTUAL-SKIN", "VIRTUAL-SKIN-OUTER-DISPLAY"],
             "RecordWithThreshold": [
                 {
                     "Name": "VIRTUAL-SKIN",
                     "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 55]
                 },
                 {
+                    "Name": "VIRTUAL-SKIN-LEGACY",
+                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+                },
+                {
                     "Name": "VIRTUAL-SKIN-MODEL",
-                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 55]
+                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+                },
+                {
+                    "Name": "VIRTUAL-SKIN-OUTER-DISPLAY",
+                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
                 },
                 {
                     "Name": "VIRTUAL-SKIN-MODEL-LEGACY-DIFF",
@@ -1185,7 +1526,35 @@
                 },
                 {
                     "Name": "VIRTUAL-SKIN-SPEAKER-MODEL",
-                    "Thresholds": [0, 37, 42, 47, 57, 100]
+                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+                },
+                {
+                    "Name": "VIRTUAL-SKIN-CHARGE-DURING-WLC-STATS",
+                    "Thresholds": [-200, 15, 25, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55]
+                },
+                {
+                    "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-SUB5W-STATS",
+                    "Thresholds": [-200, 15, 25, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55]
+                },
+                {
+                    "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-5W-STATS",
+                    "Thresholds": [-200, 15, 25, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55]
+                },
+                {
+                    "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-7-5W-STATS",
+                    "Thresholds": [-200, 15, 25, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55]
+                },
+                {
+                    "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-15W-STATS",
+                    "Thresholds": [-200, 15, 25, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55]
+                },
+                {
+                    "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-18W-STATS",
+                    "Thresholds": [-200, 15, 25, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55]
+                },
+                {
+                    "Name": "VIRTUAL-SKIN-CHARGE-DURING-WIRED-GT18W-STATS",
+                    "Thresholds": [-200, 15, 25, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55]
                 }
             ],
             "Abnormality": {
