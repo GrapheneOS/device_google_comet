@@ -472,12 +472,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.thread_dispatcher.enabled=true
 
-# Thread HAL
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PACKAGES += \
-   com.google.comet.hardware.threadnetwork
-endif
-
 # Camera concurrent foldable dual front feature support
 PRODUCT_PACKAGES += \
     concurrent_foldable_dual_front_xml
