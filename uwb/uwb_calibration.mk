@@ -21,5 +21,6 @@ PRODUCT_PACKAGES += \
     calibration-FCC.conf \
     calibration-JP.conf \
     calibration-TW.conf \
-    calibration-RESTRICTED.conf
+    calibration-RESTRICTED.conf \
+    capabilities.conf
 
