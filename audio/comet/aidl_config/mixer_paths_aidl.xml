@@ -328,6 +328,8 @@
   <ctl name="Decoder Reference Enable" value="0" />
   <ctl name="LVM Enable" value="0" />
 
+  <ctl name="MultiChannel Processor Switch" value="0" />
+
   <!-- sidetone dynamic control -->
   <path name="sidetone-for handset">
     <!-- 1065353216 = 0x3f800000 = 1.0 -->
@@ -873,6 +875,8 @@
   </path>
 
   <path name="spatializer-offload-playback -> speaker">
+    <!-- Nx Module id: 42 -->
+    <ctl name="MultiChannel Processor Switch" value="42" />
     <ctl name="TDM_0_RX Mixer EP4" value="1" />
   </path>
 
@@ -889,6 +893,8 @@
   </path>
 
   <path name="spatializer-offload-playback -> bt">
+    <!-- Auxel Module id: 27 -->
+    <ctl name="MultiChannel Processor Switch" value="27" />
     <ctl name="BT_RX Mixer EP4" value="1" />
   </path>
 
