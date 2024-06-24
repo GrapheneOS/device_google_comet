@@ -158,4 +158,6 @@ on boot && property:ro.boot.warranty.sku=UVZ
     setprop setupwizard.feature.provisioning_profile_mode true
 on boot && property:ro.boot.warranty.sku=UTM
     setprop setupwizard.feature.provisioning_profile_mode true
-
+# Enable bootstrap for DVT for convenient testing (b/343731008)
+on boot && property:ro.boot.hardware.revision=DVT1.0
+    setprop setupwizard.feature.provisioning_profile_mode true
