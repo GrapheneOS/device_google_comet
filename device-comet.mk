@@ -224,6 +224,21 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.hfp.swb.supported=true
 
+# Override BQR mask to enable LE Audio Choppy report, remove BTRT logging
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.bqr.event_mask=295006 \
+    persist.bluetooth.bqr.vnd_quality_mask=29 \
+    persist.bluetooth.bqr.vnd_trace_mask=0 \
+    persist.bluetooth.vendor.btsnoop=true
+else
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.bqr.event_mask=295006 \
+    persist.bluetooth.bqr.vnd_quality_mask=16 \
+    persist.bluetooth.bqr.vnd_trace_mask=0 \
+    persist.bluetooth.vendor.btsnoop=false
+endif
+
 # Support LE & Classic concurrent encryption (b/330704060)
 PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.ble.allow_enc_with_bredr=true
