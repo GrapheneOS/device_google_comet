@@ -496,3 +496,7 @@ endif
 # Camera concurrent foldable dual front feature support
 PRODUCT_PACKAGES += \
     concurrent_foldable_dual_front_xml
+
+# Bluetooth device id
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.device_id.product_id=20499
