@@ -497,7 +497,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Thread HAL
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES += \
-   com.google.comet.hardware.threadnetwork
+   com.google.comet.hardware.threadnetwork \
+   ThreadNetworkDemoApp
 endif
 
 # Camera concurrent foldable dual front feature support
