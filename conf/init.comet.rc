@@ -57,10 +57,22 @@ service init_thermal_config /vendor/bin/init_thermal_config
     disabled
     oneshot
 
-on late-init
+on late-init && property:ro.boot.hardware.revision=PROTO1.0
+    setprop vendor.thermal.config "thermal_info_config_backup.json"
+
+on late-init && property:ro.boot.hardware.revision=PROTO1.1
+    setprop vendor.thermal.config "thermal_info_config_backup.json"
+
+on late-init && property:ro.boot.cdt_hwid=0x00060603000100020000000000000000
+    setprop vendor.thermal.config "thermal_info_config_wingboard.json"
+
+on property:vendor.thermal.config=thermal_info_config_charge.json && property:ro.boot.cdt_hwid=0x00060603000100020000000000000000
+    setprop vendor.thermal.config "thermal_info_config_wingboard.json"
+
+on late-init && property:ro.debuggable=1
     start init_thermal_config
 
-on property:vendor.thermal.config=thermal_info_config_charge
+on property:vendor.thermal.config=thermal_info_config_charge.json && property:ro.debuggable=1
     start init_thermal_config
 
 on property:vendor.thermal.link_ready=1
