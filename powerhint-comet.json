@@ -581,16 +581,6 @@
       "ResetOnInit": true
     },
     {
-      "Name": "PowerHALLaunch",
-      "Path": "vendor.powerhal.is_launch",
-      "Values": [
-        "1",
-        "0"
-      ],
-      "Type": "Property",
-      "ResetOnInit": true
-    },
-    {
       "Name": "BigTjOffset",
       "Path": "/sys/devices/platform/100a0000.BIG/offset_enabled",
       "Values": [
@@ -1245,12 +1235,6 @@
       "Value": "1"
     },
     {
-      "PowerHint": "LAUNCH",
-      "Node": "PowerHALLaunch",
-      "Duration": 5000,
-      "Value": "1"
-    },
-    {
       "PowerHint": "LAUNCH_EXTEND",
       "Node": "CPUSkipMask",
       "Duration": 2000,
@@ -1430,9 +1414,8 @@
       "Value": "0"
     },
     {
-      "PowerHint": "CAMERA_LAUNCH",
+      "PowerHint": "CAMERA_PA_KILL_BOOST",
       "Node": "PA_KILL",
-      "EnableProperty": "vendor.powerhal.is_launch",
       "Duration": 0,
       "Value": "102400"
     },
