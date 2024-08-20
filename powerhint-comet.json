@@ -56,6 +56,7 @@
       "Values": [
         "5000",
         "2000",
+        "1000",
         "500"
       ],
       "DefaultIndex": 0,
@@ -94,6 +95,7 @@
       "Path": "/sys/devices/system/cpu/cpu4/cpufreq/sched_pixel/down_rate_limit_us",
       "Values": [
         "20000",
+        "5000",
         "3000",
         "2000",
         "500"
@@ -941,6 +943,16 @@
         "0"
       ],
       "ResetOnInit": false
+    },
+    {
+      "Name": "MaxLoadBalanceInterval",
+      "Path": "/proc/vendor_sched/max_load_balance_interval",
+      "Values": [
+        "1",
+        "4"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
     }
   ],
   "Actions": [
@@ -2011,13 +2023,13 @@
       "PowerHint": "CAMERA_STREAMING_EXTREME",
       "Node": "CPULittleClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "5000"
+      "Value": "1000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
       "Node": "CPUMidClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "20000"
+      "Value": "5000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
@@ -2104,6 +2116,12 @@
       "Value": "0x0"
     },
     {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "MaxLoadBalanceInterval",
+      "Duration": 0,
+      "Value": "4"
+    },
+    {
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "PowerHALCameraRunning",
       "Duration": 0,
@@ -2185,13 +2203,13 @@
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CPULittleClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "5000"
+      "Value": "1000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CPUMidClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "20000"
+      "Value": "5000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -2296,6 +2314,12 @@
       "Value": "0x80"
     },
     {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "MaxLoadBalanceInterval",
+      "Duration": 0,
+      "Value": "4"
+    },
+    {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "AutoPreferIdle",
       "Duration": 0,
@@ -2383,13 +2407,13 @@
       "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "CPULittleClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "5000"
+      "Value": "1000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "CPUMidClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "20000"
+      "Value": "5000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
@@ -2468,6 +2492,12 @@
       "Node": "CPUSkipMask",
       "Duration": 0,
       "Value": "0x80"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "MaxLoadBalanceInterval",
+      "Duration": 0,
+      "Value": "4"
     },
     {
       "PowerHint": "CAMERA_STREAMING_LOW",
