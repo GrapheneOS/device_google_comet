@@ -253,6 +253,12 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "speaker_post_processing_volume_spec.xml",
+    src: "pts/speaker_post_processing_volume_spec.xml",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
     name: "waves_config_nx.ini",
     src: "waves/waves_config_nx.ini",
     soc_specific: true,
