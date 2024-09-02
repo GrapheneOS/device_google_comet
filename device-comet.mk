@@ -67,6 +67,7 @@ include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti_dual.mk
 include device/google/gs-common/display/dump_second_display.mk
+include device/google/gs-common/gril/hidl/1.7/gril_hidl.mk
 
 # Increment the SVN for any official public releases
 ifdef RELEASE_SVN_COMET
