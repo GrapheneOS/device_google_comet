@@ -30,6 +30,7 @@ USES_IDISPLAY_INTF_SEC := true
 
 include device/google/zumapro/BoardConfig-common.mk
 -include vendor/google_devices/zumapro/prebuilts/BoardConfigVendor.mk
+include device/google/gs-common/check_current_prebuilt/check_current_prebuilt.mk
 -include vendor/google_devices/comet/proprietary/BoardConfigVendor.mk
 include device/google/comet-sepolicy/comet-sepolicy.mk
 include device/google/comet/wifi/BoardConfig-wifi.mk
