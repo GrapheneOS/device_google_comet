@@ -67,6 +67,7 @@ include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti_dual.mk
 include device/google/gs-common/display/dump_second_display.mk
+include device/google/gs-common/gril/hidl/1.7/gril_hidl.mk
 
 # Increment the SVN for any official public releases
 ifdef RELEASE_SVN_COMET
@@ -529,8 +530,9 @@ PRODUCT_PACKAGES += \
     concurrent_foldable_dual_front_xml
 
 # Bluetooth device id
+# Comet: 0x4113
 PRODUCT_PRODUCT_PROPERTIES += \
-    bluetooth.device_id.product_id=20499
+    bluetooth.device_id.product_id=16659
 
 # Set support for LEA multicodec
 PRODUCT_PRODUCT_PROPERTIES +=\
