@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- extracted with adevtool -->
+<resources>
+  <dimen name="biometric_dialog_border_padding">8dp</dimen>
+  <dimen name="biometric_dialog_corner_size">28dp</dimen>
+  <dimen name="biometric_dialog_fingerprint_icon_height">150dp</dimen>
+  <dimen name="biometric_dialog_fingerprint_icon_width">150dp</dimen>
+  <dimen name="biometric_dialog_height">408dp</dimen>
+  <dimen name="biometric_dialog_width">1024px</dimen>
+  <dimen name="comet_unfolded_biometric_auth_pattern_view_size">348dp</dimen>
+  <dimen name="comet_unfolded_control_list_horizontal_spacing">16dp</dimen>
+  <dimen name="comet_unfolded_control_list_vertical_spacing">8dp</dimen>
+  <dimen name="comet_unfolded_controls_content_margin_horizontal">24dp</dimen>
+  <dimen name="comet_unfolded_controls_content_padding">24dp</dimen>
+  <dimen name="comet_unfolded_controls_header_horizontal_padding">12dp</dimen>
+  <dimen name="comet_unfolded_controls_panel_corner_radius">42dp</dimen>
+  <dimen name="comet_unfolded_keyguard_split_shade_top_margin">68dp</dimen>
+  <dimen name="comet_unfolded_large_screen_shade_header_height">42dp</dimen>
+  <dimen name="comet_unfolded_large_screen_shade_header_left_padding">@dimen/qs_horizontal_margin</dimen>
+  <dimen name="comet_unfolded_lockscreen_shade_keyguard_transition_vertical_offset">83dp</dimen>
+  <dimen name="comet_unfolded_lockscreen_shade_max_over_scroll_amount">32dp</dimen>
+  <dimen name="comet_unfolded_notification_panel_margin_bottom">48dp</dimen>
+  <dimen name="comet_unfolded_notification_panel_margin_horizontal">24dp</dimen>
+  <dimen name="comet_unfolded_notification_section_divider_height">@dimen/notification_side_paddings</dimen>
+  <dimen name="comet_unfolded_notification_side_paddings">16dp</dimen>
+  <dimen name="comet_unfolded_qqs_layout_padding_bottom">16dp</dimen>
+  <dimen name="comet_unfolded_qs_content_horizontal_padding">24dp</dimen>
+  <dimen name="comet_unfolded_qs_horizontal_margin">24dp</dimen>
+  <dimen name="comet_unfolded_qs_media_rec_album_side_margin">16dp</dimen>
+  <dimen name="comet_unfolded_qs_media_rec_album_size">88dp</dimen>
+  <dimen name="comet_unfolded_qs_media_rec_icon_top_margin">16dp</dimen>
+  <dimen name="comet_unfolded_qs_media_session_height_expanded">172dp</dimen>
+  <dimen name="comet_unfolded_qs_tiles_page_horizontal_margin">12dp</dimen>
+  <dimen name="comet_unfolded_split_shade_notifications_scrim_margin_bottom">16dp</dimen>
+  <dimen name="comet_unfolded_status_bar_icon_horizontal_margin">0sp</dimen>
+  <dimen name="comet_unfolded_status_view_margin_horizontal">8dp</dimen>
+  <bool name="comet_unfolded_config_use_split_notification_shade">true</bool>
+  <integer name="comet_unfolded_quick_qs_panel_max_rows">5</integer>
+  <integer name="comet_unfolded_quick_qs_panel_max_tiles">10</integer>
+  <integer name="comet_unfolded_quick_settings_max_rows">5</integer>
+  <integer name="comet_unfolded_quick_settings_num_columns">2</integer>
+  <integer name="quick_settings_max_rows">5</integer>
+</resources>
