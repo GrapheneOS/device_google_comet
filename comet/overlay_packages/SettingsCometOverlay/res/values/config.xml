@@ -17,4 +17,15 @@
 
 <resources>
     <string name="config_regulatory_info_overlay_package_name" translatable="false">com.android.settings.comet</string>
+
+    <string-array name="config_settableAutoRotationDeviceStatesDescriptions">
+        <item>@string/setting_auto_rotate_folded</item>
+        <item>@null</item>
+        <item>@string/setting_auto_rotate_unfolded</item>
+        <item>@null</item>
+    </string-array>
+
+  <string name="setting_auto_rotate_folded">Auto-rotate when folded</string>
+  <string name="setting_auto_rotate_unfolded">Auto-rotate when unfolded</string>
+
 </resources>
