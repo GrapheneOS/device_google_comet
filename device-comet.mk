@@ -513,12 +513,13 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 $(call inherit-product-if-exists, device/google/common/etm/device-userdebug-modules.mk)
 endif
 
-# Connectivity Resources Overlay
+# Connectivity Resources Overlay for Thread host settings
 PRODUCT_PACKAGES += \
     ConnectivityResourcesOverlayCometOverride
 
+# Thread Dispatcher enablement in Bluetooth HAL
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.thread_dispatcher.enabled=true
+    persist.bluetooth.thread_dispatcher.enabled=false
 
 # Camera concurrent foldable dual front feature support
 PRODUCT_PACKAGES += \
