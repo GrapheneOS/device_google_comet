@@ -343,6 +343,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     device/google/comet/powerstats/comet
 
+# UWB Overlay
+PRODUCT_PACKAGES += \
+	UwbOverlayCT3
+
 # WiFi Overlay
 PRODUCT_PACKAGES += \
 	WifiOverlay2024Mid_CT3 \
