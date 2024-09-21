@@ -343,6 +343,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     device/google/comet/powerstats/comet
 
+# UWB Overlay
+PRODUCT_PACKAGES += \
+	UwbOverlayCT3
+
 # WiFi Overlay
 PRODUCT_PACKAGES += \
 	WifiOverlay2024Mid_CT3 \
@@ -513,12 +517,13 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 $(call inherit-product-if-exists, device/google/common/etm/device-userdebug-modules.mk)
 endif
 
-# Connectivity Resources Overlay
+# Connectivity Resources Overlay for Thread host settings
 PRODUCT_PACKAGES += \
     ConnectivityResourcesOverlayCometOverride
 
+# Thread Dispatcher enablement in Bluetooth HAL
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.thread_dispatcher.enabled=true
+    persist.bluetooth.thread_dispatcher.enabled=false
 
 # Camera concurrent foldable dual front feature support
 PRODUCT_PACKAGES += \
