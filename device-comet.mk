@@ -141,8 +141,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.camera.debug.enable_software_post_sharpen_node=false
 
 # Display Config
-PRODUCT_COPY_FILES += \
-        device/google/comet/display/display_colordata_cal1.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_colordata_cal1.pb
 PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.display.png.premultiplied=true
 
@@ -494,7 +492,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # LE Audio Unicast Allowlist
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.leaudio.allow_list=SM-R510
+    persist.bluetooth.leaudio.allow_list=SM-R510,WF-1000XM5
 
 # Telephony Satellite Feature
 PRODUCT_COPY_FILES += \
