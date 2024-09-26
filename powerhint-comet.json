@@ -941,6 +941,15 @@
       "ResetOnInit": false
     },
     {
+      "Name": "KswapdUclaimMin",
+      "Path": "/sys/kernel/vendor_mm/kswapd_uclamp_min",
+      "Values": [
+        "0",
+        "200"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "MaxLoadBalanceInterval",
       "Path": "/proc/vendor_sched/max_load_balance_interval",
       "Values": [
@@ -1412,6 +1421,12 @@
     {
       "PowerHint": "DISPLAY_INACTIVE",
       "Node": "PerTaskMaxIowaitBoost",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "KswapdUclaimMin",
       "Duration": 0,
       "Value": "0"
     },
