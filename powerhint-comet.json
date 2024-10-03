@@ -3583,6 +3583,7 @@
       "Value": "20 80"
     }
   ],
+  "GpuSysfsPath" : "/sys/devices/platform/1f000000.mali",
   "AdpfConfig": [
     {
       "Name": "REFRESH_120FPS",
@@ -3618,7 +3619,9 @@
       "HBoostUclampMinFloorRange": [230, 410],
       "JankCheckTimeFactor": 1.2,
       "LowFrameRateThreshold": 25,
-      "MaxRecordsNum": 300
+      "MaxRecordsNum": 300,
+      "GpuBoost": true,
+      "GpuCapacityBoostMax": 40000
     },
     {
       "Name": "REFRESH_90FPS",
@@ -3654,7 +3657,9 @@
       "HBoostUclampMinFloorRange": [230, 410],
       "JankCheckTimeFactor": 1.2,
       "LowFrameRateThreshold": 25,
-      "MaxRecordsNum": 300
+      "MaxRecordsNum": 300,
+      "GpuBoost": true,
+      "GpuCapacityBoostMax": 32500
     },
     {
       "Name": "REFRESH_60FPS",
@@ -3690,7 +3695,9 @@
       "HBoostUclampMinFloorRange": [230, 410],
       "JankCheckTimeFactor": 1.2,
       "LowFrameRateThreshold": 25,
-      "MaxRecordsNum": 300
+      "MaxRecordsNum": 300,
+      "GpuBoost": true,
+      "GpuCapacityBoostMax": 25000
     },
     {
       "Name": "UiHighBoostWithoutPid",
@@ -3714,7 +3721,8 @@
       "UclampMax_EfficientOffset": 200,
       "ReportingRateLimitNs": 1,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 5.0
+      "StaleTimeFactor": 5.0,
+      "GpuBoost": false
     },
     {
       "Name": "UiLowBoostWithoutPid",
@@ -3738,7 +3746,8 @@
       "UclampMax_EfficientOffset": 200,
       "ReportingRateLimitNs": 1,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 5.0
+      "StaleTimeFactor": 5.0,
+      "GpuBoost": false
     },
     {
       "Name": "UiLowNoneBoost",
@@ -3762,7 +3771,8 @@
       "UclampMax_EfficientOffset": 200,
       "ReportingRateLimitNs": 1,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 5.0
+      "StaleTimeFactor": 5.0,
+      "GpuBoost": false
     }
   ]
 }
