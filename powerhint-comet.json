@@ -333,7 +333,6 @@
       "Path": "/proc/vendor_sched/groups/ta/uclamp_min",
       "Values": [
         "765",
-        "600",
         "1"
       ],
       "ResetOnInit": true
@@ -348,10 +347,20 @@
       "ResetOnInit": true
     },
     {
+      "Name": "TAUclampMinOnNiceHighValue",
+      "Path": "/proc/vendor_sched/groups/ta/uclamp_min_on_nice_high_value",
+      "Values": [
+        "765",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "TAUclampMinOnNiceMidValue",
       "Path": "/proc/vendor_sched/groups/ta/uclamp_min_on_nice_mid_value",
       "Values": [
         "600",
+        "590",
         "0"
       ],
       "ResetOnInit": true
@@ -360,6 +369,7 @@
       "Name": "TAUclampMinOnNiceHighPrio",
       "Path": "/proc/vendor_sched/groups/ta/uclamp_min_on_nice_high_prio",
       "Values": [
+        "110",
         "119",
         "120"
       ],
@@ -370,6 +380,7 @@
       "Path": "/proc/vendor_sched/groups/ta/uclamp_min_on_nice_mid_prio",
       "Values": [
         "128",
+        "139",
         "130"
       ],
       "ResetOnInit": true
@@ -478,6 +489,15 @@
     {
       "Name": "TAPreferIdle",
       "Path": "/proc/vendor_sched/groups/ta/prefer_idle",
+      "Values": [
+        "1",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TAAutoPreferFit",
+      "Path": "/proc/vendor_sched/groups/ta/auto_prefer_fit",
       "Values": [
         "1",
         "0"
@@ -1046,12 +1066,6 @@
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "TAUClampBoost",
-      "Duration": 5000,
-      "Value": "765"
-    },
-    {
-      "PowerHint": "LAUNCH",
       "Node": "FGUClampBoost",
       "Duration": 5000,
       "Value": "159"
@@ -1235,15 +1249,45 @@
     },
     {
       "PowerHint": "LAUNCH",
+      "Node": "TAAutoPreferFit",
+      "Duration": 5000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH",
       "Node": "TAPreferredIdleMaskHigh",
       "Duration": 5000,
       "Value": "0xff"
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "TAPreferredIdleMaskMid",
+      "Node": "TAUclampMinOnNiceEnable",
       "Duration": 5000,
-      "Value": "0xff"
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TAUclampMinOnNiceHighValue",
+       "Duration": 5000,
+       "Value": "765"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TAUclampMinOnNiceHighPrio",
+      "Duration": 5000,
+      "Value": "110"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TAUclampMinOnNiceMidValue",
+       "Duration": 5000,
+       "Value": "590"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TAUclampMinOnNiceMidPrio",
+      "Duration": 5000,
+      "Value": "139"
     },
     {
       "PowerHint": "LAUNCH",
