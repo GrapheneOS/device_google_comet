@@ -1423,6 +1423,12 @@
       "Value": "820000"
     },
     {
+      "PowerHint": "CPU_LOAD_RESET",
+      "Node": "TAPreferHighCap",
+      "Duration": 33,
+      "Value": "1"
+    },
+    {
       "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPULittleClusterDownRateLimitUs",
       "Duration": 0,
