@@ -495,6 +495,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 SUPPORT_VENDOR_SATELLITE_SERVICE := true
 
+# Support NTN(satellite) with dual SIM
+NTN_DUAL_SIM := true
+
 # Telephony Satellite Feature
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.satellite.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.satellite.xml
