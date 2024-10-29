@@ -958,6 +958,7 @@
         "102400",
         "0"
       ],
+      "WriteOnly": true,
       "ResetOnInit": false
     },
     {
