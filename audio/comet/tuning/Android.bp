@@ -12,6 +12,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 soong_namespace {}
 
 package {
@@ -132,6 +133,114 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "downlink_bluetooth_headset_config.pb",
+    src: "apmg3/downlink_bluetooth_headset_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "downlink_dock_config.pb",
+    src: "apmg3/downlink_dock_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "downlink_external_speaker_config.pb",
+    src: "apmg3/downlink_external_speaker_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "downlink_handset_config.pb",
+    src: "apmg3/downlink_handset_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "downlink_speaker_config.pb",
+    src: "apmg3/downlink_speaker_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "downlink_wired_headset_config.pb",
+    src: "apmg3/downlink_wired_headset_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_bluetooth_headset_aec_off_config.pb",
+    src: "apmg3/uplink_bluetooth_headset_aec_off_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_bluetooth_headset_aec_on_config.pb",
+    src: "apmg3/uplink_bluetooth_headset_aec_on_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_dock_aec_off_config.pb",
+    src: "apmg3/uplink_dock_aec_off_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_dock_aec_on_config.pb",
+    src: "apmg3/uplink_dock_aec_on_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_external_speaker_aec_off_config.pb",
+    src: "apmg3/uplink_external_speaker_aec_off_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_external_speaker_aec_on_config.pb",
+    src: "apmg3/uplink_external_speaker_aec_on_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_handset_aec_off_config.pb",
+    src: "apmg3/uplink_handset_aec_off_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_handset_aec_on_config.pb",
+    src: "apmg3/uplink_handset_aec_on_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_speaker_aec_off_config.pb",
+    src: "apmg3/uplink_speaker_aec_off_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_speaker_aec_on_config.pb",
+    src: "apmg3/uplink_speaker_aec_on_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_wired_headset_aec_off_config.pb",
+    src: "apmg3/uplink_wired_headset_aec_off_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
+    name: "uplink_wired_headset_aec_on_config.pb",
+    src: "apmg3/uplink_wired_headset_aec_on_config.pb",
+    defaults: ["aoc_defaults"],
+}
+
+prebuilt_etc {
     name: "waves_config.ini",
     src: "waves/waves_config.ini",
     soc_specific: true,
@@ -141,6 +250,12 @@ prebuilt_etc {
     name: "waves_preset.mps",
     src: "waves/waves_preset.mps",
     soc_specific: true,
+}
+
+prebuilt_etc {
+    name: "speaker_post_processing_volume_spec.xml",
+    src: "pts/speaker_post_processing_volume_spec.xml",
+    defaults: ["aoc_defaults"],
 }
 
 prebuilt_etc {

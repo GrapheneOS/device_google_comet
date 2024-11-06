@@ -21,11 +21,16 @@ TARGET_SCREEN_DENSITY := 390
 BOARD_USES_GENERIC_AUDIO := true
 USES_DEVICE_GOOGLE_COMET := true
 
+RELEASE_GOOGLE_PRODUCT_RADIO_DIR := $(RELEASE_GOOGLE_COMET_RADIO_DIR)
+RELEASE_GOOGLE_PRODUCT_RADIOCFG_DIR := $(RELEASE_GOOGLE_COMET_RADIOCFG_DIR)
+RELEASE_GOOGLE_PRODUCT_NTNRADIO_DIR := $(RELEASE_GOOGLE_COMET_NTNRADIO_DIR)
+
 #Display
 USES_IDISPLAY_INTF_SEC := true
 
 include device/google/zumapro/BoardConfig-common.mk
 -include vendor/google_devices/zumapro/prebuilts/BoardConfigVendor.mk
+include device/google/gs-common/check_current_prebuilt/check_current_prebuilt.mk
 -include vendor/google_devices/comet/proprietary/BoardConfigVendor.mk
 include device/google/comet-sepolicy/comet-sepolicy.mk
 include device/google/comet/wifi/BoardConfig-wifi.mk

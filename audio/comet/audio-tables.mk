@@ -65,7 +65,26 @@ PRODUCT_PACKAGES += \
     compens_spk_l_1.conf \
     compens_spk_l_2.conf \
     compens_spk_r_1.conf \
-    compens_spk_r_2.conf
+    compens_spk_r_2.conf \
+    downlink_bluetooth_headset_config.pb \
+    downlink_dock_config.pb \
+    downlink_external_speaker_config.pb \
+    downlink_handset_config.pb \
+    downlink_speaker_config.pb \
+    downlink_wired_headset_config.pb \
+    uplink_bluetooth_headset_aec_off_config.pb \
+    uplink_bluetooth_headset_aec_on_config.pb \
+    uplink_dock_aec_off_config.pb \
+    uplink_dock_aec_on_config.pb \
+    uplink_external_speaker_aec_off_config.pb \
+    uplink_external_speaker_aec_on_config.pb \
+    uplink_handset_aec_off_config.pb \
+    uplink_handset_aec_on_config.pb \
+    uplink_speaker_aec_off_config.pb \
+    uplink_speaker_aec_on_config.pb \
+    uplink_wired_headset_aec_off_config.pb \
+    uplink_wired_headset_aec_on_config.pb
+
 
 # userdebug specific
 PRODUCT_PACKAGES_DEBUG += \
@@ -76,7 +95,8 @@ PRODUCT_PACKAGES_DEBUG += \
     template.xml \
     tuning_constraints_combination.xml \
     test_config.ini \
-    test_preset.mps
+    test_preset.mps \
+    speaker_post_processing_volume_spec.xml
 
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 # Mixer Path Configuration for Audio Speaker Calibration Tool crus_sp_cal
