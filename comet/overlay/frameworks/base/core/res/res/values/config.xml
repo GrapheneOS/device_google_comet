@@ -311,4 +311,6 @@
          is thin letterboxed if the value here is < (H - h) / 2
          If the value is < 0 the thin letterboxing policy is disabled -->
     <dimen name="config_letterboxThinLetterboxHeightDp">-1dp</dimen>
+
+    <integer name="config_multiuserMaxRunningUsers">14</integer>
 </resources>
