@@ -179,9 +179,12 @@
          auto-brightness adjustment setting. -->
     <fraction name="config_autoBrightnessAdjustmentMaxGamma">105%</fraction>
 
-    <dimen name="status_bar_height_default">52dp</dimen>
-    <dimen name="status_bar_height_portrait">52dp</dimen>
-    <dimen name="status_bar_height_landscape">52dp</dimen>
+    <!-- Align to both camera at inner/outer cutout's height -->
+    <dimen name="status_bar_height_portrait">66dp</dimen>
+    <!-- Since @dimen/status_bar_height_portrait is modified in overlay, need to restore its value
+         from original folder. This should be done even looks no effect on some apps because
+         some other apps may reference to it. -->
+    <dimen name="status_bar_height_landscape">24dp</dimen>
 
     <!-- Boolean indicating whether allow sending null to modem to clear the previous initial attach
          data profile -->
