@@ -63,6 +63,16 @@
       "ResetOnInit": true
     },
     {
+      "Name": "CPULittleClusterResponseTimeMs",
+      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/sched_pixel/response_time_ms",
+      "Values": [
+        "9",
+        "13"
+      ],
+      "DefaultIndex": 1,
+      "ResetOnInit": true
+    },
+    {
       "Name": "CPUMidClusterMaxFreq",
       "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq",
       "Values": [
@@ -101,6 +111,16 @@
         "500"
       ],
       "DefaultIndex": 4,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUMidClusterResponseTimeMs",
+      "Path": "/sys/devices/system/cpu/cpu4/cpufreq/sched_pixel/response_time_ms",
+      "Values": [
+        "52",
+        "56"
+      ],
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {
@@ -143,6 +163,16 @@
         "500"
       ],
       "DefaultIndex": 3,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUBigClusterResponseTimeMs",
+      "Path": "/sys/devices/system/cpu/cpu7/cpufreq/sched_pixel/response_time_ms",
+      "Values": [
+        "165",
+        "170"
+      ],
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {
@@ -3195,6 +3225,24 @@
       "Value": "1"
     },
     {
+      "PowerHint": "DISPLAY_IDLE",
+      "Node": "CPULittleClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "13"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Node": "CPUMidClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "56"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Node": "CPUBigClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "170"
+    },
+    {
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
       "Node": "CPULittleClusterDownRateLimitUs",
       "Duration": 50,
@@ -3433,6 +3481,24 @@
       "Node": "AdpfRampupMultiplier",
       "Duration": 0,
       "Value": "2"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPULittleClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "9"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUMidClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "52"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUBigClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "165"
     },
     {
       "PowerHint": "GAME",
