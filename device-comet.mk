@@ -137,15 +137,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.display.png.premultiplied=true
 
-# Coex Config
-PRODUCT_SOONG_NAMESPACES += device/google/comet/radio/coex
-PRODUCT_PACKAGES += \
-		display_secondary_mipi_coex_table \
-		camera_front_inner_mipi_coex_table \
-		camera_front_outer_mipi_coex_table \
-		camera_rear_tele_mipi_coex_table \
-		camera_rear_wide_mipi_coex_table
-
 # NFC
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
