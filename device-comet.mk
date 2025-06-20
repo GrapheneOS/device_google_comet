@@ -210,21 +210,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	device/google/comet/powerhint-comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
-# Bluetooth HAL
-PRODUCT_COPY_FILES += \
-	device/google/comet/bluetooth/bt_vendor_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth/bt_vendor_overlay.conf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.a2dp_offload.supported=true \
     persist.bluetooth.a2dp_offload.disabled=false \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
-
-# Bluetooth Tx power caps
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_JP.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_JP.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_CA.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_EU.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_comet_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_US.csv
 
 # DCK properties based on target
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -476,10 +465,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
         persist.bluetooth.leaudio.notify.idle.during.call=true
 
-# LE Audio Offload Capabilities setting
-PRODUCT_COPY_FILES += \
-    device/google/caimito/bluetooth/le_audio_codec_capabilities.xml:$(TARGET_COPY_OUT_VENDOR)/etc/le_audio_codec_capabilities.xml
-
 # Disable LE Audio dual mic SWB call support
 # This may depend on the BT controller capability or the launch strategy
 # For example, P22 BT chip is not able to support 32k dual mic
@@ -537,13 +522,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Set support for LEA multicodec
 PRODUCT_PRODUCT_PROPERTIES +=\
     bluetooth.core.le_audio.codec_extension_aidl.enabled=true
-
-# LE Audio configuration scenarios
-PRODUCT_COPY_FILES += \
-    device/google/comet/bluetooth/audio_set_scenarios.json:$(TARGET_COPY_OUT_VENDOR)/etc/aidl/le_audio/aidl_audio_set_scenarios.json
-
-PRODUCT_COPY_FILES += \
-    device/google/comet/bluetooth/audio_set_configurations.json:$(TARGET_COPY_OUT_VENDOR)/etc/aidl/le_audio/aidl_audio_set_configurations.json
 
 # Enable APF by default
 PRODUCT_VENDOR_PROPERTIES += \
