@@ -117,14 +117,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         device/google/comet/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.comet.rc
 
-# Display brightness curve
-PRODUCT_COPY_FILES += \
-	device/google/comet/comet/panel_config_google-ct3a_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ct3a_cal0.pb \
-	device/google/comet/comet/panel_config_google-ct3b_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ct3b_cal0.pb \
-	device/google/comet/comet/panel_config_google-ct3c_cal1.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ct3c_cal1.pb \
-	device/google/comet/comet/panel_config_google-ct3d_cal1.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ct3d_cal1.pb \
-        device/google/comet/comet/panel_config_google-ct3e_cal1.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ct3e_cal1.pb
-
 ifeq ($(filter factory_comet, $(TARGET_PRODUCT)),)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.xrr.version=2.1
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.blocking_zone.min_refresh_rate_by_nits=20:120,30:60,:1
