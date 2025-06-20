@@ -300,8 +300,6 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.audio.cca.enabled=false
 
-# HdMic Audio
-PRODUCT_SOONG_NAMESPACES += device/google/comet/audio/comet/prebuilt/libspeechenhancer
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.app.audio.gsenet.version=1
 PRODUCT_PACKAGES += \
