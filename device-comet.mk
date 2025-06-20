@@ -166,10 +166,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	init_thermal_config
 
-# Power HAL config
-PRODUCT_COPY_FILES += \
-	device/google/comet/powerhint-comet.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.a2dp_offload.supported=true \
     persist.bluetooth.a2dp_offload.disabled=false \
