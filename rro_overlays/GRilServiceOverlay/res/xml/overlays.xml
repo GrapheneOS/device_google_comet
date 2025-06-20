@@ -1,3 +1,0 @@
-<overlay>
-  <item target="bool/cap_sensor_support" value="@bool/cap_sensor_support"/>
-</overlay>
