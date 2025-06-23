@@ -214,22 +214,6 @@ PRODUCT_PACKAGES += gps.cfg
 # Install product specific framework compatibility matrix
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/comet/device_framework_matrix_product.xml
 
-# Allow external binning setting
-PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.camera.allow_external_binning_setting=true
-
-# Camera Vendor property
-PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.camera.front_720P_always_binning=true
-
-# Enable camera exif model/make reporting
-PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.camera.exif_reveal_make_model=true
-
-# OIS with system imu
-PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.camera.ois_with_system_imu=true
-
 # Haptics
 # Placeholders for updates later, need to update:
 # remove ro.vendor.vibrator.hal.dbc.enable (needed for setting pm.activetimeout)
