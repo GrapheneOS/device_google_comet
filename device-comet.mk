@@ -177,12 +177,6 @@ PRODUCT_PACKAGES += \
 	audio_sounddose_aoc
 endif
 
-# Audio CCA property
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.vendor.audio.cca.enabled=false
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.app.audio.gsenet.version=1
 PRODUCT_PACKAGES += \
     libspeechenhancer
 
