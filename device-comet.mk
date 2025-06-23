@@ -231,12 +231,6 @@ ADAPTIVE_HAPTICS_FEATURE := adaptive_haptics_v1
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.sensor.hinge_angle.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.hinge_angle.xml
 
-# Keyboard height ratio and bottom padding in dp for portrait mode
-PRODUCT_PRODUCT_PROPERTIES += \
-          ro.com.google.ime.kb_pad_port_b=11.2 \
-          ro.com.google.ime.height_ratio=1.18
-
-
 # Bluetooth LE Audio
 # Unicast
 PRODUCT_PRODUCT_PROPERTIES += \
