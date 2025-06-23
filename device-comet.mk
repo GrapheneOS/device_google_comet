@@ -165,14 +165,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.vendor.btsnoop=true
 endif
 
-# Support LE & Classic concurrent encryption (b/330704060)
-PRODUCT_PRODUCT_PROPERTIES += \
-    bluetooth.ble.allow_enc_with_bredr=true
-
-# POF
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.bluetooth.finder.supported=true
-
 # Spatial Audio
 PRODUCT_PACKAGES += \
 	libspatialaudio \
