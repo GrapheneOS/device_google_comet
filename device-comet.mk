@@ -214,10 +214,6 @@ PRODUCT_PACKAGES += gps.cfg
 # Install product specific framework compatibility matrix
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/comet/device_framework_matrix_product.xml
 
-
-PRODUCT_VENDOR_PROPERTIES += \
-	persist.device_config.configuration.disable_rescue_party=true
-
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
     persist.vendor.udfps.lhbm_controlled_in_hal_supported=true
