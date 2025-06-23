@@ -256,8 +256,3 @@ PRODUCT_PACKAGES += \
 # Camera concurrent foldable dual front feature support
 PRODUCT_PACKAGES += \
     concurrent_foldable_dual_front_xml
-
-# Enable APF by default
-PRODUCT_VENDOR_PROPERTIES += \
-    vendor.powerhal.apf_disabled=false \
-    vendor.powerhal.apf_enabled=true
