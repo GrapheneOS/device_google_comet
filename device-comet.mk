@@ -249,10 +249,6 @@ endif
 PRODUCT_PACKAGES += \
     ConnectivityResourcesOverlayCometOverride
 
-# Thread Dispatcher enablement in Bluetooth HAL
-PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.thread_dispatcher.enabled=false
-
 # Camera concurrent foldable dual front feature support
 PRODUCT_PACKAGES += \
     concurrent_foldable_dual_front_xml
