@@ -115,10 +115,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         device/google/comet/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.comet.rc
 
-# Display Config
-PRODUCT_PROPERTY_OVERRIDES += \
-	vendor.display.png.premultiplied=true
-
 # NFC
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
