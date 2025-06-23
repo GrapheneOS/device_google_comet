@@ -170,12 +170,6 @@ PRODUCT_PACKAGES += \
 	libspatialaudio \
 	librondo
 
-# declare use of spatial audio
-PRODUCT_PROPERTY_OVERRIDES += \
-       ro.audio.spatializer_enabled=true \
-       ro.audio.spatializer_transaural_enabled_default=false \
-       persist.vendor.audio.spatializer.speaker_enabled=true
-
 ifneq ($(USE_AUDIO_HAL_AIDL),true)
 # HIDL Sound Dose
 PRODUCT_PACKAGES += \
