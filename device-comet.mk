@@ -253,11 +253,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     concurrent_foldable_dual_front_xml
 
-# Enable APF by default
-PRODUCT_VENDOR_PROPERTIES += \
-    vendor.powerhal.apf_disabled=false \
-    vendor.powerhal.apf_enabled=true
-
 # sysconfigs from stock OS
 PRODUCT_COPY_FILES += \
     device/google/comet/product-sysconfig-stock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/product-sysconfig-stock.xml
