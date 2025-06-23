@@ -156,18 +156,6 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES_DEBUG += \
     ewp_tool
 
-# Bluetotoh Auto On feature
-PRODUCT_PRODUCT_PROPERTIES +=\
-    bluetooth.server.automatic_turn_on=true
-
-# Bluetooth AAC VBR
-PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.a2dp_aac.vbr_supported=true
-
-# Bluetooth Super Wide Band
-PRODUCT_PRODUCT_PROPERTIES += \
-    bluetooth.hfp.swb.supported=true
-
 # Override BQR mask to enable LE Audio Choppy report, remove BTRT logging
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PRODUCT_PROPERTIES += \
