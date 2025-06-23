@@ -115,9 +115,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         device/google/comet/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.comet.rc
 
-PRODUCT_PROPERTY_OVERRIDES += \
-	vendor.camera.debug.enable_software_post_sharpen_node=false
-
 # Display Config
 PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.display.png.premultiplied=true
