@@ -111,10 +111,6 @@ $(call soong_config_set,google3a_config,target_device,comet)
 PRODUCT_COPY_FILES += \
 	device/google/comet/conf/init.comet.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.comet.rc
 
-# Display Config
-PRODUCT_PROPERTY_OVERRIDES += \
-	vendor.display.png.premultiplied=true
-
 # NFC
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
