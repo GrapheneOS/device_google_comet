@@ -215,11 +215,6 @@ PRODUCT_SOONG_NAMESPACES += device/google/comet/location
 $(call soong_config_set, gpssdk, buildtype, $(TARGET_BUILD_VARIANT))
 PRODUCT_PACKAGES += gps.cfg
 
-# Display
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	vendor.display.lbe.supported=1 \
-	vendor.display.async_off.supported=true
-
 # Install product specific framework compatibility matrix
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/comet/device_framework_matrix_product.xml
 
