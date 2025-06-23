@@ -111,9 +111,6 @@ $(call soong_config_set,google3a_config,target_device,comet)
 PRODUCT_COPY_FILES += \
 	device/google/comet/conf/init.comet.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.comet.rc
 
-PRODUCT_PROPERTY_OVERRIDES += \
-	vendor.camera.debug.enable_software_post_sharpen_node=false
-
 # Display Config
 PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.display.png.premultiplied=true
