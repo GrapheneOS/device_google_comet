@@ -226,18 +226,6 @@ DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/comet/device_framework
 $(call soong_config_set,haptics,kernel_ver,v$(subst .,_,$(TARGET_LINUX_KERNEL_VERSION)))
 ACTUATOR_MODEL := luxshare_ict_081545
 ADAPTIVE_HAPTICS_FEATURE := adaptive_haptics_v1
-PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.vibrator.hal.chirp.enabled=1 \
-    ro.vendor.vibrator.hal.device.mass=0.2605 \
-    ro.vendor.vibrator.hal.loc.coeff.folded=3.15 \
-    ro.vendor.vibrator.hal.loc.coeff=2.58 \
-    ro.vendor.vibrator.hal.dbc.enable=1 \
-    ro.vendor.vibrator.hal.pm.activetimeout=5 \
-    persist.vendor.vibrator.hal.context.enable=false \
-    persist.vendor.vibrator.hal.context.scale=60 \
-    persist.vendor.vibrator.hal.context.fade=true \
-    persist.vendor.vibrator.hal.context.cooldowntime=1600 \
-    persist.vendor.vibrator.hal.context.settlingtime=5000
 
 # Override Output Distortion Gain
 PRODUCT_VENDOR_PROPERTIES += \
