@@ -59,8 +59,6 @@ ifeq ($(filter factory_comet, $(TARGET_PRODUCT)),)
     $(call inherit-product-if-exists, vendor/google_devices/comet/proprietary/WallpapersComet.mk)
 endif
 
-DEVICE_PACKAGE_OVERLAYS += device/google/comet/comet/overlay
-
 ifeq ($(RELEASE_PIXEL_AIDL_AUDIO_HAL),true)
 USE_AUDIO_HAL_AIDL := true
 endif
@@ -126,8 +124,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	$(RELEASE_PACKAGE_NFC_STACK) \
 	Tag \
-	android.hardware.nfc-service.st \
-	NfcOverlayComet
+	android.hardware.nfc-service.st
 
 # SecureElement
 PRODUCT_PACKAGES += \
@@ -170,23 +167,6 @@ endif
 
 PRODUCT_PACKAGES += \
     libspeechenhancer
-
-# UWB Overlay
-PRODUCT_PACKAGES += \
-	UwbOverlayCT3
-
-# WiFi Overlay
-PRODUCT_PACKAGES += \
-	WifiOverlay2024Mid_CT3 \
-	PixelWifiOverlay2024
-
-# GRil Overlay
-PRODUCT_PACKAGES += \
-	GRilServiceOverlay_CT3
-
-# Settings Overlay
-PRODUCT_PACKAGES += \
-    SettingsCometOverlay
 
 # Graphics
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.set_idle_timer_ms_4619827677550801152=80
@@ -239,10 +219,6 @@ SUPPORT_RIL_DOMAIN_SELECTION := true
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 $(call inherit-product-if-exists, device/google/common/etm/device-userdebug-modules.mk)
 endif
-
-# Connectivity Resources Overlay for Thread host settings
-PRODUCT_PACKAGES += \
-    ConnectivityResourcesOverlayCometOverride
 
 # Camera concurrent foldable dual front feature support
 PRODUCT_PACKAGES += \
