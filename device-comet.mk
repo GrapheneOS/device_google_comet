@@ -169,7 +169,6 @@ PRODUCT_SOONG_NAMESPACES += \
 # Location
 PRODUCT_SOONG_NAMESPACES += device/google/comet/location
 $(call soong_config_set, gpssdk, buildtype, $(TARGET_BUILD_VARIANT))
-PRODUCT_PACKAGES += gps.cfg
 
 # Install product specific framework compatibility matrix
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/comet/device_framework_matrix_product.xml
