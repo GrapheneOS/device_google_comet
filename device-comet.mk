@@ -94,10 +94,6 @@ $(call soong_config_set,lyric,camera_hardware,comet)
 $(call soong_config_set,lyric,tuning_product,comet)
 $(call soong_config_set,google3a_config,target_device,comet)
 
-# Init files
-PRODUCT_COPY_FILES += \
-	device/google/comet/conf/init.comet.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.comet.rc
-
 # Recovery files
 PRODUCT_COPY_FILES += \
         device/google/comet/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.comet.rc
